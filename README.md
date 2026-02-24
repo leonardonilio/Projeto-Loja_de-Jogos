@@ -1,2 +1,2 @@
 # Projeto-Loja_de-Brinquedos
-## Essa branch não irá para man
+## Essa branch não irá para main
