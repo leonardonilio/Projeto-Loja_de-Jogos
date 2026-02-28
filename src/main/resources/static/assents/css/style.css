@@ -35,7 +35,7 @@ body {
 }
 
 span {
-  background: linear-gradient(270deg, var(--second-black-color));
+  background: linear-gradient(270deg, var(--second-black-color)10%);
   background-clip: text;
   color: transparent;
 }
