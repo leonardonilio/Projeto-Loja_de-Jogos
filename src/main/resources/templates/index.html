@@ -5,16 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Umbrella Games</title>
+    
 
+    <!--font Google-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link rel="stylesheet" href="../static/assents/css/loader.css">
-    <link rel="stylesheet" href="../static/assents/css/style.css">
-
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&display=swap"
         rel="stylesheet">
+
+    <!--Bootstrap-->
+        <!-- Bootstrap core CSS -->
+    <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!--css-->
+    <link rel="stylesheet" href="../static/assents/css/loader.css">
+    <link rel="stylesheet" href="../static/assents/css/style.css">
+    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+
 </head>
 
 <body>
@@ -34,17 +41,19 @@
         <div class="header-line">
 
             <div class="logo">
-                <a href="#">Umbrella <span>Games</span></a>
+                <a href="index.html">Umbrella Games</a>
             </div>
             <i class="bx bx-menu" id="menu-icon"></i>
-            <div class="search-box">
+          <div class="search-box">
+            <form action="#">
                 <input type="text" placeholder="Buscar jogos...">
                 <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-search" viewBox="0 0 16 16">
                         <path
                             d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
                     </svg></button>
-            </div>
+            </form>
+            </div>  
 
             <nav class="nav-links">
                 <div class="dropdown">
@@ -89,11 +98,7 @@
                             download and use this layout for commercial purposes. Please tell your friends about
                             TemplateMo.</p>
                         <div class="search-input">
-                            <form id="search" action="#">
-                                <input type="text" placeholder="Type Something" id='searchText' name="searchKeyword"
-                                    onkeypress="handle" />
-                                <button role="button">Search Now</button>
-                            </form>
+
                         </div>
                     </div>
                 </div>
