@@ -194,6 +194,43 @@ span {
   transform: translateY(0);
 }
 
+/* Quanto ao BODY e sua estrutura*/
+.cards {
+    display: flex;
+    justify-content: center; /* centraliza na página */
+    gap: 40px;               /* espaço entre as divs */
+    flex-wrap: wrap;         /* quebra linha no mobile */
+  }
+
+ .sectionCard{
+
+  flex-direction: column;
+    width: 400px;
+    height: 400px;
+    padding: 20px;
+    margin-right: 150px;
+    
+    background-color: #e0e0e0;
+    display: flex;
+    border: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    align-items: center;
+    border-radius: 8px;
+    overflow: hidden;
+ }
+ .sectionCard:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+}
+  .sectionCard img {
+    width:100%;
+    display: block;
+}
+ .sectionCard p{
+   padding: 15px;
+    font-size: 1.6rem;
+ }
 
 
 /* Resposividade----Tem que ficar no final do código, não coloque codigo abaixo dele desde que não seja sobre resposividade*/
@@ -218,5 +255,6 @@ span {
     display: block;
   }
 }
+ 
 
 /* ===== Header end ===== */
