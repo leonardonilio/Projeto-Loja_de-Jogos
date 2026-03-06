@@ -19,7 +19,9 @@
   --second-bg-color: #fdfdfd;
 }
 
-
+a {
+  text-decoration: none;
+}
 html {
   font-size: 60%;
 }
@@ -27,6 +29,11 @@ html {
 html,
 body {
   max-width: 100%;
+}
+
+body {
+  background-color: var(--second-bg-color);
+  color: var(--second-black-color);
 }
 
 
@@ -196,7 +203,7 @@ body {
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 175px 0px;
+  padding: 145px 0px;
 }
 
 .main-banner .caption h6 {
@@ -229,6 +236,7 @@ body {
 .main-banner .caption p {
   color: #fff;
   margin-bottom: 70px;
+  font-size: 20px;
 }
 
 
