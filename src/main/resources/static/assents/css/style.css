@@ -193,9 +193,48 @@ body {
 }
 /* ===== Header end ===== */
 
+/* Quanto ao BODY e sua estrutura*/
+.cards {
+    display: flex;
+    justify-content: center; /* centraliza na página */
+    gap: 40px;               /* espaço entre as divs */
+    flex-wrap: wrap;         /* quebra linha no mobile */
+  }
+
+ .sectionCard{
+
+  flex-direction: column;
+    width: 400px;
+    height: 400px;
+    padding: 20px;
+    margin-right: 150px;
+    
+    background-color: #e0e0e0;
+    display: flex;
+    border: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    align-items: center;
+    border-radius: 8px;
+    overflow: hidden;
+ }
+ .sectionCard:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+}
+  .sectionCard img {
+    width:100%;
+    display: block;
+}
+ .sectionCard p{
+   padding: 15px;
+    font-size: 1.6rem;
+ }
+
+/* ====== Pagina Home ========*/
+
 
 /* ===== Main Banner ===== */
-
 
 .main-banner {
   background-image: url(../img/gemini-2.5-flash-image_Create_new_image_with_this_image_as_a_reference_but_with_this_color_870d1b_and_e-0.jpg);
@@ -239,14 +278,15 @@ body {
   font-size: 20px;
 }
 
-
-
 .main-banner .right-image {
   position: relative;
 }
 
 .main-banner .right-image img {
   border-radius: 25px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .main-banner .right-image span.price {
@@ -265,7 +305,7 @@ body {
 .main-banner .right-image span.offer {
   position: absolute;
   left: -25px;
-  bottom: -25px;
+  bottom: 45px;
   border-radius: 50%;
   background-color: #ee626b;
   font-size: 28px;
@@ -279,6 +319,78 @@ body {
   line-height: 100px;
 }
 
+/*Slider(o trem de passar imagens)*/
+.slider-banner {
+  position: relative;
+  overflow: hidden;
+   
+}
+
+.slides{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 25px;
+}
+
+
+/* setas */
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.4);
+  border: none;
+  color: white;
+  font-size: 30px;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.arrow.left {
+  left: 20px;
+}
+
+.arrow.right {
+  right: 20px;
+}
+
+.arrow:hover {
+  background: rgba(0,0,0,0.7);
+}
+/* Pontos do carrossel */
+
+.dots{
+margin-top:10px;
+display:flex;
+justify-content:center;
+gap:10px;
+z-index: 999;
+}
+
+.dot{
+width:20px;
+height:20px;
+background: var(--second-bg-color);
+border-radius:50%;
+display:block;
+}
+
+.dot.active{
+  background: var(--main-color);
+  transform: scale(1.2);
+}
 
 /* ===== Main Banner end ===== */
 
@@ -305,3 +417,6 @@ body {
     display: block;
   }
 }
+ 
+
+
