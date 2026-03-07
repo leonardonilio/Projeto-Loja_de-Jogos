@@ -1,4 +1,4 @@
-package com.fatecgru.Projeto.Loja.de.Brinquedos.model;
+package com.umbrellaGames.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
