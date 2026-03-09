@@ -1,5 +1,6 @@
 let menuIcon = document.querySelector('#menu-icon');
 let navbar = document.querySelector('.navbar');
+
 menuIcon.onclick = () => {
   menuIcon.classList.toggle('bx-x');
   navbar.classList.toggle('active');
@@ -7,11 +8,16 @@ menuIcon.onclick = () => {
 
 /*Script para o carrosel do banner*/ 
 $(document).ready(function(){
-
 let current = 0
 const slides = $(".slides")
 const total = $(".slide").length
 const dots = $(".dot")
+
+let timer;
+function resetTimer() {
+    clearInterval(timer)
+    timer = setInterval(() => nextSlide(), 5000)
+}
 
 function updateSlider(){
 
@@ -29,7 +35,7 @@ current++
 if(current >= total){
 current = 0
 }
-
+resetTimer()
 updateSlider()
 
 }
@@ -41,7 +47,7 @@ current--
 if(current < 0){
 current = total - 1
 }
-
+resetTimer()
 updateSlider()
 
 }
@@ -61,9 +67,54 @@ current = $(this).index()
 updateSlider()
 
 })
-
-setInterval(function(){
-nextSlide()
-},5000)
-
+resetTimer()
 })
+
+var sliders = document.querySelectorAll(".games-slider");
+
+sliders.forEach(slider => {
+
+new Swiper(slider, {
+
+slidesPerView: 5,
+spaceBetween: 20,
+
+loop: true,
+slidesPerGroup: 1,
+
+speed: 1200,
+
+navigation: {
+nextEl: slider.querySelector(".swiper-button-next"),
+prevEl: slider.querySelector(".swiper-button-prev"),
+},
+
+scrollbar: {
+el: slider.querySelector(".swiper-scrollbar"),
+draggable: true
+},
+breakpoints: {
+
+0: {
+slidesPerView: 2
+},
+
+600: {
+slidesPerView: 3
+},
+
+900: {
+slidesPerView: 4
+},
+
+1200: {
+slidesPerView: 5
+}
+
+}
+
+
+
+});
+
+});
