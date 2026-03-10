@@ -70,6 +70,8 @@ updateSlider()
 resetTimer()
 })
 
+
+/* swiper dos jogos */
 var sliders = document.querySelectorAll(".games-slider");
 
 sliders.forEach(slider => {
