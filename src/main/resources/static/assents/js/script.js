@@ -82,7 +82,7 @@ spaceBetween: 20,
 loop: true,
 slidesPerGroup: 1,
 
-speed: 1200,
+speed: 800,
 
 navigation: {
 nextEl: slider.querySelector(".swiper-button-next"),

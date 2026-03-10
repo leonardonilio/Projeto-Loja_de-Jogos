@@ -22,6 +22,7 @@
 a {
   text-decoration: none;
 }
+
 html {
   font-size: 60%;
 }
@@ -89,9 +90,9 @@ body {
   transition: transform 0.3s ease;
 }
 
-.search-box:hover{
+.search-box:hover {
   width: 100%;
- transform: scale(1.02);
+  transform: scale(1.02);
 }
 
 
@@ -191,45 +192,52 @@ body {
   visibility: visible;
   transform: translateY(0);
 }
+
 /* ===== Header end ===== */
 
 /* Quanto ao BODY e sua estrutura*/
 .cards {
-    display: flex;
-    justify-content: center; /* centraliza na página */
-    gap: 40px;               /* espaço entre as divs */
-    flex-wrap: wrap;         /* quebra linha no mobile */
-  }
+  display: flex;
+  justify-content: center;
+  /* centraliza na página */
+  gap: 40px;
+  /* espaço entre as divs */
+  flex-wrap: wrap;
+  /* quebra linha no mobile */
+}
 
- .sectionCard{
+.sectionCard {
 
   flex-direction: column;
-    width: 400px;
-    height: 400px;
-    padding: 20px;
-    margin-right: 150px;
-    
-    background-color: #e0e0e0;
-    display: flex;
-    border: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    
-    align-items: center;
-    border-radius: 8px;
-    overflow: hidden;
- }
- .sectionCard:hover {
-    transform: scale(1.05);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+  width: 400px;
+  height: 400px;
+  padding: 20px;
+  margin-right: 150px;
+
+  background-color: #e0e0e0;
+  display: flex;
+  border: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  align-items: center;
+  border-radius: 8px;
+  overflow: hidden;
 }
-  .sectionCard img {
-    width:100%;
-    display: block;
+
+.sectionCard:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
 }
- .sectionCard p{
-   padding: 15px;
-    font-size: 1.6rem;
- }
+
+.sectionCard img {
+  width: 100%;
+  display: block;
+}
+
+.sectionCard p {
+  padding: 15px;
+  font-size: 1.6rem;
+}
 
 /* ====== Pagina Home ========*/
 
@@ -242,7 +250,7 @@ body {
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 145px 0px;
+  padding: 95px 0px;
 }
 
 .main-banner .caption h6 {
@@ -264,11 +272,11 @@ body {
 
 .main-banner .caption h2:after {
   position: absolute;
-  background-image: url(../images/caption-dec.png);
-  width: 202px;
+  background-image: url(../img/caption-dec.png);
+  width: 175px;
   height: 12px;
   content: '';
-  left: 125px;
+  left: 7%;
   bottom: 0;
 }
 
@@ -277,6 +285,7 @@ body {
   margin-bottom: 70px;
   font-size: 20px;
 }
+
 .col-lg-4 h2 {
   font-size: 28px;
   color: var(--bg-color);
@@ -299,11 +308,11 @@ body {
   transition: transform 0.3s ease;
 }
 
-.main-banner .right-image img:hover{
+.main-banner .right-image img:hover {
   width: 100%;
- transform: scale(1.01);
- border-radius: 25px;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+  transform: scale(1.01);
+  border-radius: 25px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
 }
 
 .main-banner .right-image span.price {
@@ -344,13 +353,13 @@ body {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.slider-banner:hover{
+.slider-banner:hover {
   transform: scale(1.01);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-   border-radius: 25px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  border-radius: 25px;
 }
 
-.slides{
+.slides {
   display: flex;
   width: 100%;
   height: 100%;
@@ -371,7 +380,7 @@ body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0,0,0,0.4);
+  background: rgba(0, 0, 0, 0.4);
   border: none;
   color: white;
   font-size: 30px;
@@ -391,161 +400,300 @@ body {
 }
 
 .arrow:hover {
-  background: rgba(0,0,0,0.7);
+  background: rgba(0, 0, 0, 0.7);
 }
+
 /* Pontos do carrossel */
 
-.dots{
-margin-top:10px;
-display:flex;
-justify-content:center;
-gap:10px;
-z-index: 2;
+.dots {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  z-index: 2;
 }
 
-.dot{
-width:20px;
-height:20px;
-background: var(--second-bg-color);
-border-radius:50%;
-display:block;
+.dot {
+  width: 20px;
+  height: 20px;
+  background: var(--second-bg-color);
+  border-radius: 50%;
+  display: block;
 }
 
-.dot.active{
+.dot.active {
   background: var(--main-color);
   transform: scale(1.2);
 }
+
 /* ===== Main Banner end ===== */
 
 
 /* ===== SLIDER DE JOGOS ===== */
-.games-container{
-display:flex;
-align-items:center;
-gap:15px;
+
+.swiper-button-next,
+.swiper-button-prev {
+
+  position: relative;
+  top: auto;
+
+
+  width: 40px;
+  height: 40px;
+
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 100;
+}
+
+.swiper-button-prev {
+  left: 10px;
+}
+
+.swiper-button-next {
+  right: 10px;
+
 }
 
 .swiper-button-next,
-.swiper-button-prev{
-
-position:relative;
-top:auto;
-
-
-width:40px;
-height:40px;
-
-background:rgba(0,0,0,0.6);
-color:white;
-
-border-radius:50%;
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-z-index: 100;
-}
-
-.swiper-button-prev{
-left:10px;
-}
-
-.swiper-button-next{
-right:10px;
-
-}
-.swiper-button-next,
-.swiper-button-prev{
-  padding:30px;
+.swiper-button-prev {
+  padding: 30px;
   color: var(--second-bg-color);
   background: var(--second-black-color);
   transition: transform 0.6s ease, background 0.6s ease;
 }
+
 .swiper-button-next:hover,
-.swiper-button-prev:hover{
-font-size:18px;
-background:gray;
+.swiper-button-prev:hover {
+  font-size: 18px;
+  background: gray;
 }
+
 .swiper-button-next::after,
-.swiper-button-prev::after{
-    color: white;
-    font-size:18px;
+.swiper-button-prev::after {
+  color: white;
+  font-size: 18px;
 }
 
-.swiper-scrollbar{
-margin-top:25px;
-height:6px;
-background:#d9d9d9;
-border-radius:10px;
+.swiper-scrollbar {
+  margin-top: 25px;
+  height: 20px;
+  background: #d9d9d9;
+  border-radius: 10px;
 }
 
-.swiper-scrollbar-drag{
-background:#870d1b;
-border-radius:10px;
-cursor:pointer;
+.swiper-scrollbar-drag {
+  background: #870d1b;
+  border-radius: 10px;
+  height: 20px;
+  cursor: pointer;
 }
 
 
-.games-section{
-  padding: 80px 7%;
+.games-section {
+  padding: 70px 7%;
   display: block;
 }
-
-.section-title{
+.games-section h2 {
+    color: var(--main-color);
+    font-size: 3.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 60px;
+    margin-top:80px;
+    text-align: center;
+    letter-spacing: 5px;
+}
+.section-title {
   font-size: 26px;
   margin: 40px 0 25px 10px;
   font-weight: 700;
 }
-.swiper-wrapper{
-transition-timing-function:ease-in-out;
+
+.swiper-wrapper {
+  transition-timing-function: ease-in-out;
 }
 
 
-.games-slider{
+.games-slider {
   overflow: hidden;
   border-radius: 25px;
-  padding: 40px;
+  padding: 80px;
   background: var(--bg-color);
-  flex:1;
+  gap: 15px;
 }
-.game-card{
-  border-radius: 12px;
+
+.game-card {
+  border-radius: 20px;
   background: var(--second-bg-color);
-  width: 200px;
   overflow: hidden;
+  margin-top: 3%;
+  left: 1%;
+  margin-bottom: 3%;
   transition: transform .3s ease, box-shadow .3s ease;
 }
-.game-card:hover{
+
+.game-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
-.game-card img{
+
+.game-card img {
   width: 100%;
   height: 250px;
-
+  border-radius: 18px;
 }
 
-.game-card h3{
+.game-card h3 {
   font-size: 16px;
   padding: 10px;
   object-fit: cover;
 }
 
-.game-card .price{
+.game-card .price {
   padding: 0 10px 15px 10px;
   font-size: 14px;
   font-weight: bold;
   color: var(--main-color);
 }
 
-.game-card:hover{
+.game-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== SLIDER DE JOGOS end===== */
+
+/* ===== top categories ===== */
+.top-categories {
+    text-align: center;
+    padding: 8rem 5%;
+    background: var(--second-bg-color);
+}
+
+.top-categories h3 {
+    color: var(--main-color);
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+.top-categories h2 {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 5rem;
+}
+
+/* Container */
+.categories-container {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+/* Category Card */
+.category-card {
+    width: 250px;
+    height: 300px;
+    border-radius: 18px;
+    overflow: hidden;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: .3s ease;
+    cursor: pointer;
+}
+
+/* Hover */
+.category-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+
+/* Tag azul */
+.category-tag {
+    width: 100%;
+    background: var(--second-black-color);
+    color: white;
+    font-weight: 700;
+    font-size: 1.6rem;
+    padding: 1.2rem 0;
+    text-align: center;
+}
+
+/* Imagem */
+.category-card img {
+    width: 100%;
+    height: 100%;
 }
 
 
+/* ===== top categories end ===== */
 
+/* ===== footer ===== */
+.footer{
+  padding: 50px 0;
+  background-color: var(--bg-color);
+}
+.footer .social-icons{
+  text-align: center;
+  margin-bottom: 1.8rem;
+}
+.social-icons a{
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  padding: 1rem;
+  background: transparent;
+  border: 2px solid var(--main-color);
+  border-radius: 50%;
+  color: var(--main-color);
+  margin: 3rem 0.5rem;
+  transition: 0.3s ease-in-out;
+}
+
+.social-icons a:hover {
+  background-color: var(--main-color);
+  color: var(--black-color);
+  transform: scale(1.2)translateY(-5px);
+  box-shadow: 0 0 25px var(--main-color);
+}
+
+.footer ul{
+  text-align: center;
+  font-size: 1.8rem;
+}
+.footer ul li{
+  display: inline-block;
+  margin-left: 20px;
+}
+.footer ul li a{
+  color: var(--second-main-color);
+  border-bottom: 3px solid transparent;
+  transition: 0.3s ease-in-out;
+}
+.footer ul li a:hover{
+  border-bottom: 3px solid var(--main-color);
+}
+.footer .copyright{
+  text-align: center;
+  margin-top: 40px;
+  font-size: 16px;
+  color: gray;
+}
+/* ===== footer end ===== */
 
 /* Resposividade----Tem que ficar no final do código, não coloque codigo abaixo dele desde que não seja sobre resposividade*/
 @media (max-width: 768px) {
@@ -569,6 +717,3 @@ transition-timing-function:ease-in-out;
     display: block;
   }
 }
- 
-
-
