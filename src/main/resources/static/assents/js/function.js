@@ -5,9 +5,10 @@
 
 	// Page loading animation
 	$(window).on('load', function() {
-
-        $('#js-preloader').addClass('loaded');
-
+		setTimeout(function(){
+				$('#js-preloader').addClass('loaded');
+			}, 1000);
+        
     });
 window.addEventListener("load", function() {
     setTimeout(function() {

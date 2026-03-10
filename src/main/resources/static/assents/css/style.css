@@ -19,6 +19,9 @@
   --second-bg-color: #fdfdfd;
 }
 
+a {
+  text-decoration: none;
+}
 
 html {
   font-size: 60%;
@@ -34,11 +37,6 @@ body {
   color: var(--second-black-color);
 }
 
-span {
-  background: linear-gradient(270deg, var(--second-black-color)10%);
-  background-clip: text;
-  color: transparent;
-}
 
 
 /* ===== HEADER ===== */
@@ -47,7 +45,7 @@ span {
   width: 100%;
   background: var(--second-main-color);
   padding: 1.5rem 7%;
-  position: relative;
+  position: fixed;
   /* ADICIONE */
   z-index: 1000;
   /* AUMENTE */
@@ -71,6 +69,7 @@ span {
   font-weight: 700;
   color: #000;
   display: inline-block;
+  border: none;
   transition: transform 0.3s ease;
 }
 
@@ -91,9 +90,9 @@ span {
   transition: transform 0.3s ease;
 }
 
-.search-box:hover{
+.search-box:hover {
   width: 100%;
- transform: scale(1.02);
+  transform: scale(1.02);
 }
 
 
@@ -194,44 +193,457 @@ span {
   transform: translateY(0);
 }
 
+/* ===== Header end ===== */
+
 /* Quanto ao BODY e sua estrutura*/
 .cards {
-    display: flex;
-    justify-content: center; /* centraliza na página */
-    gap: 40px;               /* espaço entre as divs */
-    flex-wrap: wrap;         /* quebra linha no mobile */
-  }
+  display: flex;
+  justify-content: center;
+  /* centraliza na página */
+  gap: 40px;
+  /* espaço entre as divs */
+  flex-wrap: wrap;
+  /* quebra linha no mobile */
+}
 
- .sectionCard{
+.sectionCard {
 
   flex-direction: column;
-    width: 400px;
-    height: 400px;
-    padding: 20px;
-    margin-right: 150px;
-    
-    background-color: #e0e0e0;
-    display: flex;
-    border: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    
-    align-items: center;
-    border-radius: 8px;
-    overflow: hidden;
- }
- .sectionCard:hover {
-    transform: scale(1.05);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
-}
-  .sectionCard img {
-    width:100%;
-    display: block;
-}
- .sectionCard p{
-   padding: 15px;
-    font-size: 1.6rem;
- }
+  width: 400px;
+  height: 400px;
+  padding: 20px;
+  margin-right: 150px;
 
+  background-color: #e0e0e0;
+  display: flex;
+  border: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  align-items: center;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.sectionCard:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.sectionCard img {
+  width: 100%;
+  display: block;
+}
+
+.sectionCard p {
+  padding: 15px;
+  font-size: 1.6rem;
+}
+
+/* ====== Pagina Home ========*/
+
+
+/* ===== Main Banner ===== */
+
+.main-banner {
+  background-image: url(../img/gemini-2.5-flash-image_Create_new_image_with_this_image_as_a_reference_but_with_this_color_870d1b_and_e-0.jpg);
+  border-radius: 0px 0px 150px 150px;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 95px 0px;
+}
+
+.main-banner .caption h6 {
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.main-banner .caption h2 {
+  font-size: 48px;
+  color: #fff;
+  margin-top: 20px;
+  position: relative;
+  padding-bottom: 5px;
+  margin-bottom: 40px;
+}
+
+.main-banner .caption h2:after {
+  position: absolute;
+  background-image: url(../img/caption-dec.png);
+  width: 175px;
+  height: 12px;
+  content: '';
+  left: 7%;
+  bottom: 0;
+}
+
+.main-banner .caption p {
+  color: #fff;
+  margin-bottom: 70px;
+  font-size: 20px;
+}
+
+.col-lg-4 h2 {
+  font-size: 28px;
+  color: var(--bg-color);
+  text-align: center;
+  margin-top: 10px;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+}
+
+
+
+.main-banner .right-image {
+  position: relative;
+}
+
+.main-banner .right-image img {
+  border-radius: 25px;
+  width: 150px;
+  height: 500px;
+  transition: transform 0.3s ease;
+}
+
+.main-banner .right-image img:hover {
+  width: 100%;
+  transform: scale(1.01);
+  border-radius: 25px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.main-banner .right-image span.price {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  border-radius: 25px;
+  background-color: #008af8;
+  font-size: 22px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #fff;
+  padding: 4px 15px;
+}
+
+.main-banner .right-image span.offer {
+  position: absolute;
+  left: 0;
+  bottom: 45px;
+  border-radius: 50%;
+  background-color: #ee626b;
+  font-size: 28px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #fff;
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  line-height: 100px;
+}
+
+/*Slider(o trem de passar imagens)*/
+.slider-banner {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.slider-banner:hover {
+  transform: scale(1.01);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  border-radius: 25px;
+}
+
+.slides {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s ease-in-out;
+  z-index: 9;
+}
+
+.slide {
+  min-width: 100%;
+  height: 100%;
+  border-radius: 25px;
+}
+
+
+/* setas */
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.4);
+  border: none;
+  color: white;
+  font-size: 30px;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.arrow.left {
+  left: 20px;
+}
+
+.arrow.right {
+  right: 20px;
+}
+
+.arrow:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+/* Pontos do carrossel */
+
+.dots {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  z-index: 2;
+}
+
+.dot {
+  width: 20px;
+  height: 20px;
+  background: var(--second-bg-color);
+  border-radius: 50%;
+  display: block;
+}
+
+.dot.active {
+  background: var(--main-color);
+  transform: scale(1.2);
+}
+
+/* ===== Main Banner end ===== */
+
+
+/* ===== SLIDER DE JOGOS ===== */
+
+.swiper-button-next,
+.swiper-button-prev {
+
+  position: relative;
+  top: auto;
+
+
+  width: 40px;
+  height: 40px;
+
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 100;
+}
+
+.swiper-button-prev {
+  left: 10px;
+}
+
+.swiper-button-next {
+  right: 10px;
+
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  padding: 30px;
+  color: var(--second-bg-color);
+  background: var(--second-black-color);
+  transition: transform 0.6s ease, background 0.6s ease;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  font-size: 18px;
+  background: gray;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  color: white;
+  font-size: 18px;
+}
+
+.swiper-scrollbar {
+  margin-top: 25px;
+  height: 20px;
+  background: #d9d9d9;
+  border-radius: 10px;
+}
+
+.swiper-scrollbar-drag {
+  background: #870d1b;
+  border-radius: 10px;
+  height: 20px;
+  cursor: pointer;
+}
+
+
+.games-section {
+  padding: 70px 7%;
+  display: block;
+}
+.games-section h2 {
+    color: var(--main-color);
+    font-size: 3.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 60px;
+    margin-top:80px;
+    text-align: center;
+    letter-spacing: 5px;
+}
+.section-title {
+  font-size: 26px;
+  margin: 40px 0 25px 10px;
+  font-weight: 700;
+}
+
+.swiper-wrapper {
+  transition-timing-function: ease-in-out;
+}
+
+
+.games-slider {
+  overflow: hidden;
+  border-radius: 25px;
+  padding: 80px;
+  background: var(--bg-color);
+  gap: 15px;
+}
+
+.game-card {
+  border-radius: 20px;
+  background: var(--second-bg-color);
+  overflow: hidden;
+  margin-top: 3%;
+  left: 1%;
+  margin-bottom: 3%;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.game-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.game-card img {
+  width: 100%;
+  height: 250px;
+  border-radius: 18px;
+}
+
+.game-card h3 {
+  font-size: 16px;
+  padding: 10px;
+  object-fit: cover;
+}
+
+.game-card .price {
+  padding: 0 10px 15px 10px;
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--main-color);
+}
+
+.game-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== SLIDER DE JOGOS end===== */
+
+/* ===== top categories ===== */
+.top-categories {
+    text-align: center;
+    padding: 8rem 5%;
+    background: var(--second-bg-color);
+}
+
+.top-categories h3 {
+    color: var(--main-color);
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+.top-categories h2 {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 5rem;
+}
+
+/* Container */
+.categories-container {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+/* Category Card */
+.category-card {
+    width: 250px;
+    height: 300px;
+    border-radius: 18px;
+    overflow: hidden;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: .3s ease;
+    cursor: pointer;
+}
+
+/* Hover */
+.category-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+
+/* Tag azul */
+.category-tag {
+    width: 100%;
+    background: var(--second-black-color);
+    color: white;
+    font-weight: 700;
+    font-size: 1.6rem;
+    padding: 1.2rem 0;
+    text-align: center;
+}
+
+/* Imagem */
+.category-card img {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* ===== top categories end ===== */
+
+/* ===== footer ===== */
+
+/* ===== footer end ===== */
 
 /* Resposividade----Tem que ficar no final do código, não coloque codigo abaixo dele desde que não seja sobre resposividade*/
 @media (max-width: 768px) {
@@ -255,6 +667,3 @@ span {
     display: block;
   }
 }
- 
-
-/* ===== Header end ===== */
