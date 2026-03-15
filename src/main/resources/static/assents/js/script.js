@@ -120,3 +120,66 @@ slidesPerView: 5
 });
 
 });
+
+const games = [
+
+{
+image:"../static/assents/img/image.png",
+title:"Phasmophobia",
+description:"Jogo cooperativo de terror psicológico investigando atividade paranormal.",
+price:"R$59,90",
+rating:9
+},
+
+{
+image:"../static/assents/img/banner-image.jpg",
+title:"Outlast",
+description:"Explore um hospital abandonado cheio de horrores.",
+price:"R$49,90",
+rating:8
+},
+
+{
+image:"../static/assents/img/image.png",
+title:"The Forest",
+description:"Sobrevivência em uma floresta cheia de mutantes.",
+price:"R$37,90",
+rating:9
+},
+
+{
+image:"../static/assents/img/banner-image.jpg",
+title:"Dead by Daylight",
+description:"Multiplayer onde um jogador é o assassino.",
+price:"R$59,90",
+rating:7
+}
+
+]
+
+function renderStars(score){
+
+let stars=""
+
+for(let i=1;i<=10;i++){
+
+if(i<=score){
+stars+="★"
+}else{
+stars+="☆"
+}
+
+}
+
+return stars
+
+}
+
+function changeGame(index){
+document.getElementById("feature-img").src = games[index].image
+document.getElementById("game-title").innerText = games[index].title
+document.getElementById("game-description").innerText = games[index].description
+document.getElementById("game-price").innerText = games[index].price
+document.getElementById("game-rating").innerHTML = renderStars(games[index].rating)
+
+}

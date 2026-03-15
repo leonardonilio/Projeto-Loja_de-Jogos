@@ -86,49 +86,59 @@
     </header>
     <!-- ***** Header End *****-->
 
-    <!--***** Banner *****-->
-    <div class="main-banner">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 align-self-center">
-                    <div class="caption header-text">
-                        <h6>Bem-vindo à Umbrella Games </h6>
-                        <h2>A Melhor Loja de Jogos!</h2>
-                        <p>Encontre os melhores jogos para sua plataforma favorita pelos melhores preços!</p>
-                        <div class="search-input">
+    <!--****** Top categories *****-->
+    <section class="category-feature">
 
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 offset-lg-2">
-                    <h2>Jogos em Destaques!</h2>
-                    <div class="right-image slider-banner">
+<h2 class="category-title">Terror</h2>
 
-                        <button class="arrow left">&#10094;</button>
+<div class="feature-container">
 
-                        <div class="slides">
-                            <img src="../static/assents/img/banner-image.jpg" class="slide">
-                            <img src="../static/assents/img/image.png" class="slide">
-                            <img src="../static/assents/img/banner-image.jpg" class="slide">
-                        </div>
-
-                        <button class="arrow right">&#10095;</button>
-
-                        <span class="offer">-40%</span>
-
-                    </div>
-
-                    <div class="dots">
-                        <span class="dot active"></span>
-                        <span class="dot"></span>
-                        <span class="dot"></span>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- imagem grande -->
+    <div class="feature-image">
+        <img id="feature-img" src="../static/assents/img/image.png">
     </div>
-    <!--***** Banner End *****-->
 
+    <!-- painel de informações -->
+    <div class="feature-info">
+
+        <h3 id="game-title">Phasmophobia</h3>
+
+        <p id="game-description">
+        Jogo cooperativo de terror psicológico onde os jogadores investigam
+        atividades paranormais utilizando equipamentos especiais.
+        </p>
+
+        <div class="game-rating" id="game-rating"></div>
+
+        <div class="game-price" id="game-price">R$59,90</div>
+
+    </div>
+
+</div>
+
+<!-- lista de jogos -->
+<div class="feature-list">
+
+<div class="feature-item" onclick="changeGame(0)">
+<img src="../static/assents/img/image.png">
+</div>
+
+<div class="feature-item" onclick="changeGame(1)">
+<img src="../static/assents/img/banner-image.jpg">
+</div>
+
+<div class="feature-item" onclick="changeGame(2)">
+<img src="../static/assents/img/image.png">
+</div>
+
+<div class="feature-item" onclick="changeGame(3)">
+<img src="../static/assents/img/banner-image.jpg">
+</div>
+
+</div>
+
+</section>
+    <!--****** Top categories end ******-->
 <!-- ********** footer ********** -->
 
   <footer class="footer">
