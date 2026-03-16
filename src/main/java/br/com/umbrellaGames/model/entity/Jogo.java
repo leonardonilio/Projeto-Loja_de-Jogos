@@ -13,7 +13,7 @@ public class Jogo {
 	// Atributos
 	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idJogo;
+	private Integer idJogo;
 	private String nomeJogo;
 	private String desenvolvedora;
 	private String imagem;
@@ -24,7 +24,7 @@ public class Jogo {
 	
 	public Jogo() {}
 	
-	public Jogo(int idJogo, String nomeJogo, String desenvolvedora, String imagem, String detalhes, double valor) {
+	public Jogo(Integer idJogo, String nomeJogo, String desenvolvedora, String imagem, String detalhes, double valor) {
 		super();
 		this.idJogo = idJogo;
 		this.nomeJogo = nomeJogo;
@@ -36,7 +36,7 @@ public class Jogo {
 
 	// Getters e Setters
 	
-	public int getIdJogo() {
+	public Integer getIdJogo() {
 		return idJogo;
 	}
 
