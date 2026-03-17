@@ -183,3 +183,24 @@ document.getElementById("game-price").innerText = games[index].price
 document.getElementById("game-rating").innerHTML = renderStars(games[index].rating)
 
 }
+
+new Swiper(".popular-slider",{
+
+slidesPerView:1,
+spaceBetween:20,
+
+loop:true,
+
+navigation:{
+nextEl:".popular-slider .swiper-button-next",
+prevEl:".popular-slider .swiper-button-prev",
+},
+
+scrollbar:{
+el:".popular-slider .swiper-scrollbar",
+draggable:true
+},
+
+speed:800
+
+});

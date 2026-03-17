@@ -44,7 +44,7 @@ body {
 .header {
   width: 100%;
   background: var(--second-main-color);
-  padding: 1.5rem 7%;
+  padding: 1rem 7%;
   position: fixed;
   /* ADICIONE */
   z-index: 1000;
@@ -74,15 +74,13 @@ body {
 }
 
 .logo a:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 
 /* Busca */
 .search-box {
-  margin-left: 7rem;
+  margin-left: 2rem;
   flex: 1;
-  max-width: 850px;
-  margin: 0 11rem;
   display: flex;
   background: #fff;
   border-radius: 5px;
@@ -98,7 +96,6 @@ body {
 
 .search-box input {
   width: 100%;
-  height: 5rem;
   border: none;
   padding: 1rem;
   outline: none;
@@ -124,13 +121,14 @@ body {
 
 /* Navegação */
 .nav-links {
+  margin-left: 3rem;
   display: flex;
   align-items: center;
-  gap: 5rem;
+  gap: 2rem;
   border-left: 1px solid rgba(0, 0, 0, 0.2);
   border-right: 1px solid rgba(0, 0, 0, 0.2);
-  padding-left: 2rem;
-  padding-right: 3rem;
+  padding-left: 1rem;
+  padding-right: 2rem;
 }
 
 
@@ -250,7 +248,7 @@ body {
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 95px 0px;
+  padding: 55px 0px;
 }
 
 .main-banner .caption h6 {
@@ -290,7 +288,7 @@ body {
   font-size: 28px;
   color: var(--bg-color);
   text-align: center;
-  margin-top: 10px;
+  margin-top: 5%;
   padding-bottom: 5px;
   margin-bottom: 20px;
 }
@@ -676,7 +674,7 @@ flex:2;
 
 .feature-image img{
 
-width:90%;
+width:100%;
 height:520px;
 border-radius:8px;
 
@@ -685,7 +683,6 @@ border-radius:8px;
 /* painel lateral */
 
 .feature-info{
-
 flex:1;
 color:white;
 
@@ -747,6 +744,7 @@ border-radius:6px;
 
 width:100%;
 height:100%;
+
 transition:0.3s;
 
 }
@@ -757,6 +755,106 @@ transform:scale(1.1);
 
 }
 
+/* ===== POPULAR SECTION ===== */
+
+.popular-section{
+padding:70px 7%;
+background:#0f1a24;
+}
+
+.popular-section .section-title{
+color:white;
+font-size:28px;
+margin-bottom:25px;
+}
+
+.popular-slider{
+position:relative;
+}
+
+.popular-slide{
+padding:10px;
+}
+
+/* GRID */
+
+.popular-grid{
+
+display:grid;
+grid-template-columns: 1fr 1fr;
+grid-template-rows: 200px 200px;
+gap:15px;
+
+}
+
+/* cards grandes */
+
+.game-big{
+position:relative;
+overflow:hidden;
+border-radius:6px;
+}
+
+.game-big img{
+width:100%;
+height:100%;
+object-fit:cover;
+  transition: .3s ease;
+  cursor: pointer;
+}
+
+/* Hover */
+.category-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+
+/* linha de baixo */
+
+.game-small{
+position:relative;
+overflow:hidden;
+grid-column: span 1;
+height:140px;
+border-radius:6px;
+}
+
+.game-small img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+/* terceira linha */
+
+.game-small:nth-child(3),
+.game-small:nth-child(4),
+.game-small:nth-child(5){
+grid-column: span 1;
+}
+
+/* preço */
+
+.popular-section .price{
+
+position:absolute;
+
+bottom:10px;
+right:10px;
+
+background:black;
+color:white;
+
+font-size:14px;
+
+padding:5px 10px;
+border-radius:4px;
+
+}
+
+.popular-section .swiper-slide{
+display:flex;
+}
 /* Resposividade----Tem que ficar no final do código, não coloque codigo abaixo dele desde que não seja sobre resposividade*/
 @media (max-width: 768px) {
   #menu-icon {
