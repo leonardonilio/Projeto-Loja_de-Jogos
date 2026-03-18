@@ -13,14 +13,14 @@ public class Categoria {
 	// Atributos
 	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idCategoria;
+	private Integer idCategoria;
 	private String nomeCategoria;
 	
 	// Construtores
 	
 	public Categoria () {}
 	
-	public Categoria(int idCategoria, String nomeCategoria) {
+	public Categoria(Integer idCategoria, String nomeCategoria) {
 		super();
 		this.idCategoria = idCategoria;
 		this.nomeCategoria = nomeCategoria;
@@ -28,7 +28,7 @@ public class Categoria {
 
 	// Getters e Setters
 	
-	public int getIdCategoria() {
+	public Integer getIdCategoria() {
 		return idCategoria;
 	}
 
