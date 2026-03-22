@@ -137,7 +137,7 @@ body {
   cursor: pointer;
   background: none;
   border: none;
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   cursor: pointer;
   color: var(--second-bg-color);
   transition: width 0.5s ease-in-out;
@@ -648,7 +648,7 @@ padding:60px 7%;
 }
 
 .category-title{
-margin-top: 120px;
+margin-top: 50px;
 font-size:4rem;
 color:var(--main-color);
 margin-bottom:40px;
@@ -658,7 +658,7 @@ text-align:center;
 }
 
 .feature-container{
-
+padding:60px 17%;
 display:flex;
 gap:40px;
 background: linear-gradient(135deg, var(--second-main-color) 0%, var(--main-color) 100%);
@@ -668,40 +668,95 @@ align-items:center;
 
 }
 
-.feature-image{
-flex:2;
+.feature-list {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+  justify-content: center;
+  position: relative;
 }
 
-.feature-image img{
-
-width:100%;
-height:520px;
-border-radius:8px;
-
+/* barra inferior */
+.feature-list::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  width: 60%;
+  height: 4px;
+  background: rgba(0,0,0,0.1);
+  border-radius: 10px;
 }
 
-/* painel lateral */
-
-.feature-info{
-flex:1;
-color:white;
-
+/* item */
+.feature-item {
+  width: 120px;
+  height: 70px;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 8px;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+.feature-image {
+  width: 420px;
+  height: 420px; /* altura fixa */
+  overflow: hidden;
+  border-radius: 10px;
 }
 
-.feature-info h3{
-
-font-size:2.5rem;
-margin-bottom:15px;
-
+/* imagem */
+.feature-image img,
+.feature-item img {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s ease, opacity 0.3s ease;
 }
 
-.feature-info p{
-
-font-size:1.4rem;
-margin-bottom:20px;
-
+/* hover */
+.feature-item:hover {
+  transform: translateY(-5px);
 }
 
+.feature-item:hover img {
+  transform: scale(1.1);
+}
+
+/* ativo */
+.feature-item.active {
+  outline: 2px solid var(--main-color);
+}
+
+.feature-item.active img {
+  opacity: 1;
+}
+.feature-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+  z-index: 2;
+}
+
+.feature-arrow:hover {
+  background: rgba(0,0,0,0.9);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.feature-arrow.left {
+  left: 15px;
+}
+
+.feature-arrow.right {
+  right: 15px;
+}
 .game-price{
 
 font-size:2rem;
@@ -752,6 +807,8 @@ transition:0.3s;
 .feature-item:hover img{
 transform:scale(1.1);
 }
+/* ====== Categories start page end ====== */
+
 
 /* ===== POPULAR SECTION ===== */
 .popular-grid {
@@ -862,7 +919,7 @@ transform:scale(1.1);
   transform: translateY(-50%);
   width: 45px;
   height: 45px;
-  background: none;
+  background: var(--black-color);
   border-radius: 50%;
 }
 

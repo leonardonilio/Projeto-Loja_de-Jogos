@@ -120,7 +120,17 @@ slidesPerView: 5
 });
 
 });
+let currentGame = 0;
 
+document.querySelector(".feature-arrow.right").onclick = () => {
+  currentGame = (currentGame + 1) % games.length;
+  changeGame(currentGame);
+};
+
+document.querySelector(".feature-arrow.left").onclick = () => {
+  currentGame = (currentGame - 1 + games.length) % games.length;
+  changeGame(currentGame);
+};
 const games = [
 
 {
@@ -176,12 +186,24 @@ return stars
 }
 
 function changeGame(index){
-document.getElementById("feature-img").src = games[index].image
-document.getElementById("game-title").innerText = games[index].title
-document.getElementById("game-description").innerText = games[index].description
-document.getElementById("game-price").innerText = games[index].price
-document.getElementById("game-rating").innerHTML = renderStars(games[index].rating)
+  currentGame = index;
 
+  document.getElementById("feature-img").style.opacity = 0;
+
+  setTimeout(() => {
+    document.getElementById("feature-img").src = games[index].image;
+    document.getElementById("feature-img").style.opacity = 1;
+  }, 200);
+
+  document.getElementById("game-title").innerText = games[index].title;
+  document.getElementById("game-description").innerText = games[index].description;
+  document.getElementById("game-price").innerText = games[index].price;
+  document.getElementById("game-rating").innerHTML = renderStars(games[index].rating);
+
+  // ativa thumbnail
+  document.querySelectorAll(".feature-item").forEach((el, i) => {
+    el.classList.toggle("active", i === index);
+  });
 }
 
 new Swiper(".popular-slider",{
