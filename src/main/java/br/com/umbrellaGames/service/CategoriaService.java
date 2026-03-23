@@ -1,3 +1,5 @@
+
+
 package br.com.umbrellaGames.service;
 
 import java.util.List;
@@ -17,4 +19,33 @@ public class CategoriaService {
 	public List<Categoria> findAll(){
 		return categoriaRepository.findAll();
 	}
+
+	public Categoria buscarPorId(int id){
+		return categoriaRepository.findById(id).get();
+	}
+
+	public Categoria buscarPorNome(String categoria_nome){
+		return categoriaRepository.findByNomeCategoria(categoria_nome);
+	}
+
+	public List <Categoria> buscarPorPrimeiroNome(String categoria_nome){
+		return categoriaRepository.findByNomeCategoriaStartsWith(categoria_nome);
+	}
+
+	public List <Categoria> buscarPorUltimoNome(String categoria_nome){
+		return categoriaRepository.findByNomeCategoriaEndsWith(categoria_nome);
+	}
+
+	public List <Categoria> buscarPorLetraNoNome(String categoria_nome){
+		return categoriaRepository.findByNomeCategoriaContains(categoria_nome);
+	}
+
+	public void deletarCategoria(int id){
+		categoriaRepository.deleteById(id);
+	}
+
+	public Categoria salvarCategoria(Categoria categoria){
+		return categoriaRepository.save(categoria);
+	}
 }
+
