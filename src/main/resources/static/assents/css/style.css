@@ -642,6 +642,47 @@ body {
 
 
 /* ====== Categories start page ====== */
+/* 
+---------------------------------------------
+Page Header Style
+--------------------------------------------- 
+*/
+
+.page-heading {
+  background-image: url(../img/gemini-2.5-flash-image_Create_new_image_with_this_image_as_a_reference_but_with_this_color_870d1b_and_e-0.jpg);
+  border-radius: 0px 0px 150px 150px;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 200px 0px 100px 0px;
+  text-align: center;
+}
+
+.page-heading span {
+  display: inline-block;
+  font-size: 16px;
+  color: #fff;
+}
+
+.page-heading span a {
+  color: #fff;
+}
+
+.page-heading h3 {
+  font-size: 48px;
+  text-transform: uppercase;
+  color: #fff;
+  margin-top: 20px;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+
+/* 
+---------------------------------------------
+Shop Page Style
+--------------------------------------------- 
+*/
 .category-feature{
 padding:60px 7%;
 
