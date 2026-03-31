@@ -1,45 +1,38 @@
 package br.com.umbrellaGames.model.entity;
 
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "CategoriaJogo")
+@Table(name = "Categoria_Jogo")
 public class CategoriaJogo {
 
 	// Atributos
 	
-	private int idJogo;
-	
 	@Id
-	private int idCategoria;
+	@Embedded
+	private CategoriaJogoId id;
 	
-	// Construtores
+	// construtores
 	public CategoriaJogo() {}
-
-	public CategoriaJogo(int idJogo, int idCategoria) {
+	
+	public CategoriaJogo(CategoriaJogoId id) {
 		super();
-		this.idJogo = idJogo;
-		this.idCategoria = idCategoria;
+		this.id = id;
 	}
 
-	// Getters e Setters
-	public int getIdJogo() {
-		return idJogo;
+	// getters e setters
+	public CategoriaJogoId getId() {
+		return id;
 	}
 
-	public void setIdJogo(int idJogo) {
-		this.idJogo = idJogo;
+	public void setId(CategoriaJogoId id) {
+		this.id = id;
 	}
-
-	public int getIdCategoria() {
-		return idCategoria;
-	}
-
-	public void setIdCategoria(int idCategoria) {
-		this.idCategoria = idCategoria;
-	}
+	
+	
 	
 	
 }
