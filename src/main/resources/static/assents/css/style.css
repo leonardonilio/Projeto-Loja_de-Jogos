@@ -44,7 +44,7 @@ body {
 .header {
   width: 100%;
   background: var(--second-main-color);
-  padding: 1.5rem 7%;
+  padding: 1rem 7%;
   position: fixed;
   /* ADICIONE */
   z-index: 1000;
@@ -67,22 +67,20 @@ body {
 .logo a {
   font-size: 2rem;
   font-weight: 700;
-  color: #000;
+  color: var(--second-bg-color);
   display: inline-block;
   border: none;
   transition: transform 0.3s ease;
 }
 
 .logo a:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 
 /* Busca */
 .search-box {
-  margin-left: 7rem;
+  margin-left: 2rem;
   flex: 1;
-  max-width: 850px;
-  margin: 0 11rem;
   display: flex;
   background: #fff;
   border-radius: 5px;
@@ -98,7 +96,6 @@ body {
 
 .search-box input {
   width: 100%;
-  height: 5rem;
   border: none;
   padding: 1rem;
   outline: none;
@@ -124,13 +121,14 @@ body {
 
 /* Navegação */
 .nav-links {
+  margin-left: 3rem;
   display: flex;
   align-items: center;
-  gap: 5rem;
+  gap: 2rem;
   border-left: 1px solid rgba(0, 0, 0, 0.2);
   border-right: 1px solid rgba(0, 0, 0, 0.2);
-  padding-left: 2rem;
-  padding-right: 3rem;
+  padding-left: 1rem;
+  padding-right: 2rem;
 }
 
 
@@ -139,9 +137,9 @@ body {
   cursor: pointer;
   background: none;
   border: none;
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   cursor: pointer;
-  color: #000;
+  color: var(--second-bg-color);
   transition: width 0.5s ease-in-out;
   border-bottom: 1px solid transparent;
 }
@@ -250,7 +248,7 @@ body {
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 95px 0px;
+  padding: 55px 0px;
 }
 
 .main-banner .caption h6 {
@@ -290,7 +288,7 @@ body {
   font-size: 28px;
   color: var(--bg-color);
   text-align: center;
-  margin-top: 10px;
+  margin-top: 5%;
   padding-bottom: 5px;
   margin-bottom: 20px;
 }
@@ -641,10 +639,345 @@ body {
 
 /* ===== top categories end ===== */
 
-/* ===== footer ===== */
 
-/* ===== footer end ===== */
 
+/* ====== Categories start page ====== */
+/* 
+---------------------------------------------
+Page Header Style
+--------------------------------------------- 
+*/
+
+.page-heading {
+  background-image: url(../img/gemini-2.5-flash-image_Create_new_image_with_this_image_as_a_reference_but_with_this_color_870d1b_and_e-0.jpg);
+  border-radius: 0px 0px 150px 150px;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 200px 0px 100px 0px;
+  text-align: center;
+}
+
+.page-heading span {
+  display: inline-block;
+  font-size: 16px;
+  color: #fff;
+}
+
+.page-heading span a {
+  color: #fff;
+}
+
+.page-heading h3 {
+  font-size: 48px;
+  text-transform: uppercase;
+  color: #fff;
+  margin-top: 20px;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+
+/* 
+---------------------------------------------
+Shop Page Style
+--------------------------------------------- 
+*/
+.category-feature{
+padding:60px 7%;
+
+}
+
+.category-title{
+margin-top: 50px;
+font-size:4rem;
+color:var(--main-color);
+margin-bottom:40px;
+text-transform:uppercase;
+text-align:center;
+
+}
+
+.feature-container{
+padding:60px 17%;
+display:flex;
+gap:40px;
+background: linear-gradient(135deg, var(--second-main-color) 0%, var(--main-color) 100%);
+padding:25px;
+border-radius:10px;
+align-items:center;
+
+}
+
+.feature-list {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+  justify-content: center;
+  position: relative;
+}
+
+/* barra inferior */
+.feature-list::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  width: 60%;
+  height: 4px;
+  background: rgba(0,0,0,0.1);
+  border-radius: 10px;
+}
+
+/* item */
+.feature-item {
+  width: 120px;
+  height: 70px;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 8px;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+.feature-image {
+  width: 420px;
+  height: 420px; /* altura fixa */
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+/* imagem */
+.feature-image img,
+.feature-item img {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s ease, opacity 0.3s ease;
+}
+
+/* hover */
+.feature-item:hover {
+  transform: translateY(-5px);
+}
+
+.feature-item:hover img {
+  transform: scale(1.1);
+}
+
+/* ativo */
+.feature-item.active {
+  outline: 2px solid var(--main-color);
+}
+
+.feature-item.active img {
+  opacity: 1;
+}
+.feature-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+  z-index: 2;
+}
+
+.feature-arrow:hover {
+  background: rgba(0,0,0,0.9);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.feature-arrow.left {
+  left: 15px;
+}
+
+.feature-arrow.right {
+  right: 15px;
+}
+.game-price{
+
+font-size:2rem;
+color:#66c0f4;
+margin-top:15px;
+
+}
+
+/* estrelas */
+
+.game-rating{
+
+font-size:2rem;
+color:#ffd700;
+
+}
+
+/* lista inferior */
+
+.feature-list{
+
+display:flex;
+gap:15px;
+margin-top:25px;
+justify-content:center;
+
+}
+
+.feature-item{
+
+width:120px;
+height:70px;
+cursor:pointer;
+overflow:hidden;
+border-radius:6px;
+
+}
+
+.feature-item img{
+
+width:100%;
+height:100%;
+
+transition:0.3s;
+
+}
+
+.feature-item:hover img{
+transform:scale(1.1);
+}
+/* ====== Categories start page end ====== */
+
+
+/* ===== POPULAR SECTION ===== */
+.popular-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+/* LINHA DE CIMA */
+.popular-top {
+  display: flex;
+  gap: 1.5rem;
+}
+
+/* LINHA DE BAIXO */
+.popular-bottom {
+  display: flex;
+  gap: 1.5rem;
+}
+
+/* CARDS */
+.game-big,
+.game-small {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  flex: 1;
+}
+
+/* ALTURAS */
+.game-big {
+  height: 298px;
+}
+
+.game-small {
+  height: 208px;
+}
+
+/* IMAGENS */
+.game-big img,
+.game-small img {
+  object-fit: fill;
+  display: block;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s ease;
+}
+
+/* HOVER */
+.game-big:hover img,
+.game-small:hover img {
+  transform: scale(1.05);
+  box-shadow: 1 12px 25px rgba(0,0,0,0.4);
+}
+
+/* PREÇO */
+.popular-section .price {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 600;
+  padding: .5rem 1rem;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+.popular-section {
+  padding: 3%;
+  padding-bottom: 4%;
+  margin: 4%;
+  margin-left: 10%;
+  margin-right: 10%;
+  border-radius: 16px;
+  background: linear-gradient(
+    135deg,
+    var(--main-color),
+    #5c0a14
+  );
+  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+}
+
+.game-big,
+.game-small {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #000;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.game-big:hover,
+.game-small:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+}
+.popular-slider {
+  position: relative;
+}
+
+.popular-section .swiper-button-next,
+.popular-section .swiper-button-prev {
+  z-index: 100;
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  width: 45px;
+  height: 45px;
+  background: var(--black-color);
+  border-radius: 50%;
+}
+
+.popular-section .swiper-button-next:hover,
+.popular-section .swiper-button-prev:hover{
+  font-size: 18px;
+  background: gray;
+}
+.popular-section .swiper-button-prev {
+  left: 1%;
+  z-index: 100;
+}
+
+.popular-section .swiper-button-next {
+  right: 1%;
+    z-index: 100;
+}
 /* Resposividade----Tem que ficar no final do código, não coloque codigo abaixo dele desde que não seja sobre resposividade*/
 @media (max-width: 768px) {
   #menu-icon {
