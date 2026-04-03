@@ -38,4 +38,14 @@ public class UsuarioService {
 		usuarioRepository.deleteById(idUsuario);
 	}
 	
+	
+	public Usuario fazerLogin(String emailUsuario, String senhaUsuario) {
+		Usuario usuario = usuarioRepository.findByEmailUsuario(emailUsuario);
+		if(usuario == null)
+			return null;
+		if(!usuario.getSenha().equals(senhaUsuario))
+			return null;
+		
+		return usuario;
+	}
 }

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.umbrellaGames.model.entity.LoginDTO;
 import br.com.umbrellaGames.model.entity.Usuario;
 import br.com.umbrellaGames.service.UsuarioService;
 
@@ -64,6 +65,11 @@ public class UsuarioController {
 		public String delete(@PathVariable int idUsuario) {
 		usuarioService.deleteUsuario(idUsuario);
 		return "Usuário deletado!";
+	}
+	
+	@PostMapping("/login")
+	public Usuario fazerLogin(@RequestBody LoginDTO login) {
+		return usuarioService.fazerLogin(login.getEmail(), login.getSenha());
 	}
 	
 	
