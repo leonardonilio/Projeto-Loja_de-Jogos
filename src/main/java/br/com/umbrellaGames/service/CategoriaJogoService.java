@@ -17,4 +17,8 @@ public class CategoriaJogoService {
 	public List<CategoriaJogo> findAll(){
 		return categoriaJogoRepository.findAll();
 	}
+
+    public List<Integer> buscarIdsJogos(Integer id){
+        return categoriaJogoRepository.findIdsJogosByCategoriaId(id);
+    }
 }
