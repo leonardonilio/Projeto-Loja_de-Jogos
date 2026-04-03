@@ -74,40 +74,35 @@
         </div>
     </header>
  <!--fim do header-->
-<br><br><br><br><br><br><br>s
-    <h3><label  style="display: block; text-align: center; font-size: xx-large;" th:text="${novo} ?'Novo ' : 'Editar '"></label></h3>
-	<br>	
-    <br>
-    <form th:action="@{/admin/saveJogo}" th:object="${jogo}" method="post">
-			<table style="font-size: 40px;margin-left: auto; margin-right: auto" border="1">
-				<tr>
-					<th>ID</th><td><input type="text" th:field="*{idJogo}" size="40" readonly /></td>
-				</tr>	
-				<tr>
-					<th>Nome</th><td><input type="text" th:field="*{nomeJogo}" size="40" required /></td>
-				</tr>	
-				<tr>
-					<th>Valor</th><td><input type="text" th:field="*{valor}" size="40"required/></td>
-				</tr>	
-				<tr>
-					<th>Desenvolvedora</th>
-					<td><select th:field="*{desenvolvedora}" size="1">
-							<option th:value="*{desenvolvedora}" th:text="*{desenvolvedora}"></option>
-							<option th:value="Ubisoft" th:text="Ubisoft"></option>
-							<option th:value= "EA" th:text="EA"></option>
-							<option th:value="Rockstar" th:text="Rockstar"></option>
-						</select>
-				</tr>	
-				<tr>
-					<td colspan="2">
-						<input   style="font-size: large;"  type="submit" class="btn btn-success" value="Enviar">
-						<a th:href="@{/admin/}">Sair</a>
-					</td>	
-				</tr>
-			</table>
-		</form>
+<br><br><br><br><br><br><br>
 
-<br><br><br><br><br><br><br><br><br><br><br>
+
+	<h2 style="text-align: center; font-size: x-large;">Login</h2>
+  <br>
+  <hr>
+  <br>
+<form style="display: flex; flex-direction: column; align-items: center; text-align: center;" th:action="@{/login}" method="post"></form>
+    <label style="display: flex; flex-direction: column; align-items: center; font-size: x-large;">Usuário:</label>
+    <br>
+    <input type="text" style="display: block; margin: 0 auto; width: 300px; height: 30px;" name="username" required>
+    <br>
+    <br>
+    <br>
+    <label style="display: flex; flex-direction: column; align-items: center; font-size: x-large;"> Senha:</label>
+   <br> <input type="password" style="display: block; margin: 0 auto; width: 300px; height: 30px;" name="password" required>
+<br>
+<br>
+<br>
+    <button type="submit" style="display: block; margin: 0 auto; width: 300px; height: 30px; font-size: large;">Entrar</button>
+</form>
+
+<p th:if="${erro}" th:text="${erro}" style="color:red;"></p>
+
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
+
 
 
 
