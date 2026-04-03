@@ -1,0 +1,1 @@
+ALTER TABLE jogo ADD COLUMN avaliacao INTEGER;
