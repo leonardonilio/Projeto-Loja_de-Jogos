@@ -32,6 +32,11 @@ public class JogoWebController {
     public String paginaHome() {
     return "index";
 }
+
+@GetMapping("/about")
+    public String paginaSobre() {
+    return "sobre";
+}
 	@GetMapping("/categoria")
 	public String paginaCategoria(@RequestParam String param) {
 		return new String();
