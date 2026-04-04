@@ -654,7 +654,7 @@ Page Header Style
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 200px 0px 100px 0px;
+  padding: 100px 0px 100px 0px;
   text-align: center;
 }
 
@@ -978,6 +978,111 @@ transform:scale(1.1);
   right: 1%;
     z-index: 100;
 }
+/* ===== POPULAR SECTION END ===== */
+
+/* ===== PRODUCT =====*/
+.section {
+  margin-top: 120px;
+}
+.single-product .sep {
+  width: 100%;
+  height: 1px;
+  background-color: #eee;
+  margin: 80px 0px;
+}
+
+.single-product .left-image {
+  margin-right: 80px;
+}
+
+.single-product .left-image img {
+  border-radius: 25px;
+}
+
+.single-product h4 {
+  font-size: 27px;
+  margin-bottom: 20px;
+}
+
+.single-product span.price {
+  font-size: 27px;
+  font-weight: 700;
+  color: #0071f8;
+}
+
+.single-product span.price em {
+  font-style: normal;
+  color: #c8c8c8;
+  font-size: 17px;
+  text-decoration: line-through;
+  font-weight: 500;
+  margin-right: 5px;
+}
+
+.single-product p {
+  margin-top: 50px;
+  margin-bottom: 60px;
+}
+
+.single-product form input {
+  width: 80px;
+  height: 50px;
+  background-color: #f7f7f7;
+  border: 1px solid #e7e7e7;
+  border-radius: 25px;
+  text-align: center;
+  float: left;
+  margin-right: 15px;
+}
+
+.single-product form {
+  display: inline;
+}
+
+.single-product form button {
+  display: inline-block;
+  height: 50px;
+  line-height: 50px;
+  background-color: #ee626b;
+  color: #fff;
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 0px 25px;
+  border: none;
+  border-radius: 25px;
+  transition: all .3s;
+}
+
+.single-product form button i {
+  margin-right: 5px;
+}
+
+.single-product form button:hover {
+  background-color: #0071f8;
+}
+
+.single-product ul {
+  margin-top: 60px;
+}
+
+.single-product ul li {
+  display: block;
+  margin: 20px 0px;
+  font-size: 14px;
+  color: #0071f8;
+}
+
+.single-product ul li:last-child {
+  margin-bottom: 0px;
+}
+
+.single-product ul li span {
+  width: 120px;
+  display: inline-block;
+  color: #aaa;
+}
+
 /* Resposividade----Tem que ficar no final do código, não coloque codigo abaixo dele desde que não seja sobre resposividade*/
 @media (max-width: 768px) {
   #menu-icon {
