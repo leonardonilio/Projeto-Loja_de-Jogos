@@ -19,12 +19,13 @@ public class Jogo {
 	private String imagem;
 	private String detalhes;
 	private double valor;
+	private double nota;
 	
 	// Construtores
 	
 	public Jogo() {}
 	
-	public Jogo(int idJogo, String nomeJogo, String desenvolvedora, String imagem, String detalhes, double valor) {
+	public Jogo(int idJogo, String nomeJogo, String desenvolvedora, String imagem, String detalhes, double valor, double nota) {
 		super();
 		this.idJogo = idJogo;
 		this.nomeJogo = nomeJogo;
@@ -32,6 +33,7 @@ public class Jogo {
 		this.imagem = imagem;
 		this.detalhes = detalhes;
 		this.valor = valor;
+		this.nota = nota;
 	}
 
 	// Getters e Setters
@@ -82,6 +84,14 @@ public class Jogo {
 
 	public void setValor(double valor) {
 		this.valor = valor;
+	}
+
+	public double getNota() {
+		return nota;
+	}
+
+	public void setNota(double nota) {
+		this.nota = nota;
 	}	
 	
 }

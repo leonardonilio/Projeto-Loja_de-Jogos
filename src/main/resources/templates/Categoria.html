@@ -11,13 +11,16 @@
 
     <!-- bibliotecas do css -->
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-        <!-- Bootstrap-->
+    <!-- Bootstrap-->
     <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../static/vendor/bootstrap/css/swiper-bundle.min.css" rel="stylesheet">
     <!--css-->
     <link rel="stylesheet" href="../static/assents/css/loader.css">
     <link rel="stylesheet" href="../static/assents/css/style.css">
-    <link rel="stylesheet" href="../static/assents/css/footer.css"> 
+    <link rel="stylesheet" href="../static/assents/css/footer.css">
+
+    <!-- Swiper Js-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <!--fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -85,93 +88,393 @@
         </div>
     </header>
     <!-- ***** Header End *****-->
-
-    <!--***** Banner *****-->
-    <div class="main-banner">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 align-self-center">
-                    <div class="caption header-text">
-                        <h6>Bem-vindo à Umbrella Games </h6>
-                        <h2>A Melhor Loja de Jogos!</h2>
-                        <p>Encontre os melhores jogos para sua plataforma favorita pelos melhores preços!</p>
-                        <div class="search-input">
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 offset-lg-2">
-                    <h2>Jogos em Destaques!</h2>
-                    <div class="right-image slider-banner">
-
-                        <button class="arrow left">&#10094;</button>
-
-                        <div class="slides">
-                            <img src="../static/assents/img/banner-image.jpg" class="slide">
-                            <img src="../static/assents/img/image.png" class="slide">
-                            <img src="../static/assents/img/banner-image.jpg" class="slide">
-                        </div>
-
-                        <button class="arrow right">&#10095;</button>
-
-                        <span class="offer">-40%</span>
-
-                    </div>
-
-                    <div class="dots">
-                        <span class="dot active"></span>
-                        <span class="dot"></span>
-                        <span class="dot"></span>
-                    </div>
-                </div>
-            </div>
+  <div class="page-heading header-text">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h3>Categorias</h3>
+          <span class="breadcrumb"><a href="#">Home</a> > Categorias</span>
         </div>
+      </div>
     </div>
-    <!--***** Banner End *****-->
+  </div>
+    <!--****** Top categories *****-->
+    <section class="category-feature">
 
-<!-- ********** footer ********** -->
+        <h2 class="category-title">Terror</h2>
 
-  <footer class="footer">
-    <div class="social-icons">
-        <a href="#">
-        <i class="bx bxl-github"></i>
-      </a>
-      <a href="#">
-        <i class="bx bxl-linkedin"></i>
-      </a>
+        <div class="feature-container">
+
+            <!-- imagem grande -->
+            <div class="feature-image">
+                <img id="feature-img" src="../static/assents/img/image.png">
+            </div>
+
+            <!-- painel de informações -->
+            <div class="feature-info">
+
+                <h3 id="game-title">Phasmophobia</h3>
+
+                <p id="game-description">
+                    Jogo cooperativo de terror psicológico onde os jogadores investigam
+                    atividades paranormais utilizando equipamentos especiais.
+                </p>
+
+                <div class="game-rating" id="game-rating"></div>
+
+                <div class="game-price" id="game-price">R$59,90</div>
+
+            </div>
+
+        </div>
+
+        <!-- lista de jogos -->
+        <div class="feature-list">
+
+            <div class="feature-item" onclick="changeGame(0)">
+                <img src="../static/assents/img/image.png">
+            </div>
+
+            <div class="feature-item" onclick="changeGame(1)">
+                <img src="../static/assents/img/banner-image.jpg">
+            </div>
+
+            <div class="feature-item" onclick="changeGame(2)">
+                <img src="../static/assents/img/image.png">
+            </div>
+
+            <div class="feature-item" onclick="changeGame(3)">
+                <img src="../static/assents/img/banner-image.jpg">
+            </div>
+    <button class="feature-arrow left">❮</button>
+    <button class="feature-arrow right">❯</button>
+        </div>
+
+    </section>
+    <!--****** Top categories end ******-->
+
+    <!--****** popular section ******-->
+
+    <h2 class="category-title">TÍTULOS POPULARES</h2>
+    <section class="popular-section">
+
+        <div class="popular-slider swiper">
+
+            <div class="swiper-button-prev"></div>
+
+            <div class="swiper-wrapper">
+
+                <!-- SLIDE -->
+                <div class="swiper-slide popular-slide">
+
+                    <div class="popular-grid">
+                        <div class="popular-top">
+                            <div class="game-big">
+                                <img src="../static/assents/img/image.png">
+                                <span class="price">R$299,00</span>
+                            </div>
+
+                            <div class="game-big">
+                                <img src="../static/assents/img/banner-image.jpg">
+                                <span class="price">R$138,65</span>
+                            </div>
+                        </div>
+                        <!-- LINHA DE BAIXO -->
+                        <div class="popular-bottom">
+                            <div class="game-small">
+                                <img src="../static/assents/img/image.png">
+                                <span class="price">R$169,00</span>
+                            </div>
+
+                            <div class="game-small">
+                                <img src="../static/assents/img/banner-image.jpg">
+                                <span class="price">R$24,97</span>
+                            </div>
+
+                            <div class="game-small">
+                                <img src="../static/assents/img/image.png">
+                                <span class="price">R$349,90</span>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- SLIDE 2 -->
+                <div class="swiper-slide popular-slide">
+
+                    <div class="popular-grid">
+                        <div class="popular-top">
+                            <div class="game-big">
+                                <img src="../static/assents/img/banner-image.jpg">
+                                <span class="price">R$199,00</span>
+                            </div>
+
+                            <div class="game-big">
+                                <img src="../static/assents/img/image.png">
+                                <span class="price">R$89,90</span>
+                            </div>
+                        </div>
+                        <div class="popular-bottom">
+                            <div class="game-small">
+                                <img src="../static/assents/img/image.png">
+                                <span class="price">R$169,00</span>
+                            </div>
+
+                            <div class="game-small">
+                                <img src="../static/assents/img/banner-image.jpg">
+                                <span class="price">R$24,97</span>
+                            </div>
+
+                            <div class="game-small">
+                                <img src="../static/assents/img/image.png">
+                                <span class="price">R$349,90</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="swiper-scrollbar"></div>
+
+            <div class="swiper-button-next"></div>
+
+        </div>
+
+    </section>
+    <!--****** popular section end ******-->
+
+    <!-- ===== SEÇÃO PRODUTOS ===== -->
+    <section class="games-section">
+
+        <!-- Jogos Recomendados -->
+        <h2 class="section-title">Mais jogos recomendados da categoria</h2>
+        <div class="games-container">
+
+            <div class="games-slider swiper recommended-slider">
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-wrapper">
+
+                    <!-- CARD -->
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/image.png">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">R$ 79,90</p>
+                    </div>
+
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/image.png">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">R$ 79,90</p>
+                    </div>
+
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/image.png">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">R$ 79,90</p>
+                    </div>
+
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/image.png">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">R$ 79,90</p>
+                    </div>
+
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/banner-image.jpg">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">R$ 79,90</p>
+                    </div>
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/banner-image.jpg">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">R$ 79,90</p>
+                    </div>
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/banner-image.jpg">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">R$ 79,90</p>
+                    </div>
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/banner-image.jpg">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">R$ 79,90</p>
+                    </div>
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/banner-image.jpg">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">R$ 79,90</p>
+                    </div>
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/banner-image.jpg">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">R$ 79,90</p>
+                    </div>
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/image.png">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">R$ 79,90</p>
+                    </div>
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/image.png">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">R$ 79,90</p>
+                    </div>
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/image.png">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">R$ 79,90</p>
+                    </div>
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/image.png">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">R$ 79,90</p>
+                    </div>
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/image.png">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">R$ 79,90</p>
+                    </div>
+                </div>
+
+
+                <div class="swiper-scrollbar"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+
+        </div>
+
+        <!-- Jogos em promoção -->
+
+        <h2 class="section-title">Jogos em promoção da categoria</h2>
+
+        <div class="games-slider swiper promo-slider">
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-wrapper">
+
+                <div class="game-card swiper-slide">
+                    <img src="../static/assents/img/image.png">
+                    <h3>Nome do jogo</h3>
+                    <p class="price">R$ 29,90</p>
+                </div>
+
+                <div class="game-card swiper-slide">
+                    <img src="../static/assents/img/image.png">
+                    <h3>Nome do jogo</h3>
+                    <p class="price">R$ 29,90</p>
+                </div>
+
+                <div class="game-card swiper-slide">
+                    <img src="../static/assents/img/image.png">
+                    <h3>Nome do jogo</h3>
+                    <p class="price">R$ 29,90</p>
+                </div>
+
+                <div class="game-card swiper-slide">
+                    <img src="../static/assents/img/banner-image.jpg">
+                    <h3>Nome do jogo</h3>
+                    <p class="price">R$ 29,90</p>
+                </div>
+                <div class="game-card swiper-slide">
+                    <img src="../static/assents/img/image.png">
+                    <h3>Nome do jogo</h3>
+                    <p class="price">R$ 29,90</p>
+                </div>
+                <div class="game-card swiper-slide">
+                    <img src="../static/assents/img/banner-image.jpg">
+                    <h3>Nome do jogo</h3>
+                    <p class="price">R$ 29,90</p>
+                </div>
+                <div class="game-card swiper-slide">
+                    <img src="../static/assents/img/banner-image.jpg">
+                    <h3>Nome do jogo</h3>
+                    <p class="price">R$ 29,90</p>
+                </div>
+                <div class="game-card swiper-slide">
+                    <img src="../static/assents/img/image.png">
+                    <h3>Nome do jogo</h3>
+                    <p class="price">R$ 29,90</p>
+                </div>
+                <div class="game-card swiper-slide">
+                    <img src="../static/assents/img/image.png">
+                    <h3>Nome do jogo</h3>
+                    <p class="price">R$ 29,90</p>
+                </div>
+                <div class="game-card swiper-slide">
+                    <img src="../static/assents/img/banner-image.jpg">
+                    <h3>Nome do jogo</h3>
+                    <p class="price">R$ 29,90</p>
+                </div>
+                <div class="game-card swiper-slide">
+                    <img src="../static/assents/img/image.png">
+                    <h3>Nome do jogo</h3>
+                    <p class="price">R$ 29,90</p>
+                </div>
+                <div class="game-card swiper-slide">
+                    <img src="../static/assents/img/banner-image.jpg">
+                    <h3>Nome do jogo</h3>
+                    <p class="price">R$ 29,90</p>
+                </div>
+
+            </div>
+
+            <div class="swiper-button-next"></div>
+            <div class="swiper-scrollbar"></div>
+
+        </div>
+
+    </section>
+    <!-- ===== SEÇÃO PRODUTOS end ===== -->
+
+
+    <!-- ********** footer ********** -->
+
+    <footer class="footer">
+        <div class="social-icons">
             <a href="#">
-        <i class="bx bxl-instagram"></i>
-      </a>
+                <i class="bx bxl-github"></i>
+            </a>
             <a href="#">
-        <i class="bx bxl-facebook"></i>
-      </a>
+                <i class="bx bxl-linkedin"></i>
+            </a>
             <a href="#">
-        <i class="bx bxl-twitter"></i>
-      </a>
-    </div>
+                <i class="bx bxl-instagram"></i>
+            </a>
+            <a href="#">
+                <i class="bx bxl-facebook"></i>
+            </a>
+            <a href="#">
+                <i class="bx bxl-twitter"></i>
+            </a>
+        </div>
 
-    <ul class="list">
-      <li>
-        <a href="Categoria.html">Categorias</a>
-      </li>
-      <li>
-        <a href="#about">Desenvolvedoras</a>
-      </li>
-      <li>
-        <a href="sobre.html">Sobre</a>
-      </li>
-      <li>
-        <a href="#contact">Adiministrador</a>
-      </li>
-    </ul>
+        <ul class="list">
+            <li>
+                <a href="Categoria.html">Categorias</a>
+            </li>
+            <li>
+                <a href="#about">Desenvolvedoras</a>
+            </li>
+            <li>
+                <a href="sobre.html">Sobre</a>
+            </li>
+            <li>
+                <a href="#contact">Adiministrador</a>
+            </li>
+        </ul>
 
-    <p class="copyright">getGroup. ©Todos os direitos reservados. 2026</p>
-  </footer>
+        <p class="copyright">getGroup. ©Todos os direitos reservados. 2026</p>
+    </footer>
 
-<!-- ********** footer end ********** -->
- 
+    <!-- ********** footer end ********** -->
+
     <!--***** Script *****-->
-        <!--Código de funcionalidades-->
+    <!--Código de funcionalidades-->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../static/vendor/jquery/jquery.min.js"></script>
     <script src="../static/vendor/bootstrap/js/bootstrap.min.js"></script>
