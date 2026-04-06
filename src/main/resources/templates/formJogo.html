@@ -89,6 +89,27 @@
 				<tr>
 					<th>Valor</th><td><input type="text" th:field="*{valor}" size="40"required/></td>
 				</tr>	
+        	<tr>
+					<th>Imagem</th><td><input type="text" th:field="*{imagem}" size="40"required/></td>
+				</tr>	
+         <tr>
+            <th>Imagem do Jogo</th>
+            <td>
+                <input type="file" 
+                       name="imagem" 
+                       accept="image/*" 
+                       class="form-control" 
+                       style="width: 100%; padding: 8px;">
+                
+                <!-- Mostrar imagem atual (quando estiver editando) -->
+                <div th:if="${jogo.imagem != null and jogo.imagem != ''}" style="margin-top: 10px;">
+                    <p>Imagem atual:</p>
+                    <img th:src="${jogo.imagem}" 
+                         alt="Imagem atual" 
+                         style="max-width: 200px; border: 1px solid #ddd;">
+                </div>
+            </td>
+        </tr>
 				<tr>
 					<th>Desenvolvedora</th>
 					<td><select th:field="*{desenvolvedora}" size="1">
@@ -98,6 +119,12 @@
 							<option th:value="Rockstar" th:text="Rockstar"></option>
 						</select>
 				</tr>	
+             <tr th:if="${message}">
+            <td colspan="2">
+                <div class="alert alert-info" th:text="${message}"></div>
+            </td>
+        </tr>
+
 				<tr>
 					<td colspan="2">
 						<input   style="font-size: large;"  type="submit" class="btn btn-success" value="Enviar">
@@ -168,3 +195,4 @@
 
 </body>
 </html>
+
