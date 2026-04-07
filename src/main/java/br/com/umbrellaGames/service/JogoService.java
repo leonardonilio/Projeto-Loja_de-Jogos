@@ -45,4 +45,12 @@ public class JogoService {
 	public Jogo salvarJogo(Jogo jogo){
 		return jogoRepository.save(jogo);
 	}
+
+    public List<Jogo> buscarGratuitos(){
+        return jogoRepository.findAll().stream().filter(jogo -> jogo.getValor() == 0).toList(); //verifica jogos gratuitos
+    }
+
+    public List<Jogo> buscarPromocao(){
+        return jogoRepository.findAll().stream().filter(jogo -> jogo.getValor() <= 30).toList(); // quais jogos estão em promoção
+    }
 }
