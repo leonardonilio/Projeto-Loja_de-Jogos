@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="Pt-br">
+<html lang="Pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -87,7 +87,7 @@
 		</tr>
 		<tr th:each="jogo : ${jogos}">
 			<td th:text="${jogo.idJogo}"></td>
-			<td><a th:href="@{/jogos/{idJogo} (id=${jogo.idJogo})}" th:text=" ${jogo.nomeJogo}"></td>
+            <td><a th:href="@{/jogos/{idJogo} (id=${jogo.idJogo})}" th:text=" ${jogo.nomeJogo}"></a>></td>
 			<td th:text="${jogo.desenvolvedora}"></td>
 			<td th:text="${jogo.valor}"></td>
 			<td>
@@ -108,7 +108,7 @@
 		</tr>
 		<tr th:each="categoria : ${categorias}">
 			<td th:text="${categoria.idCategoria}"></td>
-			<td><a th:href="@{/admin/{idCategoria} (id=${categoria.idCategoria})}" th:text=" ${categoria.nomeCategoria}"></td>
+            <td><a th:href="@{/admin/{idCategoria} (id=${categoria.idCategoria})}" th:text=" ${categoria.nomeCategoria}"></a>></td>
 			<td>
 				<a th:href="@{/admin/{id}/editCategoria (id=${categoria.idCategoria})}"> <img style="cursor:pointer" src="/assents/img/editar-texto.png" width="30px" height="30px"> </a>
 				<a th:href="@{/admin/{id}/deleteCategoria (id=${categoria.idCategoria})}"> <img style="cursor:pointer" src="/assents/img/lixeira-de-reciclagem.png" width="30px" height="30px"></a>
