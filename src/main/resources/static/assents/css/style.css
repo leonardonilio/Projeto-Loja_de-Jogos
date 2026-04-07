@@ -654,7 +654,7 @@ Page Header Style
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 100px 0px 100px 0px;
+  padding: 100px 0px 70px 0px;
   text-align: center;
 }
 
@@ -666,8 +666,12 @@ Page Header Style
 
 .page-heading span a {
   color: #fff;
+  transition: transform 0.6s ease;
 }
-
+.page-heading span a:hover {
+  color: var(--main-color);
+  text-decoration: underline;
+}
 .page-heading h3 {
   font-size: 48px;
   text-transform: uppercase;
@@ -980,7 +984,7 @@ transform:scale(1.1);
 }
 /* ===== POPULAR SECTION END ===== */
 
-/* ===== PRODUCT =====*/
+/* ===== PRODUCT (infoJogos) =====*/
 .section {
   margin-top: 120px;
 }
