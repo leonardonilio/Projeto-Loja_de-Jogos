@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="../static/assents/css/loader.css">
     <link rel="stylesheet" href="../static/assents/css/style.css">
     <link rel="stylesheet" href="../static/assents/css/footer.css">
-    
+
     <!-- Swiper Js-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <!--fonts -->
@@ -88,7 +88,16 @@
         </div>
     </header>
     <!-- ***** Header End *****-->
-
+  <div class="page-heading header-text">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h3>Categorias</h3>
+          <span class="breadcrumb"><a href="#">Home</a> > Categorias</span>
+        </div>
+      </div>
+    </div>
+  </div>
     <!--****** Top categories *****-->
     <section class="category-feature">
 
@@ -137,16 +146,17 @@
             <div class="feature-item" onclick="changeGame(3)">
                 <img src="../static/assents/img/banner-image.jpg">
             </div>
-
+    <button class="feature-arrow left">❮</button>
+    <button class="feature-arrow right">❯</button>
         </div>
 
     </section>
     <!--****** Top categories end ******-->
 
     <!--****** popular section ******-->
-    <section class="popular-section">
 
-        <h2 class="section-title">TÍTULOS POPULARES</h2>
+    <h2 class="category-title">TÍTULOS POPULARES</h2>
+    <section class="popular-section">
 
         <div class="popular-slider swiper">
 
@@ -158,32 +168,35 @@
                 <div class="swiper-slide popular-slide">
 
                     <div class="popular-grid">
+                        <div class="popular-top">
+                            <div class="game-big">
+                                <img src="../static/assents/img/image.png">
+                                <span class="price">R$299,00</span>
+                            </div>
 
-                        <div class="game-big">
-                            <img src="../static/assents/img/image.png">
-                            <span class="price">R$299,00</span>
+                            <div class="game-big">
+                                <img src="../static/assents/img/banner-image.jpg">
+                                <span class="price">R$138,65</span>
+                            </div>
                         </div>
+                        <!-- LINHA DE BAIXO -->
+                        <div class="popular-bottom">
+                            <div class="game-small">
+                                <img src="../static/assents/img/image.png">
+                                <span class="price">R$169,00</span>
+                            </div>
 
-                        <div class="game-big">
-                            <img src="../static/assents/img/banner-image.jpg">
-                            <span class="price">R$138,65</span>
+                            <div class="game-small">
+                                <img src="../static/assents/img/banner-image.jpg">
+                                <span class="price">R$24,97</span>
+                            </div>
+
+                            <div class="game-small">
+                                <img src="../static/assents/img/image.png">
+                                <span class="price">R$349,90</span>
+                            </div>
+
                         </div>
-
-                        <div class="game-small">
-                            <img src="../static/assents/img/image.png">
-                            <span class="price">R$169,00</span>
-                        </div>
-
-                        <div class="game-small">
-                            <img src="../static/assents/img/banner-image.jpg">
-                            <span class="price">R$24,97</span>
-                        </div>
-
-                        <div class="game-small">
-                            <img src="../static/assents/img/image.png">
-                            <span class="price">R$349,90</span>
-                        </div>
-
                     </div>
 
                 </div>
@@ -192,30 +205,32 @@
                 <div class="swiper-slide popular-slide">
 
                     <div class="popular-grid">
+                        <div class="popular-top">
+                            <div class="game-big">
+                                <img src="../static/assents/img/banner-image.jpg">
+                                <span class="price">R$199,00</span>
+                            </div>
 
-                        <div class="game-big">
-                            <img src="../static/assents/img/banner-image.jpg">
-                            <span class="price">R$199,00</span>
+                            <div class="game-big">
+                                <img src="../static/assents/img/image.png">
+                                <span class="price">R$89,90</span>
+                            </div>
                         </div>
+                        <div class="popular-bottom">
+                            <div class="game-small">
+                                <img src="../static/assents/img/image.png">
+                                <span class="price">R$169,00</span>
+                            </div>
 
-                        <div class="game-big">
-                            <img src="../static/assents/img/image.png">
-                            <span class="price">R$89,90</span>
-                        </div>
+                            <div class="game-small">
+                                <img src="../static/assents/img/banner-image.jpg">
+                                <span class="price">R$24,97</span>
+                            </div>
 
-                        <div class="game-small">
-                            <img src="../static/assents/img/image.png">
-                            <span class="price">R$69,90</span>
-                        </div>
-
-                        <div class="game-small">
-                            <img src="../static/assents/img/banner-image.jpg">
-                            <span class="price">R$49,90</span>
-                        </div>
-
-                        <div class="game-small">
-                            <img src="../static/assents/img/image.png">
-                            <span class="price">R$129,90</span>
+                            <div class="game-small">
+                                <img src="../static/assents/img/image.png">
+                                <span class="price">R$349,90</span>
+                            </div>
                         </div>
 
                     </div>
@@ -233,7 +248,7 @@
     </section>
     <!--****** popular section end ******-->
 
-        <!-- ===== SEÇÃO PRODUTOS ===== -->
+    <!-- ===== SEÇÃO PRODUTOS ===== -->
     <section class="games-section">
 
         <!-- Jogos Recomendados -->
@@ -413,7 +428,7 @@
         </div>
 
     </section>
-<!-- ===== SEÇÃO PRODUTOS end ===== -->
+    <!-- ===== SEÇÃO PRODUTOS end ===== -->
 
 
     <!-- ********** footer ********** -->
