@@ -18,7 +18,12 @@ public class CategoriaJogoService {
 	public List<CategoriaJogo> findAll(){
 		return categoriaJogoRepository.findAll();
 	}
-	
+  
+  //Código do Alex(não sei se vai atrapalhar - recado do Leo)
+  public List<Integer> buscarIdsJogos(Integer id){
+     return categoriaJogoRepository.findIdsJogosByCategoriaId(id);
+    }
+  
 	//Create
 	public CategoriaJogo saveCategoriaJogo(CategoriaJogo categoriajogo) {
 		return categoriaJogoRepository.save(categoriajogo);

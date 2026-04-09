@@ -1,7 +1,11 @@
 package br.com.umbrellaGames.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import br.com.umbrellaGames.model.entity.CategoriaJogo;
+import br.com.umbrellaGames.model.entity.CategoriaJogoId;
+import br.com.umbrellaGames.service.CategoriaJogoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +26,8 @@ public class JogoController {
 
 	@Autowired
 	private JogoService jogoService;
+    @Autowired
+    private CategoriaJogoService categoriaJogoService;
 	
 	@GetMapping
 	public List<Jogo> listarTodos(){
@@ -77,4 +83,19 @@ public class JogoController {
 		jogoAtualizar.setValor(jogo.getValor());
 		return jogoService.salvarJogo(jogoAtualizar);
 	}
+
+    @GetMapping("/jogoPorCategoria/{id}")
+    public List<Jogo> buscarJogoPelaCategoria(@PathVariable Integer id){
+        List<Integer> idsJogos = categoriaJogoService.buscarIdsJogos(id);
+
+        List<Jogo> jogosLista = new ArrayList<>();
+
+        for(Integer idJogo : idsJogos){
+            Jogo jogo = jogoService.buscarPorId(idJogo);
+            if (jogo != null) { //evitar que entre jogos null na lista
+                jogosLista.add(jogo);
+            }
+        }
+        return jogosLista;
+    }
 }
