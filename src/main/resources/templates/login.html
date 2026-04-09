@@ -32,7 +32,7 @@
         <div class="header-line">
 
             <div class="logo">
-                <a href="index.html">Umbrella Games</a>
+                <a th:href="@{/home}">Umbrella Games</a>
             </div>
             <i class="bx bx-menu" id="menu-icon"></i>
             <div class="search-box">
@@ -48,7 +48,7 @@
                 <div class="dropdown">
                     <button>Categorias ▾</button>
                     <div class="dropdown-content">
-                        <a class="" href="Categoria.html">Ação</a>
+                        <a class="@{#}" href="Categoria.html">Ação</a>
                         <a href="Categoria.html">RPG</a>
                         <a href="Categoria.html">Terror</a>
                     </div>
@@ -62,8 +62,8 @@
                     </div>
                 </div>
 
-                <a href="sobre.html">Sobre</a>
-                <a href="admin.html">Admin</a>
+                <a th:href="@{/about}">Sobre</a>
+                <a th:href="@{/admin/1}">Admin</a>
                 <a class="icon" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                         fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
                         <path
@@ -74,28 +74,35 @@
         </div>
     </header>
  <!--fim do header-->
-<br><br><br><br><br><br><br>s
-    <h3><label  style="display: block; text-align: center; font-size: xx-large;" th:text="${novo} ?'Novo ' : 'Editar '"></label></h3>
-	<br>	
-    <br>
-    <form th:action="@{/admin/saveCategoria}" th:object="${categoria}" method="post">
-			<table style="font-size: 40px;margin-left: auto; margin-right: auto" border="1">
-				<tr>
-					<th>ID</th><td><input type="text" th:field="*{idCategoria}" size="40" readonly /></td>
-				</tr>	
-				<tr>
-					<th>Nome</th><td><input type="text" th:field="*{nomeCategoria}" size="40" required /></td>
-				</tr>		
-				<tr>
-					<td colspan="2">
-						<input   style="font-size: large;"  type="submit" class="btn btn-success" value="Enviar">
-						<a th:href="@{/admin/}">Sair</a>
-					</td>	
-				</tr>
-			</table>
-		</form>
+<br><br><br><br><br><br><br>
 
-<br><br><br><br><br><br><br><br><br><br><br>
+
+	<h2 style="text-align: center; font-size: x-large;">Login</h2>
+  <br>
+  <hr>
+  <br>
+<form style="display: flex; flex-direction: column; align-items: center; text-align: center;" th:action="@{/admin/1}" method="post"></form>
+    <label style="display: flex; flex-direction: column; align-items: center; font-size: x-large;">Usuário:</label>
+    <br>
+    <input type="text" style="display: block; margin: 0 auto; width: 300px; height: 30px;" name="username" required>
+    <br>
+    <br>
+    <br>
+    <label style="display: flex; flex-direction: column; align-items: center; font-size: x-large;"> Senha:</label>
+   <br> <input type="password" style="display: block; margin: 0 auto; width: 300px; height: 30px;" name="password" required>
+<br>
+<br>
+<br>
+    <button type="submit" style="display: block; margin: 0 auto; width: 300px; height: 30px; font-size: large;">Entrar</button>
+</form>
+
+<p th:if="${erro}" th:text="${erro}" style="color:red;"></p>
+
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
+
 
 
 
