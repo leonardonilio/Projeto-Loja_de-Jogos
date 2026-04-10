@@ -21,9 +21,9 @@
     <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../static/vendor/bootstrap/css/swiper-bundle.min.css" rel="stylesheet">
     <!--css-->
-    <link rel="stylesheet" href="../static/assents/css/loader.css">
-    <link rel="stylesheet" href="../static/assents/css/style.css">
-    <link rel="stylesheet" href="../static/assents/css/footer.css">
+    <link rel="stylesheet" th:href="@{/assents/css/loader.css}">
+    <link rel="stylesheet" th:href="@{/assents/css/style.css}">
+    <link rel="stylesheet" th:href="@{/assents/css/footer.css}">
 
     <!-- Swiper Js-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -64,9 +64,10 @@
                 <div class="dropdown">
                     <button>Categorias ▾</button>
                     <div class="dropdown-content">
-                        <a class="" href="Categoria.html">Ação</a>
-                        <a href="Categoria.html">RPG</a>
-                        <a href="Categoria.html">Terror</a>
+						<a th:each="cat : ${categorias}"
+						   th:href="@{/categoria/{id}(id=${cat.idCategoria})}"
+						   th:text="${cat.nomeCategoria}">
+						</a>
                     </div>
                 </div>
 
@@ -486,8 +487,8 @@
     <script src="../static/vendor/jquery/jquery.min.js"></script>
     <script src="../static/vendor/bootstrap/js/bootstrap.min.js"></script>
     <!--Codigo de Javascript-->
-    <script src="../static/assents/js/function.js"></script>
-    <script src="../static/assents/js/script.js"></script>
+    <script th:src="@{/assents/js/function.js}"></script>
+    <script th:src="@{/assents/js/script.js}"></script>
 
 
 </body>

@@ -32,21 +32,21 @@ public class CategoriaJogoService {
 	//delete
 	@Transactional
 	public void deleteCategoriaJogo(int idCategoria, int idJogo) {
-		categoriaJogoRepository.deleteByIdCategoriaAndIdJogo(idCategoria, idJogo);
+		categoriaJogoRepository.deleteByIdIdCategoriaAndIdIdJogo(idCategoria, idJogo);
 	}
 	
 	//Buscar por id da categoria
 	public List<CategoriaJogo> buscarPorIdCategoria(int idCategoria) {
-	    return categoriaJogoRepository.findByIdCategoria(idCategoria);
+	    return categoriaJogoRepository.findByIdIdCategoria(idCategoria);
 	}
 	
 	//Buscar por id do jogo 
 	public List<CategoriaJogo> buscarPorIdJogo(int idJogo) {
-	    return categoriaJogoRepository.findByIdJogo(idJogo);
+	    return categoriaJogoRepository.findByIdIdJogo(idJogo);
 	}
 	
 	//buscar pot id da categoria e do jogo
 	public CategoriaJogo buscarPorAmbos(int IdCategoria, int IdJogo) {
-		return categoriaJogoRepository.findByIdCategoriaAndIdJogo(IdCategoria, IdJogo);
+		return categoriaJogoRepository.findByIdIdCategoriaAndIdIdJogo(IdCategoria, IdJogo);
 	}
 }

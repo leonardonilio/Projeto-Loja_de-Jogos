@@ -17,6 +17,10 @@ public class JogoService {
 	public List<Jogo> findAll(){
 		return jogoRepository.findAll();
 	}
+	
+	public List<Jogo> findJogosByCategoria(int idCategoria) {
+	    return jogoRepository.findByCategoria(idCategoria);
+	}
 
 	public Jogo buscarPorId(int id){
 		return jogoRepository.findById(id).get();
