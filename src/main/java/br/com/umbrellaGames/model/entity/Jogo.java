@@ -14,6 +14,7 @@ public class Jogo {
 	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idJogo;
+	private Integer idCategoria;
 	private String nomeJogo;
 	private String desenvolvedora;
 	private String imagem;
@@ -25,9 +26,10 @@ public class Jogo {
 	
 	public Jogo() {}
 	
-	public Jogo(int idJogo, String nomeJogo, String desenvolvedora, String imagem, String detalhes, double valor, double nota) {
+	public Jogo(int idJogo, int idCategoria, String nomeJogo, String desenvolvedora, String imagem, String detalhes, double valor, double nota) {
 		super();
 		this.idJogo = idJogo;
+		this.idCategoria = idCategoria;
 		this.nomeJogo = nomeJogo;
 		this.desenvolvedora = desenvolvedora;
 		this.imagem = imagem;
@@ -44,6 +46,18 @@ public class Jogo {
 
 	public void setIdJogo(int idJogo) {
 		this.idJogo = idJogo;
+	}
+
+	public int getIdCategoria() {
+		return idCategoria;
+	}
+
+	public void setIdCategoria(int idCategoria) {
+		this.idCategoria = idCategoria;
+	}
+
+	public void setIdCategoria() {
+		idCategoria = null;
 	}
 
 	public String getNomeJogo() {

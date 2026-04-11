@@ -8,13 +8,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.umbrellaGames.model.entity.Categoria;
+import br.com.umbrellaGames.model.entity.Jogo;
 import br.com.umbrellaGames.repository.CategoriaRepository;
+import br.com.umbrellaGames.repository.JogoRepository;
 
 @Service
 public class CategoriaService {
 
 	@Autowired
 	private CategoriaRepository categoriaRepository;
+    private JogoRepository JogoRepository;
 	
 	public List<Categoria> findAll(){
 		return categoriaRepository.findAll();
@@ -41,6 +44,13 @@ public class CategoriaService {
 	}
 
 	public void deletarCategoria(int id){
+        List<Jogo> jogos = JogoRepository.findAllByIdCategoria(id);
+
+        for (Jogo jogo : jogos) {
+            jogo.setIdCategoria();
+            JogoRepository.save(jogo);
+        }
+
 		categoriaRepository.deleteById(id);
 	}
 
@@ -48,4 +58,3 @@ public class CategoriaService {
 		return categoriaRepository.save(categoria);
 	}
 }
-

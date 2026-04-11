@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Categorias</title>
+    <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -15,9 +15,9 @@
     <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../static/vendor/bootstrap/css/swiper-bundle.min.css" rel="stylesheet">
     <!--css-->
-    <link rel="stylesheet" th:href="@{/assents/css/loader.css}">
-    <link rel="stylesheet" th:href="@{/assents/css/style.css}">
-    <link rel="stylesheet" th:href="@{/assents/css/footer.css}">
+    <link rel="stylesheet" href="../static/assents/css/loader.css">
+    <link rel="stylesheet" href="../static/assents/css/style.css">
+    <link rel="stylesheet" href="../static/assents/css/footer.css">
 
     <!-- Swiper Js-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -62,18 +62,17 @@
                 <div class="dropdown">
                     <button>Categorias ▾</button>
                     <div class="dropdown-content">
-						<a th:each="cat : ${categorias}"
-                           th:href="@{/categoria/{id}(id=${cat.idCategoria})}"
-						   th:text="${cat.nomeCategoria}">
-						</a>
+                        <a class="" href="Categoria.html">Ação</a>
+                        <a href="Categoria.html">RPG</a>
+                        <a href="Categoria.html">Terror</a>
                     </div>
                 </div>
 
                 <div class="dropdown">
                     <button>Desenvolvedora ▾</button>
                     <div class="dropdown-content">
-                        <a href="desenvolvedora.html">Ubisoft</a>
-                        <a href="desenvolvedora.html">EA</a>
+                        <a href="#">Ubisoft</a>
+                        <a href="#">EA</a>
                     </div>
                 </div>
 
@@ -94,7 +93,7 @@
       <div class="row">
         <div class="col-lg-12">
           <h3>Categorias</h3>
-          <span class="breadcrumb"><a href="index.html">Home</a> > Categorias</span>
+          <span class="breadcrumb"><a href="#">Home</a> > Categorias</span>
         </div>
       </div>
     </div>
@@ -102,79 +101,51 @@
     <!--****** Top categories *****-->
     <section class="category-feature">
 
-        <h2 class="category-title" th:text="${categoria.nomeCategoria}"></h2>
+        <h2 class="category-title">Terror</h2>
 
         <div class="feature-container">
 
             <!-- imagem grande -->
-            <a class="feature-image"
-				 th:href="@{'/jogo/' + ${destaqueJogos[0].idJogo}}">
-                <img id="feature-img" th:src="@{/assents/img/image.png}">
-            </a>
+            <div class="feature-image">
+                <img id="feature-img" src="../static/assents/img/image.png">
+            </div>
 
             <!-- painel de informações -->
             <div class="feature-info">
 
-                <h3 id="game-title"></h3>
+                <h3 id="game-title">Phasmophobia</h3>
 
-                <p id="game-description"></p>
-            
+                <p id="game-description">
+                    Jogo cooperativo de terror psicológico onde os jogadores investigam
+                    atividades paranormais utilizando equipamentos especiais.
+                </p>
+
                 <div class="game-rating" id="game-rating"></div>
 
-                <div class="game-price" id="game-price"></div>
+                <div class="game-price" id="game-price">R$59,90</div>
 
             </div>
 
         </div>
 
         <!-- lista de jogos -->
-         <div class="feature-list">
+        <div class="feature-list">
 
-		 <div class="feature-item" onclick="changeGame(0)"
-		      th:if="${destaqueJogos.size() > 0 and destaqueJogos[0].imagem != null}"
-			  th:attr="data-title=${destaqueJogos[0].nomeJogo},
-			                data-description=${destaqueJogos[0].detalhes},
-			                data-price=${destaqueJogos[0].valor},
-							data-rating=${destaqueJogos[0].nota},
-			                data-image=${#strings.replace(destaqueJogos[0].imagem, '/resources', '')}">
-		     <img th:if="${destaqueJogos[0].imagem != null}"
-		          th:src="@{${#strings.replace(destaqueJogos[0].imagem, '/resources', '')}}">
-		 </div>
+            <div class="feature-item" onclick="changeGame(0)">
+                <img src="../static/assents/img/image.png">
+            </div>
 
-		 <div class="feature-item" onclick="changeGame(1)"
-		      th:if="${destaqueJogos.size() > 1 and destaqueJogos[1].imagem != null}"
-			  th:attr="data-title=${destaqueJogos[1].nomeJogo},
-			                data-description=${destaqueJogos[1].detalhes},
-			                data-price=${destaqueJogos[1].valor},
-							data-rating=${destaqueJogos[1].nota},
-			                data-image=${#strings.replace(destaqueJogos[1].imagem, '/resources', '')}">
-		     <img th:if="${destaqueJogos[1].imagem != null}"
-		          th:src="@{${#strings.replace(destaqueJogos[1].imagem, '/resources', '')}}">
-		 </div>
+            <div class="feature-item" onclick="changeGame(1)">
+                <img src="../static/assents/img/banner-image.jpg">
+            </div>
 
-		 <div class="feature-item" onclick="changeGame(2)"
-		      th:if="${destaqueJogos.size() > 2 and destaqueJogos[2].imagem != null}"
-			  th:attr="data-title=${destaqueJogos[2].nomeJogo},
-			  		         data-description=${destaqueJogos[2].detalhes},
-			  		         data-price=${destaqueJogos[2].valor},
-			  			     data-rating=${destaqueJogos[2].nota},
-			  		         data-image=${#strings.replace(destaqueJogos[2].imagem, '/resources', '')}">
-		     <img th:if="${destaqueJogos[2].imagem != null}"
-		          th:src="@{${#strings.replace(destaqueJogos[2].imagem, '/resources', '')}}">
-		 </div>
+            <div class="feature-item" onclick="changeGame(2)">
+                <img src="../static/assents/img/image.png">
+            </div>
 
-		 <div class="feature-item" onclick="changeGame(3)"
-		      th:if="${destaqueJogos.size() > 3 and destaqueJogos[3].imagem != null}"
-			  th:attr="data-title=${destaqueJogos[3].nomeJogo},
-			  		          data-description=${destaqueJogos[3].detalhes},
-			  		          data-price=${destaqueJogos[3].valor},
-			  				  data-rating=${destaqueJogos[3].nota},
-			  		          data-image=${#strings.replace(destaqueJogos[3].imagem, '/resources', '')}">
-		     <img th:if="${destaqueJogos[3].imagem != null}"
-		          th:src="@{${#strings.replace(destaqueJogos[3].imagem, '/resources', '')}}">
-		 </div>
-			    
-            
+            <div class="feature-item" onclick="changeGame(3)">
+                <img src="../static/assents/img/banner-image.jpg">
+            </div>
     <button class="feature-arrow left">❮</button>
     <button class="feature-arrow right">❯</button>
         </div>
@@ -190,73 +161,90 @@
         <div class="popular-slider swiper">
 
             <div class="swiper-button-prev"></div>
-			<div class="swiper-button-next"></div>
 
             <div class="swiper-wrapper">
 
                 <!-- SLIDE -->
-                <div class="swiper-slide popular-slide"
-				th:each="i : ${#numbers.sequence(0, jogos.size() - 1, 5)}">
+                <div class="swiper-slide popular-slide">
 
-				<div class="popular-grid">
+                    <div class="popular-grid">
+                        <div class="popular-top">
+                            <div class="game-big">
+                                <img src="../static/assents/img/image.png">
+                                <span class="price">R$299,00</span>
+                            </div>
 
-				            
-				            <div class="popular-top">
-
-				                <!-- Item 1 -->
-				                <a class="game-big"
-									th:href="@{'/jogo/' + ${jogos[i].idJogo}}">
-									<img th:src="${jogos.size() > i 
-									    ? #strings.replace(jogos[i].imagem, '/resources', '') 
-									    : '/assents/img/image.png'}">
-				                    <span class="price" th:text="${jogos.size() > i ? jogos[i].valor : ''}"></span>
-				                </a>
-
-				                <!-- Item 2 -->
-				                <a class="game-big"
-									th:href="@{'/jogo/' + ${jogos[i].idJogo}}">
-									<img th:src="${jogos.size() > i+1 
-									    ? #strings.replace(jogos[i+1].imagem, '/resources', '') 
-									    : '/assents/img/image.png'}">
-				                    <span class="price" th:text="${jogos.size() > i+1 ? jogos[i+1].valor : ''}"></span>
-				                </a>
-								
-				            </div>
+                            <div class="game-big">
+                                <img src="../static/assents/img/banner-image.jpg">
+                                <span class="price">R$138,65</span>
+                            </div>
+                        </div>
                         <!-- LINHA DE BAIXO -->
                         <div class="popular-bottom">
-							
-							   <!-- Item 3 -->
-							   <a class="game-small"
-								th:href="@{'/jogo/' + ${jogos[i].idJogo}}">
-								<img th:src="${jogos.size() > i+2 
-								    ? #strings.replace(jogos[i+2].imagem, '/resources', '') 
-								    : '/assents/img/image.png'}">
-							       <span class="price" th:text="${jogos.size() > i+2 ? jogos[i+2].valor : ''}"></span>
-							   </a>
-							   <!-- Item 4 -->
-							   <a class="game-small"
-								th:href="@{'/jogo/' + ${jogos[i].idJogo}}">
-								<img th:src="${jogos.size() > i+3 
-								    ? #strings.replace(jogos[i+3].imagem, '/resources', '') 
-								    : '/assents/img/image.png'}">
-							       <span class="price" th:text="${jogos.size() > i+3 ? jogos[i+3].valor : ''}"></span>
-							   </a>
-							   <!-- Item 5 -->
-							   <a class="game-small"
-								th:href="@{'/jogo/' + ${jogos[i].idJogo}}">
-								<img th:src="${jogos.size() > i+4 
-								    ? #strings.replace(jogos[i+4].imagem, '/resources', '') 
-								    : '/assents/img/image.png'}">
-							       <span class="price" th:text="${jogos.size() > i+4 ? jogos[i+4].valor : ''}"></span>
-							   </a>
+                            <div class="game-small">
+                                <img src="../static/assents/img/image.png">
+                                <span class="price">R$169,00</span>
+                            </div>
 
-					    </div>
+                            <div class="game-small">
+                                <img src="../static/assents/img/banner-image.jpg">
+                                <span class="price">R$24,97</span>
+                            </div>
 
-				</div>
+                            <div class="game-small">
+                                <img src="../static/assents/img/image.png">
+                                <span class="price">R$349,90</span>
+                            </div>
 
-		</div>
+                        </div>
+                    </div>
 
-</div>
+                </div>
+
+                <!-- SLIDE 2 -->
+                <div class="swiper-slide popular-slide">
+
+                    <div class="popular-grid">
+                        <div class="popular-top">
+                            <div class="game-big">
+                                <img src="../static/assents/img/banner-image.jpg">
+                                <span class="price">R$199,00</span>
+                            </div>
+
+                            <div class="game-big">
+                                <img src="../static/assents/img/image.png">
+                                <span class="price">R$89,90</span>
+                            </div>
+                        </div>
+                        <div class="popular-bottom">
+                            <div class="game-small">
+                                <img src="../static/assents/img/image.png">
+                                <span class="price">R$169,00</span>
+                            </div>
+
+                            <div class="game-small">
+                                <img src="../static/assents/img/banner-image.jpg">
+                                <span class="price">R$24,97</span>
+                            </div>
+
+                            <div class="game-small">
+                                <img src="../static/assents/img/image.png">
+                                <span class="price">R$349,90</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="swiper-scrollbar"></div>
+
+            <div class="swiper-button-next"></div>
+
+        </div>
+
     </section>
     <!--****** popular section end ******-->
 
@@ -271,35 +259,92 @@
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-wrapper">
 
-					<!-- CARD -->
-					<a class="game-card swiper-slide"
-					     th:each="i : ${#numbers.sequence(0, 9)}"
-						 th:href="${i < jogos.size()
-						         ? '/jogo/' + jogos[i].idJogo
-						         : '#'}">
-						 
+                    <!-- CARD -->
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/image.png">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">R$ 79,90</p>
+                    </div>
 
-					    <!-- Imagem -->
-					    <img th:src="${i < jogos.size()
-					        ? #strings.replace(jogos[i].imagem, '/resources', '')
-					        : '/assents/img/image.png'}">
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/image.png">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">R$ 79,90</p>
+                    </div>
 
-					    <!-- Nome -->
-					    <h3 th:text="${i < jogos.size()
-					        ? jogos[i].nomeJogo
-					        : 'Sem jogo'}"></h3>
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/image.png">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">R$ 79,90</p>
+                    </div>
 
-					    <!-- Preço -->
-					    <p class="price" th:text="${i < jogos.size()
-					        ? jogos[i].valor
-					        : ''}"></p>
-							
-							</a>
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/image.png">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">R$ 79,90</p>
+                    </div>
 
-					</div>
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/banner-image.jpg">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">R$ 79,90</p>
+                    </div>
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/banner-image.jpg">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">R$ 79,90</p>
+                    </div>
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/banner-image.jpg">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">R$ 79,90</p>
+                    </div>
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/banner-image.jpg">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">R$ 79,90</p>
+                    </div>
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/banner-image.jpg">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">R$ 79,90</p>
+                    </div>
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/banner-image.jpg">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">R$ 79,90</p>
+                    </div>
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/image.png">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">R$ 79,90</p>
+                    </div>
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/image.png">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">R$ 79,90</p>
+                    </div>
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/image.png">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">R$ 79,90</p>
+                    </div>
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/image.png">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">R$ 79,90</p>
+                    </div>
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/image.png">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">R$ 79,90</p>
+                    </div>
+                </div>
+
 
                 <div class="swiper-scrollbar"></div>
                 <div class="swiper-button-next"></div>
+            </div>
 
         </div>
 
@@ -311,36 +356,76 @@
             <div class="swiper-button-prev"></div>
             <div class="swiper-wrapper">
 
-				<!-- CARD -->
-				<a class="game-card swiper-slide"
-					 th:each="i : ${#numbers.sequence(0, 9)}"
-					 th:href="${i < jogos.size()
-					         ? '/jogo/' + jogos[i].idJogo
-					         : '#'}">
+                <div class="game-card swiper-slide">
+                    <img src="../static/assents/img/image.png">
+                    <h3>Nome do jogo</h3>
+                    <p class="price">R$ 29,90</p>
+                </div>
 
-				<!-- Imagem -->
-				<img th:src="${i < jogos.size()
-					 ? #strings.replace(jogos[i].imagem, '/resources', '')
-					 : '/assents/img/image.png'}">
+                <div class="game-card swiper-slide">
+                    <img src="../static/assents/img/image.png">
+                    <h3>Nome do jogo</h3>
+                    <p class="price">R$ 29,90</p>
+                </div>
 
-				<!-- Nome -->
-				<h3 th:text="${i < jogos.size()
-					? jogos[i].nomeJogo
-					: 'Sem jogo'}"></h3>
+                <div class="game-card swiper-slide">
+                    <img src="../static/assents/img/image.png">
+                    <h3>Nome do jogo</h3>
+                    <p class="price">R$ 29,90</p>
+                </div>
 
-				<!-- Preço -->
-				<p class="price" th:text="${i < jogos.size()
-				   ? jogos[i].valor
-				   : ''}"></p>
-											
-			</a>
+                <div class="game-card swiper-slide">
+                    <img src="../static/assents/img/banner-image.jpg">
+                    <h3>Nome do jogo</h3>
+                    <p class="price">R$ 29,90</p>
+                </div>
+                <div class="game-card swiper-slide">
+                    <img src="../static/assents/img/image.png">
+                    <h3>Nome do jogo</h3>
+                    <p class="price">R$ 29,90</p>
+                </div>
+                <div class="game-card swiper-slide">
+                    <img src="../static/assents/img/banner-image.jpg">
+                    <h3>Nome do jogo</h3>
+                    <p class="price">R$ 29,90</p>
+                </div>
+                <div class="game-card swiper-slide">
+                    <img src="../static/assents/img/banner-image.jpg">
+                    <h3>Nome do jogo</h3>
+                    <p class="price">R$ 29,90</p>
+                </div>
+                <div class="game-card swiper-slide">
+                    <img src="../static/assents/img/image.png">
+                    <h3>Nome do jogo</h3>
+                    <p class="price">R$ 29,90</p>
+                </div>
+                <div class="game-card swiper-slide">
+                    <img src="../static/assents/img/image.png">
+                    <h3>Nome do jogo</h3>
+                    <p class="price">R$ 29,90</p>
+                </div>
+                <div class="game-card swiper-slide">
+                    <img src="../static/assents/img/banner-image.jpg">
+                    <h3>Nome do jogo</h3>
+                    <p class="price">R$ 29,90</p>
+                </div>
+                <div class="game-card swiper-slide">
+                    <img src="../static/assents/img/image.png">
+                    <h3>Nome do jogo</h3>
+                    <p class="price">R$ 29,90</p>
+                </div>
+                <div class="game-card swiper-slide">
+                    <img src="../static/assents/img/banner-image.jpg">
+                    <h3>Nome do jogo</h3>
+                    <p class="price">R$ 29,90</p>
+                </div>
 
-	</div>
+            </div>
 
-<div class="swiper-scrollbar"></div>
-<div class="swiper-button-next"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-scrollbar"></div>
 
-</div>
+        </div>
 
     </section>
     <!-- ===== SEÇÃO PRODUTOS end ===== -->
@@ -372,7 +457,7 @@
                 <a href="Categoria.html">Categorias</a>
             </li>
             <li>
-                <a href="desenvolvedora.html">Desenvolvedoras</a>
+                <a href="#about">Desenvolvedoras</a>
             </li>
             <li>
                 <a href="sobre.html">Sobre</a>
@@ -394,8 +479,8 @@
     <script src="../static/vendor/jquery/jquery.min.js"></script>
     <script src="../static/vendor/bootstrap/js/bootstrap.min.js"></script>
     <!--Codigo de Javascript-->
-    <script th:src="@{/assents/js/function.js}"></script>
-    <script th:src="@{/assents/js/script.js}"></script>
+    <script src="../static/assents/js/function.js"></script>
+    <script src="../static/assents/js/script.js"></script>
 </body>
 
 </html>

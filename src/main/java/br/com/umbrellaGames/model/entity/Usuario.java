@@ -66,7 +66,7 @@ public class Usuario {
 		this.senhaUsuario = senhaUsuario;
 	}
 
-	public boolean getAdministrador() {
+	public boolean isAdministrador() {
 		return administrador;
 	}
 

@@ -87,7 +87,7 @@
 		</tr>
 		<tr th:each="jogo : ${jogos}">
 			<td th:text="${jogo.idJogo}"></td>
-			<td><a th:href="@{/jogos/{idJogo} (id=${jogo.idJogo})}" th:text=" ${jogo.nomeJogo}"></td>
+			<td><a th:href="@{/admin/1/{id}/editJogo (id=${jogo.idJogo})}" th:text=" ${jogo.nomeJogo}"></td>
 			<td th:text="${jogo.desenvolvedora}"></td>
 			<td th:text="${jogo.valor}"></td>
 			<td>

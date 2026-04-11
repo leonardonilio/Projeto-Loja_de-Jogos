@@ -122,19 +122,50 @@ slidesPerView: 5
 });
 let currentGame = 0;
 
-
 document.querySelector(".feature-arrow.right").onclick = () => {
-  const total = document.querySelectorAll(".feature-item").length;
-  currentGame = (currentGame + 1) % total;
+  currentGame = (currentGame + 1) % games.length;
   changeGame(currentGame);
 };
 
 document.querySelector(".feature-arrow.left").onclick = () => {
-  const total = document.querySelectorAll(".feature-item").length;
-  currentGame = (currentGame - 1 + total) % total;
+  currentGame = (currentGame - 1 + games.length) % games.length;
   changeGame(currentGame);
 };
+const games = [
 
+{
+image:"../static/assents/img/image.png",
+title:"Phasmophobia",
+description:"Jogo cooperativo de terror psicológico investigando atividade paranormal.",
+price:"R$59,90",
+rating:9
+},
+
+{
+image:"../static/assents/img/banner-image.jpg",
+title:"Outlast",
+description:"Explore um hospital abandonado cheio de horrores.",
+price:"R$49,90",
+rating:8
+},
+
+{
+image:"../static/assents/img/image.png",
+title:"The Forest",
+description:"Sobrevivência em uma floresta cheia de mutantes.",
+price:"R$37,90",
+rating:9
+},
+
+{
+image:"../static/assents/img/banner-image.jpg",
+title:"Dead by Daylight",
+description:"Multiplayer onde um jogador é o assassino.",
+price:"R$59,90",
+rating:7
+}
+
+]
 
 function renderStars(score){
 
@@ -157,28 +188,18 @@ return stars
 function changeGame(index){
   currentGame = index;
 
-  const items = document.querySelectorAll(".feature-item");
-  const game = items[index];
-
-  const title = game.getAttribute("data-title");
-  const description = game.getAttribute("data-description");
-  const price = game.getAttribute("data-price");
-  const image = game.getAttribute("data-image");
-  const rating = game.getAttribute("data-rating");
-  
   document.getElementById("feature-img").style.opacity = 0;
 
   setTimeout(() => {
-    document.getElementById("feature-img").src = image;
+    document.getElementById("feature-img").src = games[index].image;
     document.getElementById("feature-img").style.opacity = 1;
   }, 200);
-  
-  document.getElementById("game-title").innerText = title;
-  document.getElementById("game-description").innerText = description;
-  document.getElementById("game-price").innerText = price;
-  document.getElementById("game-rating").innerHTML = renderStars(rating);
 
-  
+  document.getElementById("game-title").innerText = games[index].title;
+  document.getElementById("game-description").innerText = games[index].description;
+  document.getElementById("game-price").innerText = games[index].price;
+  document.getElementById("game-rating").innerHTML = renderStars(games[index].rating);
+
   // ativa thumbnail
   document.querySelectorAll(".feature-item").forEach((el, i) => {
     el.classList.toggle("active", i === index);
@@ -190,7 +211,7 @@ new Swiper(".popular-slider",{
 slidesPerView:1,
 spaceBetween:20,
 
-loop:false,
+loop:true,
 
 navigation:{
 nextEl:".popular-slider .swiper-button-next",
@@ -199,26 +220,9 @@ prevEl:".popular-slider .swiper-button-prev",
 
 scrollbar:{
 el:".popular-slider .swiper-scrollbar",
-draggable:true,
+draggable:true
 },
-
-observer: true,
-observeParents: true,
-observeSlideChildren: true,
-
-updateOnWindowResize: true,
 
 speed:800
 
 });
-
-
-window.onload = () => {
-  const items = document.querySelectorAll(".feature-item");
-
-  if (items.length > 0) {
-    changeGame(0);
-  }
-};
-
-
