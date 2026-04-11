@@ -147,7 +147,7 @@
                 <div class="swiper-wrapper">
                     <!-- CARD -->
                     <div class="game-card swiper-slide" th:each="jogo : ${recomendados}">
-                        <img th:src="${jogo.imagem}"> <!--Faz um loop e preenche com os jogos-->
+                        <img th:src="@{${jogo.imagem}}"> <!--Faz um loop e preenche com os jogos-->
                         <h3 th:text="${jogo.nomeJogo}"></h3>
                         <p class="price" th:text="${jogo.valor}"></p>
                     </div>
@@ -166,7 +166,7 @@
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-wrapper">
                     <div class="game-card swiper-slide" th:each="jogo : ${gratuitos}">
-                        <img th:src="${jogo.imagem}">
+                        <img th:src="@{${jogo.imagem}}">
                         <h3 th:text="${jogo.nomeJogo}"></h3>
                         <p class="price" th:text="${jogo.valor}"></p>
                     </div>
@@ -189,7 +189,7 @@
             <div class="swiper-wrapper">
 
                 <div class="game-card swiper-slide" th:each="jogo : ${promocao}">
-                    <img th:src="${jogo.imagem}">
+                    <img th:src="@{${jogo.imagem}}">
                     <h3 th:text="${jogo.nomeJogo}"></h3>
                     <p class="price" th:text="${jogo.valor}"></p>
                 </div>

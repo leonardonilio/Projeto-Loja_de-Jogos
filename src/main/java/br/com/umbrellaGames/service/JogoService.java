@@ -15,7 +15,21 @@ public class JogoService {
 	private JogoRepository jogoRepository;
 	
 	public List<Jogo> findAll(){
-		return jogoRepository.findAll();
+        List<Jogo> jogos = jogoRepository.findAll();
+
+        for (Jogo jogo : jogos) {
+            String caminho = jogo.getImagem();
+
+            // a bosta do resources no caminho estava atrapalhando o aparecimento das imagens
+            caminho = caminho.replace("/resources", "");
+
+            jogo.setImagem(caminho);
+        }
+        return jogos;
+	}
+	
+	public List<Jogo> findJogosByCategoria(int idCategoria) {
+	    return jogoRepository.findByCategoria(idCategoria);
 	}
 
 	public Jogo buscarPorId(int id){
@@ -51,6 +65,6 @@ public class JogoService {
     }
 
     public List<Jogo> buscarPromocao(){
-        return jogoRepository.findAll().stream().filter(jogo -> jogo.getValor() <= 30).toList(); // quais jogos estão em promoção
+        return jogoRepository.findAll().stream().filter(jogo -> jogo.getValor() <= 30 && jogo.getValor() != 0).toList(); // quais jogos estão em promoção
     }
 }

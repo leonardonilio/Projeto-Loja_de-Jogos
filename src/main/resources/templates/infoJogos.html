@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- bibliotecas do css -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <!-- Bootstrap-->
+  <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../static/vendor/bootstrap/css/swiper-bundle.min.css" rel="stylesheet">
+  <!--css-->
+  <link rel="stylesheet" href="../static/assents/css/loader.css">
+  <link rel="stylesheet" href="../static/assents/css/style.css">
+  <link rel="stylesheet" href="../static/assents/css/footer.css">
+
+  <!-- Swiper Js-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <!--fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+
+  <!-- ***** Header *****-->
+  <header class="header">
+    <div class="header-line">
+
+      <div class="logo">
+        <a href="index.html">Umbrella Games</a>
+      </div>
+      <i class="bx bx-menu" id="menu-icon"></i>
+      <div class="search-box">
+        <input type="text" placeholder="Buscar jogos...">
+        <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
+            viewBox="0 0 16 16">
+            <path
+              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+          </svg></button>
+      </div>
+
+      <nav class="nav-links">
+        <div class="dropdown">
+          <button>Categorias ▾</button>
+          <div class="dropdown-content">
+            <a class="" href="Categoria.html">Ação</a>
+            <a href="Categoria.html">RPG</a>
+            <a href="Categoria.html">Terror</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button>Desenvolvedora ▾</button>
+          <div class="dropdown-content">
+                        <a href="desenvolvedora.html">Ubisoft</a>
+                        <a href="desenvolvedora.html">EA</a>
+          </div>
+        </div>
+
+        <a href="sobre.html">Sobre</a>
+        <a href="#">Admin</a>
+        <a class="icon" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+            class="bi bi-cart" viewBox="0 0 16 16">
+            <path
+              d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
+          </svg></a>
+      </nav>
+
+    </div>
+  </header>
+  <!-- ***** Header End *****-->
+
+  <!--****** BAnner *****-->
+  <div class="page-heading header-text">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h3>Nome do jogo</h3>
+          <span class="breadcrumb"><a href="index.html">Home</a> <a href="Categoria.html">> Categorias</a> >
+            Nome do Jogo</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--****** BAnner end *****-->
+
+  <!--****** produto superficial *****-->
+  <div class="single-product section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="left-image">
+            <img src="../static/imagem/capa/elden_ring_capa1.png" alt="">
+          </div>
+        </div>
+        <div class="col-lg-6 align-self-center">
+          <h4>Call of Duty®: Modern Warfare® II</h4>
+          <span class="price"><em>$28</em> $22</span>
+          <div class="game-score">
+            <div class="score-box">
+              8.9
+            </div>
+
+            <div class="score-info">
+              <span class="score-label">Avaliação</span>
+              <span class="score-text">Muito positivo</span>
+            </div>
+          </div>
+          <form id="qty" action="#">
+            <input type="qty" class="form-control" id="1" aria-describedby="quantity" placeholder="1">
+            <button type="submit"><i class="fa fa-shopping-bag"></i> ADD TO CART</button>
+          </form>
+          <ul>
+            <li><span>Desenvolvedora:</span> <a href="desenvolvedora.html">COD MMII</a></li>
+            <li><span>Categoria:</span> <a href="">Action</a></li>
+
+          </ul>
+        </div>
+        <div class="col-lg-12">
+          <div class="sep"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--more info-->
+  <div class="more-info">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="tabs-content">
+            <div class="row">
+              <div class="nav-wrapper ">
+                <ul class="nav nav-tabs" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="description-tab" data-bs-toggle="tab"
+                      data-bs-target="#description" type="button" role="tab" aria-controls="description"
+                      aria-selected="true">Description</button>
+                  </li>
+
+                </ul>
+              </div>
+              <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="description" role="tabpanel"
+                  aria-labelledby="description-tab">
+                  <p>You can search for more templates on Google Search using keywords such as "templatemo digital
+                    marketing", "templatemo one-page", "templatemo gallery", etc. Please tell your friends about our
+                    website. If you need a variety of HTML templates, you may visit Tooplate and Too CSS websites.</p>
+                  <br>
+                  <p>Coloring book air plant shabby chic, crucifix normcore raclette cred swag artisan activated
+                    charcoal. PBR&B fanny pack pok pok gentrify truffaut kitsch helvetica jean shorts edison bulb
+                    poutine next level humblebrag la croix adaptogen. Hashtag poke literally locavore, beard marfa kogi
+                    bruh artisan succulents seitan tonx waistcoat chambray taxidermy. Same cred meggings 3 wolf moon
+                    lomo irony cray hell of bitters asymmetrical gluten-free art party raw denim chillwave tousled
+                    try-hard succulents street art.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--more info end-->
+
+
+  <!-- ********** seção de categoria **********-->
+  <section class="top-categories">
+    <h2>Jogos do mesmo tipo</h2>
+
+
+    <div class="categories-container">
+
+      <div class="category-card">
+        <span class="category-tag">Action</span>
+        <img src="../static/assents/img/image.png" alt="Categoria">
+      </div>
+
+      <div class="category-card">
+        <span class="category-tag">Action</span>
+        <img src="../static/assents/img/image.png" alt="Categoria">
+      </div>
+
+      <div class="category-card">
+        <span class="category-tag">Action</span>
+        <img src="../static/assents/img/image.png" alt="Categoria">
+      </div>
+
+      <div class="category-card">
+        <span class="category-tag">Action</span>
+        <img src="../static/assents/img/image.png" alt="Categoria">
+      </div>
+
+      <div class="category-card">
+        <span class="category-tag">Action</span>
+        <img src="../static/assents/img/image.png" alt="Categoria">
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ********** footer ********** -->
+
+  <footer class="footer">
+    <div class="social-icons">
+      <a href="#">
+        <i class="bx bxl-github"></i>
+      </a>
+      <a href="#">
+        <i class="bx bxl-linkedin"></i>
+      </a>
+      <a href="#">
+        <i class="bx bxl-instagram"></i>
+      </a>
+      <a href="#">
+        <i class="bx bxl-facebook"></i>
+      </a>
+      <a href="#">
+        <i class="bx bxl-twitter"></i>
+      </a>
+    </div>
+
+    <ul class="list">
+      <li>
+        <a href="Categoria.html">Categorias</a>
+      </li>
+      <li>
+        <a href="desenvolvedora.html">Desenvolvedoras</a>
+      </li>
+      <li>
+        <a href="sobre.html">Sobre</a>
+      </li>
+      <li>
+        <a href="#contact">Administrador</a>
+      </li>
+    </ul>
+
+    <p class="copyright">getGroup. ©Todos os direitos reservados. 2026</p>
+  </footer>
+  <!--***** Script *****-->
+  <!--Código de funcionalidades-->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../static/vendor/jquery/jquery.min.js"></script>
+  <script src="../static/vendor/bootstrap/js/bootstrap.min.js"></script>
+  <!--Codigo de Javascript-->
+  <script src="../static/assents/js/function.js"></script>
+  <script src="../static/assents/js/script.js"></script>
+  <script src="../static/assents/js/owl-carousel.js"></script>
+</body>
+
+</html>
