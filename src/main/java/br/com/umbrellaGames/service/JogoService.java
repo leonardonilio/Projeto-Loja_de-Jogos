@@ -2,6 +2,7 @@ package br.com.umbrellaGames.service;
 
 import java.util.List;
 
+import org.jspecify.annotations.Nullable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -66,5 +67,9 @@ public class JogoService {
 
     public List<Jogo> buscarPromocao(){
         return jogoRepository.findAll().stream().filter(jogo -> jogo.getValor() <= 30 && jogo.getValor() != 0).toList(); // quais jogos estão em promoção
+    }
+
+    public List<Jogo> buscarDestaques() {
+        return jogoRepository.findAll().stream().filter(jogo -> jogo.getNota() == 10).toList(); // quais jogos são destaque
     }
 }

@@ -112,9 +112,9 @@
                         <button class="arrow left">&#10094;</button>
 
                         <div class="slides">
-                            <img src="../static/assents/img/banner-image.jpg" class="slide">
-                            <img src="../static/assents/img/image.png" class="slide">
-                            <img src="../static/assents/img/banner-image.jpg" class="slide">
+                            <img th:each="jogo : ${destaques}"
+                                 th:src="@{${jogo.imagem}}"
+                                 class="slide">
                         </div>
 
                         <button class="arrow right">&#10095;</button>

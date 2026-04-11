@@ -29,6 +29,7 @@ public class IndexWebController {
         model.addAttribute("gratuitos", jogoService.buscarGratuitos());
         model.addAttribute("promocao", jogoService.buscarPromocao());
         model.addAttribute("categorias", categoriaService.findAll());
+        model.addAttribute("destaques", jogoService.buscarDestaques());
         return "index";
     }
 }
