@@ -39,49 +39,57 @@
     </div>
     <!-- ***** Preloader End ***** -->
 
-    <!-- ***** Header *****-->
-    <header class="header">
-        <div class="header-line">
+	<!-- ***** Header *****-->
+	    <header class="header">
+	        <div class="header-line">
 
-            <div class="logo">
-                <a th:href="@{/home}">Umbrella <span>Games</span></a>
-            </div>
-            <i class="bx bx-menu" id="menu-icon"></i>
-            <div class="search-box">
-                <input type="text" placeholder="Buscar jogos...">
-                <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-search" viewBox="0 0 16 16">
-                        <path
-                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-                    </svg></button>
-            </div>
+	            <div class="logo">
+	                <a th:href="@{/}">Umbrella Games</a>
+	            </div>
+	            <i class="bx bx-menu" id="menu-icon"></i>
+	            <div class="search-box" style="position:relative";>
+	                <input id="searchInput" type="text" placeholder="Buscar jogos...">
+	                <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+	                        class="bi bi-search" viewBox="0 0 16 16">
+	                        <path
+	                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+	                    </svg></button>
+						<div id="searchDropdown" class="search-dropdown"></div>
+	            </div>
 
-            <nav class="nav-links">
-                <div class="dropdown">
-                    <button>Categorias ▾</button>
-                    <div class="dropdown-content">
-                        <a class="" href="#">Ação</a>
-                        <a href="#">RPG</a>
-                        <a href="#">Terror</a>
-                    </div>
-                </div>
+	            <nav class="nav-links">
+	                <div class="dropdown">
+	                    <button>Categorias ▾</button>
+	                    <div class="dropdown-content">
+							<a th:each="cat : ${categorias}"
+	                           th:href="@{/categoria/{id}(id=${cat.idCategoria})}"
+							   th:text="${cat.nomeCategoria}">
+							</a>
+	                    </div>
+	                </div>
 
-                <div class="dropdown">
-                    <button>Desenvolvedora ▾</button>
-                    <div class="dropdown-content">
-                        <a href="desenvolvedora.html">Ubisoft</a>
-                        <a href="desenvolvedora.html">EA</a>
-                    </div>
-                </div>
+	                <div class="dropdown">
+	                    <button>Desenvolvedora ▾</button>
+	                    <div class="dropdown-content">
+	                        <a th:each="dev : ${desenvolvedoras}"
+	                           th:href="@{/desenvolvedora/{nomeDev}(nomeDev=${dev})}"
+							   th:text="${dev}">
+							</a>
+	                    </div>
+	                </div>
 
-                <a th:href="@{/admin}">Admin</a>
-                        <path
-                            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
-                    </svg></a>
-            </nav>
+	                <a th:href="@{/about}">Sobre</a>
+					
+					<a th:href="@{/admin}">Admin</a>
+					                <a class="icon" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+					                        class="bi bi-cart" viewBox="0 0 16 16">
+					                        <path
+					                            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
+					                    </svg></a>
+	            </nav>
 
-        </div>
-    </header>
+	        </div>
+	    </header>
     <!-- ***** Header End *****-->
 
 <br> <br> <br> <br> <br> <br> <br> <br> <br>
@@ -92,52 +100,58 @@
 <br>
 <div class="cards">
 <SECTION class="sectionCard">
-        <a href="https://github.com/FelipeLima78" target="_blank">
-        <img src="/assents/img/github.png" alt="GitHub" style="width: 200px;">
-    </a>
-    <br> <br> <br>
-        <p>Nome: Felipe Lima
+    <img src="/assents/img/image.png" alt="">
+        <p>Nome: Lorem ipsum dolor 
+            <br>
+            Github: LoremIpsum98
+            <br>
+            Função: LoremIpsum
         </p>
     </SECTION>
 <SECTION class="sectionCard">
-          <a href="https://github.com/leonardonilio" target="_blank">
-        <img src="/assents/img/github.png" alt="GitHub" style="width: 200px;">
-    </a>
-    <br> <br> <br>
-        <p>Nome: Leonardo Nilio
+          <img src="/assents/img/image.png" alt="">
+        <p>Nome: Lorem ipsum dolor 
+            <br>
+            Github: LoremIpsum98
+            <br>
+            Função: LoremIpsum
         </p>
     </SECTION>
     <SECTION class="sectionCard">
-           <a href="https://github.com/Lorenzo-zambuzi" target="_blank">
-        <img src="/assents/img/github.png" alt="GitHub" style="width: 200px;">
-    </a>
-    <br> <br> <br>
-        <p>Nome: Lorenzo Zambuzi
+          <img src="/assents/img/image.png" alt="">
+        <p>Nome: Lorem ipsum dolor 
+            <br>
+            Github: LoremIpsum98
+            <br>
+            Função: LoremIpsum
         </p>
     </SECTION>
   
     <SECTION class="sectionCard">
-           <a href="https://github.com/gabrielkalil808" target="_blank">
-        <img src="/assents/img/github.png" alt="GitHub" style="width: 200px;">
-    </a>
-    <br> <br> <br>
-        <p>Nome: Gabriel Kalil 
+          <img src="/assents/img/image.png" alt="">
+        <p>Nome: Lorem ipsum dolor 
+            <br>
+            Github: LoremIpsum98
+            <br>
+            Função: LoremIpsum
         </p>
     </SECTION>
     <SECTION class="sectionCard">
-            <a href="https://github.com/Xexe412" target="_blank">
-        <img src="/assents/img/github.png" alt="GitHub" style="width: 200px;">
-    </a>
-    <br> <br> <br>
-        <p>Nome: Arthur Germano 
+          <img src="/assents/img/image.png" alt="">
+        <p>Nome: Lorem ipsum dolor 
+            <br>
+            Github: LoremIpsum98
+            <br>
+            Função: LoremIpsum
         </p>
     </SECTION>
     <SECTION class="sectionCard">
-           <a href="https://github.com/Alex2006ye" target="_blank">
-        <img src="/assents/img/github.png" alt="GitHub" style="width: 200px;">
-    </a>
-    <br> <br> <br>
-        <p>Nome: Alex Carvalho
+          <img src="/assents/img/image.png" alt="">
+        <p>Nome: Lorem ipsum dolor 
+            <br>
+            Github: LoremIpsum98
+            <br>
+            Função: LoremIpsum
         </p>
     </SECTION>
     </div>
@@ -175,11 +189,11 @@
         <a href="#about">Desenvolvedora</a>
       </li>
       <li>
-        <a href="sobre.html">Sobre</a>
-      </li>
-      <li>
-        <a href="#contact">Administrador</a>
-      </li>
+		<a th:href="@{/about}">Sobre</a>
+		      </li>
+		      <li>
+		        <a th:href="@{/admin}">Administrador</a>
+		      </li>
     </ul>
 
     <p class="copyright">getGroup. ©Todos os direitos reservados. 2026</p>
