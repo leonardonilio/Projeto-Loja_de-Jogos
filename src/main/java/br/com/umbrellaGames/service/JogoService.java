@@ -19,7 +19,7 @@ public class JogoService {
 	}
 	
 	public List<Jogo> findJogosByCategoria(int idCategoria) {
-	    return jogoRepository.findByCategoria(idCategoria);
+	    return jogoRepository.findAllByIdCategoria(idCategoria);
 	}
 
 	public Jogo buscarPorId(int id){

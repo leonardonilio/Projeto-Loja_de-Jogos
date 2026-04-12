@@ -32,7 +32,7 @@
         <div class="header-line">
 
             <div class="logo">
-                <a href="index.html">Umbrella Games</a>
+                <a th:href="@{/home}">Umbrella Games</a>
             </div>
             <i class="bx bx-menu" id="menu-icon"></i>
             <div class="search-box">
@@ -62,10 +62,8 @@
                     </div>
                 </div>
 
-                <a th:href="sobre.html">Sobre</a>
+                <a th:href="@{/about}">Sobre</a>
                 <a href="#">Admin</a>
-                <a class="icon" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                        fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
                         <path
                             d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
                     </svg></a>
@@ -84,14 +82,17 @@
 			<th>Nome</th>
 			<th>Desenvolvedora</th>
 			<th>Valor</th>
+      <th>Nota</th>
+      <th>Edit|Delete</th>
 		</tr>
 		<tr th:each="jogo : ${jogos}">
 			<td th:text="${jogo.idJogo}"></td>
-			<td><a th:href="@{/jogos/{idJogo} (id=${jogo.idJogo})}" th:text=" ${jogo.nomeJogo}"></td>
+			<td><a th:href="@{/admin/1/{id}/editJogo (id=${jogo.idJogo})}" th:text=" ${jogo.nomeJogo}"></td>
 			<td th:text="${jogo.desenvolvedora}"></td>
 			<td th:text="${jogo.valor}"></td>
+      <td th:text="${jogo.nota}"></td>
 			<td>
-				<a th:href="@{/admin/1/{id}/editJogo (id=${jogo.idJogo})}"> <img style="cursor:pointer" src="/assents/img/editar-texto.png" width="30px" height="30px"> </a>
+				<a th:href="@{/admin/1/{id}/editJogo (id=${jogo.idJogo})}"> <img style="cursor:pointer" src="/assents/img/editar-texto.png" width="30px" height="30px"></a>
 				<a th:href="@{/admin/1/{id}/deleteJogo (id=${jogo.idJogo})}"> <img style="cursor:pointer" src="/assents/img/lixeira-de-reciclagem.png" width="30px" height="30px"></a>
 			</td>
 		</tr>
@@ -105,6 +106,7 @@
 		<tr>
 			<th>ID</th>
 			<th>Nome</th>
+      <th>Edit|Delete</th>
 		</tr>
 		<tr th:each="categoria : ${categorias}">
 			<td th:text="${categoria.idCategoria}"></td>
@@ -165,6 +167,7 @@
 
     <p class="copyright">getGroup. ©Todos os direitos reservados. 2026</p>
   </footer>
+
 
 <!-- ********** footer end ********** -->
 
