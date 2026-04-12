@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="Pt-br">
+<html lang="Pt-br" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -18,12 +18,12 @@
     <!--Bootstrap-->
     <!-- Bootstrap core CSS -->
      <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/vendor/bootstrap/css/swiper-bundle.min.css" rel="stylesheet">
+    <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/vendor/bootstrap/css/swiper-bundle.min.css}" rel="stylesheet">
     <!--css-->
-    <link rel="stylesheet" th:href="@{/assents/css/loader.css}">
-    <link rel="stylesheet" th:href="@{/assents/css/style.css}">
-    <link rel="stylesheet" th:href="@{/assents/css/footer.css}">
+    <link th:href="@{/assents/css/style.css}" rel="stylesheet">
+    <link th:href="@{/assents/css/footer.css}" rel="stylesheet">
+    <link th:href="@{/assents/css/loader.css}" rel="stylesheet">
 
     <!-- Swiper Js-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -117,9 +117,9 @@
                         <button class="arrow left">&#10094;</button>
 
                         <div class="slides">
-                            <img src="../static/assents/img/banner-image.jpg" class="slide">
-                            <img src="../static/assents/img/image.png" class="slide">
-                            <img src="../static/assents/img/banner-image.jpg" class="slide">
+                            <img th:each="jogo : ${destaques}"
+                                 th:src="@{${jogo.imagem}}"
+                                 class="slide">
                         </div>
 
                         <button class="arrow right">&#10095;</button>
@@ -150,94 +150,17 @@
             <div class="games-slider swiper recommended-slider">
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-wrapper">
-
                     <!-- CARD -->
-                    <div class="game-card swiper-slide">
-                        <img src="../static/assents/img/image.png">
-                        <h3>Nome do jogo</h3>
-                        <p class="price">R$ 79,90</p>
-                    </div>
-
-                    <div class="game-card swiper-slide">
-                        <img src="../static/assents/img/image.png">
-                        <h3>Nome do jogo</h3>
-                        <p class="price">R$ 79,90</p>
-                    </div>
-
-                    <div class="game-card swiper-slide">
-                        <img src="../static/assents/img/image.png">
-                        <h3>Nome do jogo</h3>
-                        <p class="price">R$ 79,90</p>
-                    </div>
-
-                    <div class="game-card swiper-slide">
-                        <img src="../static/assents/img/image.png">
-                        <h3>Nome do jogo</h3>
-                        <p class="price">R$ 79,90</p>
-                    </div>
-
-                    <div class="game-card swiper-slide">
-                        <img src="../static/assents/img/banner-image.jpg">
-                        <h3>Nome do jogo</h3>
-                        <p class="price">R$ 79,90</p>
-                    </div>
-                    <div class="game-card swiper-slide">
-                        <img src="../static/assents/img/banner-image.jpg">
-                        <h3>Nome do jogo</h3>
-                        <p class="price">R$ 79,90</p>
-                    </div>
-                    <div class="game-card swiper-slide">
-                        <img src="../static/assents/img/banner-image.jpg">
-                        <h3>Nome do jogo</h3>
-                        <p class="price">R$ 79,90</p>
-                    </div>
-                    <div class="game-card swiper-slide">
-                        <img src="../static/assents/img/banner-image.jpg">
-                        <h3>Nome do jogo</h3>
-                        <p class="price">R$ 79,90</p>
-                    </div>
-                    <div class="game-card swiper-slide">
-                        <img src="../static/assents/img/banner-image.jpg">
-                        <h3>Nome do jogo</h3>
-                        <p class="price">R$ 79,90</p>
-                    </div>
-                    <div class="game-card swiper-slide">
-                        <img src="../static/assents/img/banner-image.jpg">
-                        <h3>Nome do jogo</h3>
-                        <p class="price">R$ 79,90</p>
-                    </div>
-                    <div class="game-card swiper-slide">
-                        <img src="../static/assents/img/image.png">
-                        <h3>Nome do jogo</h3>
-                        <p class="price">R$ 79,90</p>
-                    </div>
-                    <div class="game-card swiper-slide">
-                        <img src="../static/assents/img/image.png">
-                        <h3>Nome do jogo</h3>
-                        <p class="price">R$ 79,90</p>
-                    </div>
-                    <div class="game-card swiper-slide">
-                        <img src="../static/assents/img/image.png">
-                        <h3>Nome do jogo</h3>
-                        <p class="price">R$ 79,90</p>
-                    </div>
-                    <div class="game-card swiper-slide">
-                        <img src="../static/assents/img/image.png">
-                        <h3>Nome do jogo</h3>
-                        <p class="price">R$ 79,90</p>
-                    </div>
-                    <div class="game-card swiper-slide">
-                        <img src="../static/assents/img/image.png">
-                        <h3>Nome do jogo</h3>
-                        <p class="price">R$ 79,90</p>
+                    <div class="game-card swiper-slide" th:each="jogo : ${recomendados}">
+                        <img th:src="@{${jogo.imagem}}"> <!--Faz um loop e preenche com os jogos-->
+                        <h3 th:text="${jogo.nomeJogo}"></h3>
+                        <p class="price" th:text="${jogo.valor}"></p>
                     </div>
                 </div>
-
 
                 <div class="swiper-scrollbar"></div>
                 <div class="swiper-button-next"></div>
             </div>
-
         </div>
 
         <!-- Jogos Gratuitos -->
@@ -247,69 +170,10 @@
             <div class="games-slider swiper free-slider">
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-wrapper">
-
-                    <div class="game-card swiper-slide">
-                        <img src="../static/assents/img/image.png">
-                        <h3>Nome do jogo</h3>
-                        <p class="price">Grátis</p>
-                    </div>
-
-                    <div class="game-card swiper-slide">
-                        <img src="../static/assents/img/image.png">
-                        <h3>Nome do jogo</h3>
-                        <p class="price">Grátis</p>
-                    </div>
-
-                    <div class="game-card swiper-slide">
-                        <img src="../static/assents/img/image.png">
-                        <h3>Nome do jogo</h3>
-                        <p class="price">Grátis</p>
-                    </div>
-
-                    <div class="game-card swiper-slide">
-                        <img src="../static/assents/img/image.png">
-                        <h3>Nome do jogo</h3>
-                        <p class="price">Grátis</p>
-                    </div>
-                    <div class="game-card swiper-slide">
-                        <img src="../static/assents/img/image.png">
-                        <h3>Nome do jogo</h3>
-                        <p class="price">Grátis</p>
-                    </div>
-                    <div class="game-card swiper-slide">
-                        <img src="../static/assents/img/banner-image.jpg">
-                        <h3>Nome do jogo</h3>
-                        <p class="price">Grátis</p>
-                    </div>
-                    <div class="game-card swiper-slide">
-                        <img src="../static/assents/img/image.png">
-                        <h3>Nome do jogo</h3>
-                        <p class="price">Grátis</p>
-                    </div>
-                    <div class="game-card swiper-slide">
-                        <img src="../static/assents/img/image.png">
-                        <h3>Nome do jogo</h3>
-                        <p class="price">Grátis</p>
-                    </div>
-                    <div class="game-card swiper-slide">
-                        <img src="../static/assents/img/banner-image.jpg">
-                        <h3>Nome do jogo</h3>
-                        <p class="price">Grátis</p>
-                    </div>
-                    <div class="game-card swiper-slide">
-                        <img src="../static/assents/img/image.png">
-                        <h3>Nome do jogo</h3>
-                        <p class="price">Grátis</p>
-                    </div>
-                    <div class="game-card swiper-slide">
-                        <img src="../static/assents/img/banner-image.jpg">
-                        <h3>Nome do jogo</h3>
-                        <p class="price">Grátis</p>
-                    </div>
-                    <div class="game-card swiper-slide">
-                        <img src="../static/assents/img/image.png">
-                        <h3>Nome do jogo</h3>
-                        <p class="price">Grátis</p>
+                    <div class="game-card swiper-slide" th:each="jogo : ${gratuitos}">
+                        <img th:src="@{${jogo.imagem}}">
+                        <h3 th:text="${jogo.nomeJogo}"></h3>
+                        <p class="price" th:text="${jogo.valor}"></p>
                     </div>
                 </div>
 
@@ -329,68 +193,10 @@
             <div class="swiper-button-prev"></div>
             <div class="swiper-wrapper">
 
-                <div class="game-card swiper-slide">
-                    <img src="../static/assents/img/image.png">
-                    <h3>Nome do jogo</h3>
-                    <p class="price">R$ 29,90</p>
-                </div>
-
-                <div class="game-card swiper-slide">
-                    <img src="../static/assents/img/image.png">
-                    <h3>Nome do jogo</h3>
-                    <p class="price">R$ 29,90</p>
-                </div>
-
-                <div class="game-card swiper-slide">
-                    <img src="../static/assents/img/image.png">
-                    <h3>Nome do jogo</h3>
-                    <p class="price">R$ 29,90</p>
-                </div>
-
-                <div class="game-card swiper-slide">
-                    <img src="../static/assents/img/banner-image.jpg">
-                    <h3>Nome do jogo</h3>
-                    <p class="price">R$ 29,90</p>
-                </div>
-                <div class="game-card swiper-slide">
-                    <img src="../static/assents/img/image.png">
-                    <h3>Nome do jogo</h3>
-                    <p class="price">R$ 29,90</p>
-                </div>
-                <div class="game-card swiper-slide">
-                    <img src="../static/assents/img/banner-image.jpg">
-                    <h3>Nome do jogo</h3>
-                    <p class="price">R$ 29,90</p>
-                </div>
-                <div class="game-card swiper-slide">
-                    <img src="../static/assents/img/banner-image.jpg">
-                    <h3>Nome do jogo</h3>
-                    <p class="price">R$ 29,90</p>
-                </div>
-                <div class="game-card swiper-slide">
-                    <img src="../static/assents/img/image.png">
-                    <h3>Nome do jogo</h3>
-                    <p class="price">R$ 29,90</p>
-                </div>
-                <div class="game-card swiper-slide">
-                    <img src="../static/assents/img/image.png">
-                    <h3>Nome do jogo</h3>
-                    <p class="price">R$ 29,90</p>
-                </div>
-                <div class="game-card swiper-slide">
-                    <img src="../static/assents/img/banner-image.jpg">
-                    <h3>Nome do jogo</h3>
-                    <p class="price">R$ 29,90</p>
-                </div>
-                <div class="game-card swiper-slide">
-                    <img src="../static/assents/img/image.png">
-                    <h3>Nome do jogo</h3>
-                    <p class="price">R$ 29,90</p>
-                </div>
-                <div class="game-card swiper-slide">
-                    <img src="../static/assents/img/banner-image.jpg">
-                    <h3>Nome do jogo</h3>
-                    <p class="price">R$ 29,90</p>
+                <div class="game-card swiper-slide" th:each="jogo : ${promocao}">
+                    <img th:src="@{${jogo.imagem}}">
+                    <h3 th:text="${jogo.nomeJogo}"></h3>
+                    <p class="price" th:text="${jogo.valor}"></p>
                 </div>
 
             </div>
@@ -411,32 +217,10 @@
     <h2>Top Categories</h2>
 
     <div class="categories-container">
-
-        <div class="category-card">
-            <span class="category-tag">Action</span>
-            <img src="../static/assents/img/image.png" alt="Categoria">
+        <div class="category-card" th:each="categoria : ${categorias}">
+            <span class="category-tag" th:text="${categoria.nomeCategoria}"></span>
+            <img th:src="@{/assents/img/image.png}" alt="Categoria">
         </div>
-
-        <div class="category-card">
-            <span class="category-tag">Action</span>
-            <img src="../static/assents/img/image.png" alt="Categoria">
-        </div>
-
-        <div class="category-card">
-            <span class="category-tag">Action</span>
-            <img src="../static/assents/img/image.png" alt="Categoria">
-        </div>
-
-        <div class="category-card">
-            <span class="category-tag">Action</span>
-            <img src="../static/assents/img/image.png" alt="Categoria">
-        </div>
-
-        <div class="category-card">
-            <span class="category-tag">Action</span>
-            <img src="../static/assents/img/image.png" alt="Categoria">
-        </div>
-
     </div>
 </section>
 <!-- ********** seção de categoria end ********** -->
@@ -467,7 +251,7 @@
         <a href="Categoria.html">Categorias</a>
       </li>
       <li>
-        <a href="desenvolvedora.html">Desenvolvedoras</a>
+        <a href="#about">Desenvolvedoras</a>
       </li>
       <li>
 		<a th:href="@{/about}">Sobre</a>
@@ -487,6 +271,7 @@
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!--Código de funcionalidades-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
     <script th:src="@{/vendor/bootstrap/js/bootstrap.min.js}"></script>
     <!--Codigo de Javascript-->
