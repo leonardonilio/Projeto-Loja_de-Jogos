@@ -49,4 +49,12 @@ public class JogoService {
 	public Jogo salvarJogo(Jogo jogo){
 		return jogoRepository.save(jogo);
 	}
+	
+	public List<Jogo> buscarPorDesenvolvedora(String desenvolvedora) {
+        return jogoRepository.findByDesenvolvedora(desenvolvedora);
+    }
+
+    public List<String> listarDesenvolvedoras() {
+        return jogoRepository.findTodasDesenvolvedoras();
+    }
 }

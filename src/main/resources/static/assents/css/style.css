@@ -88,6 +88,8 @@ body {
   border-radius: 5px;
   overflow: hidden;
   transition: transform 0.3s ease;
+  overflow: visible;
+    position: relative;
 }
 
 .search-box:hover {
@@ -119,6 +121,31 @@ body {
   background-color: var(--bg-color);
   transform: scale(1.2);
   color: var(--second-black-color);
+}
+
+/* dropdown da busca*/
+.search-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: white;
+  z-index: 99999;
+}
+
+/* itens do dropdown */
+.search-item {
+  padding: 1rem;
+  display: block;
+  text-decoration: none;
+  color: var(--second-black-color);
+  cursor: pointer;
+  font-size: 1.6rem;
+}
+
+.search-item:hover {
+  background: var(--main-color);
+  color: #fff;
 }
 
 /* Navegação */
@@ -210,7 +237,7 @@ body {
 
   flex-direction: column;
   width: 400px;
-  height: 350px;
+  height: 400px;
   padding: 20px;
   margin-right: 150px;
 

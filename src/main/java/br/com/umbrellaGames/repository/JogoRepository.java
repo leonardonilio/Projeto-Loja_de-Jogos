@@ -16,5 +16,9 @@ public interface JogoRepository extends JpaRepository<Jogo, Integer>{
 
     public List<Jogo> findByNomeJogoContains(String nome_jogo);
     
+    List<Jogo> findByDesenvolvedora(String desenvolvedora);
+    
+    @Query("SELECT j.desenvolvedora FROM Jogo j")
+    List<String> findTodasDesenvolvedoras();
     public List<Jogo> findAllByIdCategoria(int id_categoria);
 }
