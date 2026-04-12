@@ -1,11 +1,7 @@
 package br.com.umbrellaGames.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import br.com.umbrellaGames.model.entity.CategoriaJogo;
-import br.com.umbrellaGames.model.entity.CategoriaJogoId;
-import br.com.umbrellaGames.service.CategoriaJogoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.umbrellaGames.model.entity.Jogo;
+import br.com.umbrellaGames.repository.JogoRepository;
 import br.com.umbrellaGames.service.JogoService;
 
 
@@ -26,8 +23,7 @@ public class JogoController {
 
 	@Autowired
 	private JogoService jogoService;
-    @Autowired
-    private CategoriaJogoService categoriaJogoService;
+	private JogoRepository jogoRepository;
 	
 	@GetMapping
 	public List<Jogo> listarTodos(){
@@ -86,16 +82,9 @@ public class JogoController {
 
     @GetMapping("/jogoPorCategoria/{id}")
     public List<Jogo> buscarJogoPelaCategoria(@PathVariable Integer id){
-        List<Integer> idsJogos = categoriaJogoService.buscarIdsJogos(id);
 
-        List<Jogo> jogosLista = new ArrayList<>();
-
-        for(Integer idJogo : idsJogos){
-            Jogo jogo = jogoService.buscarPorId(idJogo);
-            if (jogo != null) { //evitar que entre jogos null na lista
-                jogosLista.add(jogo);
-            }
-        }
+        List<Jogo> jogosLista = jogoRepository.findAllByIdCategoria(id);
         return jogosLista;
+		
     }
 }

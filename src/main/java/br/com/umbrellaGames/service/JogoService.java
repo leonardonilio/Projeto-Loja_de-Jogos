@@ -30,7 +30,7 @@ public class JogoService {
 	}
 	
 	public List<Jogo> findJogosByCategoria(int idCategoria) {
-	    return jogoRepository.findByCategoria(idCategoria);
+	    return jogoRepository.findAllByIdCategoria(idCategoria);
 	}
 
 	public Jogo buscarPorId(int id){
@@ -71,5 +71,12 @@ public class JogoService {
 
     public List<Jogo> buscarDestaques() {
         return jogoRepository.findAll().stream().filter(jogo -> jogo.getNota() == 10).toList(); // quais jogos são destaque
+	
+	public List<Jogo> buscarPorDesenvolvedora(String desenvolvedora) {
+        return jogoRepository.findByDesenvolvedora(desenvolvedora);
+    }
+
+    public List<String> listarDesenvolvedoras() {
+        return jogoRepository.findTodasDesenvolvedoras();
     }
 }
