@@ -1,6 +1,10 @@
 package br.com.umbrellaGames.controller.web;
 
 import java.util.List;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import org.springframework.web.multipart.MultipartFile;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -102,11 +106,30 @@ public String paginaLogin() {
 			.addAttribute("novo", false);
 		return "formCategoria";
 	}
-    	@PostMapping("/admin/1/saveJogo")
-		public String editJogo(Jogo jogo) {
-			jogoService.salvarJogo(jogo);
-			return "redirect:/admin/1";
-	}
+@PostMapping("/admin/1/saveJogo")
+public String editJogo(Jogo jogo,
+        @RequestParam("file") MultipartFile file) {
+
+    if (file != null && !file.isEmpty()) {
+        try {
+            String pasta = "src/main/resources/static/assents/img/capas/";
+
+            String nomeArquivo = System.currentTimeMillis() + "_" + file.getOriginalFilename();
+
+            Path caminho = Paths.get(pasta + nomeArquivo);
+            Files.write(caminho, file.getBytes());
+
+            jogo.setImagem(nomeArquivo);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    jogoService.salvarJogo(jogo);
+    return "redirect:/admin/1";
+}
+	
 		@PostMapping("/admin/1/saveCategoria")
 		public String editCategoria(Categoria categoria) {
 			categoriaService.salvarCategoria(categoria);

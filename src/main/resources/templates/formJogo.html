@@ -49,7 +49,7 @@
                     <button>Categorias ▾</button>
                     <div class="dropdown-content">
                         <a class="" href="Categoria.html">Ação</a>
-                        <a href="Categoria.html">RPG</a>
+                        <a href="Categoria.html ">RPG</a>
                         <a href="Categoria.html">Terror</a>
                     </div>
                 </div>
@@ -76,8 +76,8 @@
     <h3><label  style="display: block; text-align: center; font-size: xx-large;" th:text="${novo} ?'Novo ' : 'Editar '"></label></h3>
 	<br>	
     <br>
-   <form th:action="@{/admin/1/saveJogo}" th:object="${jogo}" method="post">
-		<table style="font-size: 30px; margin-left: auto; margin-right: auto;"  table class="table table-striped">
+   <form th:action="@{/admin/1/saveJogo}" th:object="${jogo}" method="post" enctype="multipart/form-data">
+		<table style="font-size: 30px; margin-left: auto; margin-right: auto;"  table class="table table-striped"  >
 				<tr>
 					<th>ID</th><td><input type="text" th:field="*{idJogo}" size="40" readonly /></td>
 				</tr>	
@@ -109,9 +109,23 @@
  
 				<br>
 				<tr>
-					<th>Capa</th> <td> <img th:src="@{'/assents/img/capas/' + *{imagem} }"> </td>
+					<th>Capa</th> <td> <img  th:if="*{imagem != null}"  th:src="@{'/assents/img/capas/' + *{imagem} }"> </td>
 				</tr> 
                 <hr>
+                <tr>
+            		<th>Capa</th>
+            		<td>
+						
+                		<input type="file" 
+                       		name="file" 
+                       		accept="image/*" 
+                       		class="form-control" 
+                       		style="width: auto; padding: 8px;"
+                            required>
+                
+            		</td>
+        		</tr>
+				
 
 				<tr>
 				<th>Categorias</th> <td><select th:field="*{idCategoria}" required>
@@ -124,25 +138,6 @@
  </td> 
  </tr>
 					
- 	        	<tr>
-            		<th>Capa</th>
-            		<td>
-						
-                		<input type="file" 
-                       		name="imagem" 
-                       		accept="image/*" 
-                       		class="form-control" 
-                       		style="width: 100%; padding: 8px;">
-                
-                		
-                		<div th:if="${jogo.imagem != null and jogo.imagem != ''}" style="margin-top: 10px;">
-                    	<img th:src="${jogo.imagem}" 
-                         alt="Imagem atual" 
-                         style="max-width: 200px; border: 1px solid #ddd;">
-                	</div>
-            		</td>
-        		</tr>
-				
 				
 					
              <tr th:if="${message}">
