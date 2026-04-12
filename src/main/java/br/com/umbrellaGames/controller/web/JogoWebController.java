@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 
 
@@ -38,11 +39,17 @@ public class JogoWebController {
     public String paginaHome(Model model) {
 		List<Categoria> categorias = categoriaService.findAll();
 		model.addAttribute("categorias", categorias);
+		List<String> desenvolvedoras = jogoService.listarDesenvolvedoras();
+	    model.addAttribute("desenvolvedoras", desenvolvedoras);
     return "index";
 }
 
 @GetMapping("/about")
-    public String paginaSobre() {
+    public String paginaSobre(Model model) {
+	List<Categoria> categorias = categoriaService.findAll();
+	model.addAttribute("categorias", categorias);
+	List<String> desenvolvedoras = jogoService.listarDesenvolvedoras();
+    model.addAttribute("desenvolvedoras", desenvolvedoras);
     return "sobre";
 }
 	@GetMapping("/categoria")
@@ -53,17 +60,16 @@ public class JogoWebController {
 	@GetMapping("/categoria/{idCategoria}")
 	public String paginaCategoriaId(@PathVariable int idCategoria, Model model) {
 	//List<CategoriaJogo> jogos = categoriaJogoService.buscarPorIdCategoria(idCategoria);
-		List<Jogo> destaque = jogoService.findJogosByCategoria(idCategoria)
-		        .stream()
-		        .limit(4)
-		        .toList();
+		List<Jogo> destaque = jogoService.findJogosByCategoria(idCategoria).stream().limit(4).toList();
 		model.addAttribute("destaqueJogos", destaque);
-	model.addAttribute("jogos", jogoService.findJogosByCategoria(idCategoria)/*.stream().limit(4).toList()*/);
-	List<Categoria> categorias = categoriaService.findAll();
-	model.addAttribute("categorias", categorias);
-	Categoria categoria = categoriaService.buscarPorId(idCategoria);
-	model.addAttribute("categoria", categoria);
-	return "Categoria";
+	    model.addAttribute("jogos", jogoService.findJogosByCategoria(idCategoria));
+	    List<Categoria> categorias = categoriaService.findAll();
+	    model.addAttribute("categorias", categorias);
+	    Categoria categoria = categoriaService.buscarPorId(idCategoria);
+	    model.addAttribute("categoria", categoria);
+	    List<String> desenvolvedoras = jogoService.listarDesenvolvedoras();
+	    model.addAttribute("desenvolvedoras", desenvolvedoras);
+	    return "Categoria";
 	}
 	
 	
@@ -71,7 +77,17 @@ public class JogoWebController {
 	public String infoJogoId(@PathVariable int idJogo, Model model) {
 	    Jogo jogo = jogoService.buscarPorId(idJogo);
 	    model.addAttribute("jogo", jogo);
+	    List<Categoria> categorias = categoriaService.findAll();
+		model.addAttribute("categorias", categorias);
+		List<String> desenvolvedoras = jogoService.listarDesenvolvedoras();
+	    model.addAttribute("desenvolvedoras", desenvolvedoras);
 	    return "infoJogos";
+	}
+	
+	@GetMapping("/buscarDropdown")
+	@ResponseBody
+	public List<Jogo> buscarJogoDropdown(@RequestParam String nome) {
+	    return jogoService.buscarPorLetraNoNome(nome);
 	}
 	
   
@@ -83,10 +99,24 @@ public class JogoWebController {
 		model.addAttribute("categorias", categorias);
         return "admin";
     }
-
+	
+	@GetMapping("/desenvolvedora/{nomeDev}")
+	public String jogosPorDesenvolvedora(@PathVariable String nomeDev, Model model) {
+	    List<Jogo> jogos = jogoService.buscarPorDesenvolvedora(nomeDev);
+	    model.addAttribute("jogos", jogos);
+	    List<Categoria> categorias = categoriaService.findAll();
+		model.addAttribute("categorias", categorias);
+		List<String> desenvolvedoras = jogoService.listarDesenvolvedoras();
+	    model.addAttribute("desenvolvedoras", desenvolvedoras);
+	    return "desenvolvedora";
+	}
 
 @GetMapping("/admin")
-public String paginaLogin() {
+public String paginaLogin(Model model) {
+	List<Categoria> categorias = categoriaService.findAll();
+	model.addAttribute("categorias", categorias);
+	List<String> desenvolvedoras = jogoService.listarDesenvolvedoras();
+    model.addAttribute("desenvolvedoras", desenvolvedoras);
     return "login";
 }
 

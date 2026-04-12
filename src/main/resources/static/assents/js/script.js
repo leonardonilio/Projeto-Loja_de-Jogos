@@ -120,20 +120,30 @@ slidesPerView: 5
 });
 
 });
+const rightArrow = document.querySelector(".feature-arrow.right");
+const leftArrow = document.querySelector(".feature-arrow.left");
+const items = document.querySelectorAll(".feature-item");
+
 let currentGame = 0;
 
+if (items.length > 0) {
+  const total = items.length;
 
-document.querySelector(".feature-arrow.right").onclick = () => {
-  const total = document.querySelectorAll(".feature-item").length;
-  currentGame = (currentGame + 1) % total;
-  changeGame(currentGame);
-};
+  if (rightArrow) {
+    rightArrow.onclick = () => {
+      currentGame = (currentGame + 1) % total;
+      changeGame(currentGame);
+    };
+  }
 
-document.querySelector(".feature-arrow.left").onclick = () => {
-  const total = document.querySelectorAll(".feature-item").length;
-  currentGame = (currentGame - 1 + total) % total;
-  changeGame(currentGame);
-};
+  if (leftArrow) {
+    leftArrow.onclick = () => {
+      currentGame = (currentGame - 1 + total) % total;
+      changeGame(currentGame);
+    };
+  }
+}
+
 
 
 function renderStars(score){
@@ -221,4 +231,66 @@ window.onload = () => {
   }
 };
 
+//dropdown da barra de pesquisa
+document.addEventListener("DOMContentLoaded", () => {
 
+const input = document.getElementById("searchInput");
+const dropdown = document.getElementById("searchDropdown");
+
+if (!input || !dropdown) return;
+
+input.addEventListener("input", function () {
+
+    let nome = input.value.trim();
+
+    if (nome.length < 2) {
+        dropdown.style.display = "none";
+        return;
+    }
+
+    fetch(`/buscarDropdown?nome=${nome}`)
+        .then(res => res.json())
+        .then(data => {
+
+            dropdown.innerHTML = "";
+
+            data.sort((a, b) => {
+                const nomeA = a.nomeJogo.toLowerCase();
+                const nomeB = b.nomeJogo.toLowerCase();
+                const termo = input.value.toLowerCase();
+
+                const aComeca = nomeA.startsWith(termo);
+                const bComeca = nomeB.startsWith(termo);
+
+                if (aComeca && !bComeca) return -1;
+                if (!aComeca && bComeca) return 1;
+
+                return nomeA.localeCompare(nomeB);
+            });
+
+            if (!data || data.length === 0) {
+                dropdown.innerHTML = `<div class="search-item">Nenhum jogo encontrado</div>`;
+                dropdown.style.display = "block";
+                return;
+            }
+
+            data.forEach(jogo => {
+                dropdown.innerHTML += `
+                <a class="search-item" href="/jogo/${jogo.idJogo}">
+                    ${jogo.nomeJogo}
+                </a>
+                `;
+            });
+
+            dropdown.style.display = "block";
+        });
+});
+
+//fechar a dropdown
+document.addEventListener("click", function (e) {
+    if (!e.target.closest(".search-box")) {
+        dropdown.style.display = "none";
+    }
+});
+
+});
