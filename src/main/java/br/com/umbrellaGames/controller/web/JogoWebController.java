@@ -8,10 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.umbrellaGames.model.entity.Categoria;
-import br.com.umbrellaGames.model.entity.CategoriaJogo;
-import br.com.umbrellaGames.model.entity.CategoriaJogoId;
 import br.com.umbrellaGames.model.entity.Jogo;
-import br.com.umbrellaGames.service.CategoriaJogoService;
 import br.com.umbrellaGames.service.CategoriaService;
 import br.com.umbrellaGames.service.JogoService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,9 +28,6 @@ public class JogoWebController {
 
 	@Autowired
 	private CategoriaService categoriaService;
-	
-	@Autowired
-	private CategoriaJogoService categoriaJogoService;
 
 	@GetMapping({"/", "/home"})
     public String paginaHome(Model model) {
@@ -91,7 +85,7 @@ public class JogoWebController {
 	}
 	
   
-	@GetMapping("/admin/1/")
+	@GetMapping("/admin/1")
     public String findAll(Model model) {
         List<Jogo> jogos = jogoService.findAll();
 		List<Categoria> categorias = categoriaService.findAll();
@@ -122,7 +116,9 @@ public String paginaLogin(Model model) {
 
     	@GetMapping("/admin/1/newJogo")
 	public String newJogo(Model model) {
+		List<Categoria> categorias = categoriaService.findAll();
 		model
+		.addAttribute("categoria", categorias)
 			.addAttribute("jogo", new Jogo())
 			.addAttribute("novo", true);
 		return "formJogo";
@@ -137,17 +133,19 @@ public String paginaLogin(Model model) {
     @GetMapping("/admin/1/{id}/deleteJogo")
 	public String deletarJogo(Model model,@PathVariable Integer id) {
 		jogoService.deletarJogo(id);
-		return "redirect:/admin/1/";
+		return "redirect:/admin/1";
 	}
 	  @GetMapping("/admin/1/{id}/deleteCategoria")
 	public String deletarCategoria(Model model,@PathVariable Integer id) {
 		categoriaService.deletarCategoria(id);
-		return "redirect:/admin/1/";
+		return "redirect:/admin/1";
 	}
     	@GetMapping("/admin/1/{id}/editJogo")
 	public String editJogo(Model model, @PathVariable Integer id) {
 		Jogo jogo = jogoService.buscarPorId(id);
+		List<Categoria> categorias = categoriaService.findAll();
 		model
+		.addAttribute("categoria", categorias)
 			.addAttribute("jogo", jogo)
 			.addAttribute("novo", false);
 		return "formJogo";
@@ -163,12 +161,12 @@ public String paginaLogin(Model model) {
     	@PostMapping("/admin/1/saveJogo")
 		public String editJogo(Jogo jogo) {
 			jogoService.salvarJogo(jogo);
-			return "redirect:/admin/1/";
+			return "redirect:/admin/1";
 	}
 		@PostMapping("/admin/1/saveCategoria")
 		public String editCategoria(Categoria categoria) {
 			categoriaService.salvarCategoria(categoria);
-			return "redirect:/admin/1/";
+			return "redirect:/admin/1";
 	}
 }
 
