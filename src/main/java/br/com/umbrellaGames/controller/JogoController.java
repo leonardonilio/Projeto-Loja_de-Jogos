@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.umbrellaGames.model.entity.Jogo;
+import br.com.umbrellaGames.repository.JogoRepository;
 import br.com.umbrellaGames.service.JogoService;
 
 
@@ -22,6 +23,7 @@ public class JogoController {
 
 	@Autowired
 	private JogoService jogoService;
+	private JogoRepository jogoRepository;
 	
 	@GetMapping
 	public List<Jogo> listarTodos(){
@@ -77,4 +79,12 @@ public class JogoController {
 		jogoAtualizar.setValor(jogo.getValor());
 		return jogoService.salvarJogo(jogoAtualizar);
 	}
+
+    @GetMapping("/jogoPorCategoria/{id}")
+    public List<Jogo> buscarJogoPelaCategoria(@PathVariable Integer id){
+
+        List<Jogo> jogosLista = jogoRepository.findAllByIdCategoria(id);
+        return jogosLista;
+		
+    }
 }

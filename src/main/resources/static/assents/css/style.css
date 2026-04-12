@@ -36,7 +36,9 @@ body {
   background-color: var(--second-bg-color);
   color: var(--second-black-color);
 }
-
+.section {
+  margin-top: 120px;
+}
 
 
 /* ===== HEADER ===== */
@@ -654,7 +656,7 @@ Page Header Style
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 200px 0px 100px 0px;
+  padding: 100px 0px 70px 0px;
   text-align: center;
 }
 
@@ -666,8 +668,12 @@ Page Header Style
 
 .page-heading span a {
   color: #fff;
+  transition: transform 0.6s ease;
 }
-
+.page-heading span a:hover {
+  color: var(--main-color);
+  text-decoration: underline;
+}
 .page-heading h3 {
   font-size: 48px;
   text-transform: uppercase;
@@ -678,11 +684,6 @@ Page Header Style
 }
 
 
-/* 
----------------------------------------------
-Shop Page Style
---------------------------------------------- 
-*/
 .category-feature{
 padding:60px 7%;
 
@@ -978,6 +979,411 @@ transform:scale(1.1);
   right: 1%;
     z-index: 100;
 }
+/* ===== POPULAR SECTION END ===== */
+
+/* ===== PRODUCT (infoJogos) =====*/
+
+.single-product .sep {
+  width: 100%;
+  height: 1px;
+  background-color: #eee;
+  margin: 80px 0px;
+}
+
+.single-product .left-image {
+  margin-right: 80px;
+}
+
+.single-product .left-image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+}
+
+.single-product h4 {
+  font-size: 3.2rem;
+  font-family: "Orbitron", sans-serif;
+  font-weight: 700;
+  color: var(--second-black-color);
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+.single-product span.price {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--second-main-color);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.single-product span.price em {
+  font-size: 1.6rem;
+  color: #999;
+}
+
+.single-product p {
+  margin-top: 25px;
+  margin-bottom: 40px;
+  font-size: 1.5rem;
+  line-height: 1.8;
+  color: #555;
+  max-width: 90%;
+}
+
+.single-product form input {
+  width: 80px;
+  font-size: 3rem;
+  height: 50px;
+  background-color:var(--bg-color);
+  border: 1px solid #e7e7e7;
+  border-radius: 25px;
+  text-align: center;
+  gap: 10px;
+  float: left;
+  margin-right: 15px;
+}
+
+.single-product form {
+  display: inline;
+}
+
+.single-product form button {
+  display: inline-block;
+  height: 50px;
+  line-height: 50px;
+  background-color: #ee626b;
+  color: #fff;
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 0px 25px;
+  border: none;
+  border-radius: 25px;
+  transition: all .3s;
+}
+
+.single-product form button i {
+  margin-right: 5px;
+}
+
+.single-product form button:hover {
+  transform: translateY(-2px);
+  background: var(--second-black-color);
+}
+
+.single-product ul {
+  margin-top: 40px;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 15px;
+  border: 1px solid #eee;
+}
+
+.single-product ul li {
+  font-size: 1.4rem;
+  margin: 15px 0;
+  color: #444;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.single-product ul li span {
+  min-width: 100px;
+  font-weight: 600;
+  color: var(--second-black-color);
+}
+
+.single-product ul li a {
+  color: var(--second-main-color);
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.single-product ul li a:hover {
+  color: var(--main-color);
+  text-decoration: underline;
+}
+
+.tabs-content {
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 50px;
+  box-shadow: 25px 25px 25px 25px rgba(0,0,0,0.1);
+}
+
+.tabs-content .nav-link {
+  font-size: 1.8rem;
+  color: #999;
+  margin-right: 20px;
+  position: relative;
+}
+
+.tabs-content .nav-link.active {
+  color: var(--second-main-color);
+}
+
+.tabs-content .nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--second-main-color);
+  border-radius: 5px;
+}
+
+.tabs-content ul.nav-tabs {
+  border-bottom: none;
+}
+.tabs-content p{
+    margin-top: 25px;
+  margin-bottom: 40px;
+  font-size: 1.5rem;
+  line-height: 1.8;
+  color: #555;
+  max-width: 90%;
+}
+
+.tabs-content ul.nav-tabs li {
+  border-right: 1px solid #d7d7d7;
+  margin-right: 30px;
+  padding-right: 30px;
+}
+
+.tabs-content ul.nav-tabs li:last-child {
+  border-right: none;
+  margin-right: 0px;
+  padding-right: 0px;
+}
+
+.tabs-content .nav-tabs .nav-link.active {
+  color: #0071f8;
+}
+
+.tabs-content .tab-content {
+  margin-top: 30px;
+}
+
+.related-games .main-button {
+  text-align: right;
+  margin-top: 32px;
+}
+.single-product .col-lg-6.align-self-center {
+  padding-left: 30px;
+}
+
+.game-score {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 25px;
+  margin-bottom: 40px;
+}
+
+/* caixa da nota */
+.score-box {
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, var(--second-main-color), var(--main-color));
+  color: #fff;
+  font-size: 2.6rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Orbitron", sans-serif;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* info ao lado */
+.score-info {
+  display: flex;
+  flex-direction: column;
+}
+
+/* título */
+.score-label {
+  font-size: 1.3rem;
+  color: #999;
+  text-transform: uppercase;
+}
+
+/* texto tipo "Muito positivo" */
+.score-text {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--second-black-color);
+}
+
+
+
+
+
+
+/* 
+---------------------------------------------
+Desenvolvedoras
+--------------------------------------------- 
+*/
+
+.trending ul.trending-filter {
+  list-style: none;
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.trending ul.trending-filter li {
+  display: inline-block;
+  margin: 5px 8px;
+}
+
+.trending ul.trending-filter li a {
+  display: inline-block;
+  text-align: center;
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #1e1e1e;
+  background-color: #eee;
+  padding: 8px 20px;
+  border-radius: 25px;
+  transition: all .3s;
+}
+
+.trending ul.trending-filter li a.is_active {
+  background-color: var(--main-color);
+  color: #fff;
+}
+
+.trending ul.trending-filter li a.is_active:hover {
+  color: #fff;
+}
+
+.trending ul.trending-filter li a:hover {
+  color: var(--main-color);
+}
+
+.trending-box .item  {
+  background-color: #eeeeee;
+  position: relative;
+  overflow: hidden;
+  border-radius: 25px;
+  margin-bottom: 30px;
+}
+
+.trending-box .item .thumb {
+  position: relative;
+  border-radius: 25px;
+  overflow: hidden;
+}
+.trending-box .item img {
+  width: 100%;
+  max-height: 330px;
+  height: 10%;
+  transition: transform 0.3s ease;
+}
+.trending-box .item span.price em {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  text-decoration: line-through;
+  display: block;
+}
+
+.trending-box .item span.price {
+  text-align: right;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  border-radius: 10px;
+  background-color: var(--second-black-color);
+  font-size: 17px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #fff;
+  padding: 8px 15px 6px 15px;
+}
+
+.trending-box .item .down-content {
+  padding: 25px;
+}
+
+.trending-box .item .down-content span.category {
+  font-size: 14px;
+  color: #7a7a7a;
+  margin-bottom: 5px;
+  display: inline-block;
+}
+
+.trending-box .item .down-content h4 {
+  font-size: 17px;
+  font-weight: 600;
+  transition: all .3s;
+}
+
+.trending-box .item .down-content a {
+  position: absolute;
+  display: inline-block;
+  text-align: center;
+  line-height: 40px;
+  width: 40px;
+  height: 40px;
+  background-color: var(--main-color);
+  color: #fff;
+  border-radius: 50%;
+  right: 25px;
+  bottom: 25px;
+  transition: all .3s;
+}
+
+.trending-box .item:hover .down-content h4 {
+  color: var(--second-main-color);
+    font-size: 19px;
+}
+
+.trending-box .item:hover .down-content a {
+  background-color: var(--second-black-color);
+  transform: scale(1.2);
+}
+
+.trending ul.pagination {
+  margin-top: 50px;
+  text-align: center;
+  width: 100%;
+  display: inline-block;
+}
+
+.trending ul.pagination li {
+  display: inline-block;
+  margin: 0px 5px;
+}
+
+.trending ul.pagination li a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  background-color: #eee;
+  color: #1e1e1e;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 50%;
+  transition: all .3s;
+}
+
+.trending ul.pagination li a:hover,
+.trending ul.pagination li a.is_active {
+  background-color: var(--second-main-color);
+  color: #fff;
+}
+
+
 /* Resposividade----Tem que ficar no final do código, não coloque codigo abaixo dele desde que não seja sobre resposividade*/
 @media (max-width: 768px) {
   #menu-icon {

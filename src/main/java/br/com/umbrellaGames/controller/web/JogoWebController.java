@@ -5,16 +5,16 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import br.com.umbrellaGames.model.entity.Categoria;
 import br.com.umbrellaGames.model.entity.Jogo;
 import br.com.umbrellaGames.service.CategoriaService;
 import br.com.umbrellaGames.service.JogoService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 
@@ -28,8 +28,10 @@ public class JogoWebController {
 	@Autowired
 	private CategoriaService categoriaService;
 
-	@GetMapping("/home")
-    public String paginaHome() {
+	@GetMapping({"/", "/home"})
+    public String paginaHome(Model model) {
+		List<Categoria> categorias = categoriaService.findAll();
+		model.addAttribute("categorias", categorias);
     return "index";
 }
 
@@ -40,6 +42,30 @@ public class JogoWebController {
 	@GetMapping("/categoria")
 	public String paginaCategoria(@RequestParam String param) {
 		return new String();
+	}
+	
+	@GetMapping("/categoria/{idCategoria}")
+	public String paginaCategoriaId(@PathVariable int idCategoria, Model model) {
+	//List<CategoriaJogo> jogos = categoriaJogoService.buscarPorIdCategoria(idCategoria);
+		List<Jogo> destaque = jogoService.findJogosByCategoria(idCategoria)
+		        .stream()
+		        .limit(4)
+		        .toList();
+		model.addAttribute("destaqueJogos", destaque);
+	model.addAttribute("jogos", jogoService.findJogosByCategoria(idCategoria)/*.stream().limit(4).toList()*/);
+	List<Categoria> categorias = categoriaService.findAll();
+	model.addAttribute("categorias", categorias);
+	Categoria categoria = categoriaService.buscarPorId(idCategoria);
+	model.addAttribute("categoria", categoria);
+	return "Categoria";
+	}
+	
+	
+	@GetMapping("/jogo/{idJogo}")
+	public String infoJogoId(@PathVariable int idJogo, Model model) {
+	    Jogo jogo = jogoService.buscarPorId(idJogo);
+	    model.addAttribute("jogo", jogo);
+	    return "infoJogos";
 	}
 	
   
@@ -60,8 +86,6 @@ public String paginaLogin() {
 
     	@GetMapping("/admin/1/newJogo")
 	public String newJogo(Model model) {
-		List<Categoria> categorias = categoriaService.findAll();
-		model.addAttribute("categorias", categorias);
 		model
 			.addAttribute("jogo", new Jogo())
 			.addAttribute("novo", true);
@@ -109,6 +133,6 @@ public String paginaLogin() {
 		public String editCategoria(Categoria categoria) {
 			categoriaService.salvarCategoria(categoria);
 			return "redirect:/admin/1/";
-	}	
+	}
 }
 

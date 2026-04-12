@@ -29,7 +29,6 @@ public class Jogo {
 	public Jogo(int idJogo, int idCategoria, String nomeJogo, String desenvolvedora, String imagem, String detalhes, double valor, double nota) {
 		super();
 		this.idJogo = idJogo;
-		this.idCategoria = idCategoria;
 		this.nomeJogo = nomeJogo;
 		this.desenvolvedora = desenvolvedora;
 		this.imagem = imagem;

@@ -17,7 +17,7 @@ public class CategoriaService {
 
 	@Autowired
 	private CategoriaRepository categoriaRepository;
-    private JogoRepository JogoRepository;
+	private JogoRepository jogoRepository;
 	
 	public List<Categoria> findAll(){
 		return categoriaRepository.findAll();
@@ -44,12 +44,13 @@ public class CategoriaService {
 	}
 
 	public void deletarCategoria(int id){
-        List<Jogo> jogos = JogoRepository.findAllByIdCategoria(id);
 
-        for (Jogo jogo : jogos) {
-            jogo.setIdCategoria();
-            JogoRepository.save(jogo);
-        }
+		List<Jogo> jogos = jogoRepository.findAllByIdCategoria(id);
+
+		for (Jogo jogo : jogos) {
+			jogo.setIdCategoria();
+			jogoRepository.save(jogo);
+		}
 
 		categoriaRepository.deleteById(id);
 	}
@@ -58,3 +59,4 @@ public class CategoriaService {
 		return categoriaRepository.save(categoria);
 	}
 }
+

@@ -74,67 +74,51 @@
         </div>
     </header>
  <!--fim do header-->
-<br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br>s
     <h3><label  style="display: block; text-align: center; font-size: xx-large;" th:text="${novo} ?'Novo ' : 'Editar '"></label></h3>
 	<br>	
     <br>
-  <!-- <form th:action="@{/admin/saveJogo}" th:object="${jogo}" method="post">
+    <form th:action="@{/admin/saveJogo}" th:object="${jogo}" method="post">
 			<table style="font-size: 40px;margin-left: auto; margin-right: auto" border="1">
 				<tr>
 					<th>ID</th><td><input type="text" th:field="*{idJogo}" size="40" readonly /></td>
 				</tr>	
-				
-				
 				<tr>
 					<th>Nome</th><td><input type="text" th:field="*{nomeJogo}" size="40" required /></td>
-				</tr>
-					
-				
+				</tr>	
 				<tr>
 					<th>Valor</th><td><input type="text" th:field="*{valor}" size="40"required/></td>
-				</tr>
-				
-				
-				<tr>
-					<th>Desenvolvedora</th> <td> <input type="text" th:field="*{desenvolvedora}" size="40"required/> </td>
-				</tr>
-				
-				<tr>
-					<th>Nota</th><td><input type="text" th:field="*{nota}" size="40"required/></td>
-				</tr>
-
-				<tr>
-					<th>Descrição</th><td><input type="text" th:field="*{detalhes}" size="40"required/></td>
-				</tr>
-				
-				<br>
-				<tr>
-					<th>Capa</th> <td> <img th:src="@{'/assents/img/capas/' + *{imagem} }"> </td>
-				</tr>
-						
-				
-					
- 	        	<tr>
-            		<th>Capa</th>
-            		<td>
-						
-                		<input type="file" 
-                       		name="imagem" 
-                       		accept="image/*" 
-                       		class="form-control" 
-                       		style="width: 100%; padding: 8px;">
+				</tr>	
+        	<tr>
+					<th>Imagem</th><td><input type="text" th:field="*{imagem}" size="40"required/></td>
+				</tr>	
+         <tr>
+            <th>Imagem do Jogo</th>
+            <td>
+                <input type="file" 
+                       name="imagem" 
+                       accept="image/*" 
+                       class="form-control" 
+                       style="width: 100%; padding: 8px;">
                 
-                		
-                		<div th:if="${jogo.imagem != null and jogo.imagem != ''}" style="margin-top: 10px;">
-                    	<img th:src="${jogo.imagem}" 
+                <!-- Mostrar imagem atual (quando estiver editando) -->
+                <div th:if="${jogo.imagem != null and jogo.imagem != ''}" style="margin-top: 10px;">
+                    <p>Imagem atual:</p>
+                    <img th:src="${jogo.imagem}" 
                          alt="Imagem atual" 
                          style="max-width: 200px; border: 1px solid #ddd;">
-                	</div>
-            		</td>
-        		</tr>
-				
-				
-					
+                </div>
+            </td>
+        </tr>
+				<tr>
+					<th>Desenvolvedora</th>
+					<td><select th:field="*{desenvolvedora}" size="1">
+							<option th:value="*{desenvolvedora}" th:text="*{desenvolvedora}"></option>
+							<option th:value="Ubisoft" th:text="Ubisoft"></option>
+							<option th:value= "EA" th:text="EA"></option>
+							<option th:value="Rockstar" th:text="Rockstar"></option>
+						</select>
+				</tr>	
              <tr th:if="${message}">
             <td colspan="2">
                 <div class="alert alert-info" th:text="${message}"></div>
@@ -144,37 +128,12 @@
 				<tr>
 					<td colspan="2">
 						<input   style="font-size: large;"  type="submit" class="btn btn-success" value="Enviar">
-						<a th:href="@{/admin/1/}">Sair</a>
+						<a th:href="@{/admin/}">Sair</a>
 					</td>	
 				</tr>
 			</table>
-		</form> -->
-<br>
-<br>
-<h2>teste</h2>
- <!--<form th:action="@{admin/saveJogo}" th:object="${jogos}" method="post">-->
- <table style="font-size: 20px;   margin-left: auto; margin-right: auto" border="1">
-  <tr th:each="jogo : ${jogos}">
-    <th>Categorias</th>
-       <td><input style="width: 20px; height: 20px;" type="checkbox"  name="teste1" value="valor1" checked>
-        </td>
-        <span text="aaaaa"></span></td>
-  </tr>
- <tr th:if="${message}">
-            <td colspan="2">
-                <div class="alert alert-info" th:text="${message}"></div>
-            </td>
-        </tr>
-<hr><hr>
-				<tr>
-					<td colspan="2">
-						<input   style="font-size: large;"  type="submit" class="btn btn-success" value="Enviar">
-						<a th:href="@{/admin/1/}">Sair</a>
-					</td>	
-				</tr>
-                </tr>
- </table>
-    </form>
+		</form>
+
 <br><br><br><br><br><br><br><br><br><br><br>
 
 
@@ -236,3 +195,4 @@
 
 </body>
 </html>
+
