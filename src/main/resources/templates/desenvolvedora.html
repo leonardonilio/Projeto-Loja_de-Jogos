@@ -8,13 +8,13 @@
      <!-- bibliotecas do css -->
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
     <!-- Bootstrap-->
-    <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../static/vendor/bootstrap/css/swiper-bundle.min.css" rel="stylesheet">
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/vendor/bootstrap/css/swiper-bundle.min.css" rel="stylesheet">
     <!--css-->
-    <link rel="stylesheet" href="../static/assents/css/loader.css">
-    <link rel="stylesheet" href="../static/assents/css/style.css">
-    <link rel="stylesheet" href="../static/assents/css/footer.css">
-    <link rel="stylesheet" href="../static/vendor/bootstrap/css/flex-slider.css">
+    <link rel="stylesheet" href="/assents/css/loader.css">
+    <link rel="stylesheet" href="/assents/css/style.css">
+    <link rel="stylesheet" href="/assents/css/footer.css">
+    <link rel="stylesheet" href="/vendor/bootstrap/css/flex-slider.css">
 
     <!-- Swiper Js-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -87,200 +87,70 @@
 	            </nav>
 
 	        </div>
-	    </header>  <!--****** BAnner *****-->
+	    </header> 
+		 <!--****** Banner *****-->
   <div class="page-heading header-text">
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <h3>Nome da Desenvolvedora</h3>
+          <h3 th:text="${nomeDev}"></h3>
           <span class="breadcrumb"><a href="index.html">Home</a> >
-            Nome da Desenvolvedora</span>
+            Desenvolvedoras</span>
         </div>
       </div>
     </div>
   </div>
   <!--****** BAnner end *****-->
 
-       <!--Importante: essa parte não tem código ainda, só é o visual-->
+       
       <div class="section trending">
     <div class="container">
       <ul class="trending-filter">
         <li>
-          <a class="is_active" href="#!" data-filter="*">Show All</a>
+          <a href="#" th:onclick="|window.location.href='@{/desenvolvedora/{nomeDev}(nomeDev=${nomeDev}, exibicao='todos')}'|" th:classappend="${exibicao == 'todos'} ? 'is_active' : ''">Todos</a>
         </li>
         <li>
-          <a href="#!" data-filter=".adv">Gratuitos</a>
+          <a href="#" th:onclick="|window.location.href='@{/desenvolvedora/{nomeDev}(nomeDev=${nomeDev}, exibicao='avaliacao')}'|" th:classappend="${exibicao == 'avaliacao'} ? 'is_active' : ''">Melhores Avaliacões</a>
         </li>
         <li>
-          <a href="#!" data-filter=".str">Melhores Avaliacões</a>
-        </li>
-        <li>
-          <a href="#!" data-filter=".rac">Melhores Preços</a>
+          <a href="#" th:onclick="|window.location.href='@{/desenvolvedora/{nomeDev}(nomeDev=${nomeDev}, exibicao='preco')}'|" th:classappend="${exibicao == 'preco'} ? 'is_active' : ''">Melhores Preços</a>
         </li>
       </ul>
 
       <!--Inicio da apresentação dos jogos da desenvolvedora-->
-      <div class="row trending-box">
-        <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 adv">
-          <div class="item">
-            <div class="thumb">
-              <a href="infoJogos.html"><img src="../imagem/capa/assassins_creed_brotherhood_capa1.png" alt=""></a>
-              <span class="price"><em>$36</em>$24</span>
-            </div>
-            <div class="down-content">
-              <span class="category">Action</span>
-              <h4>Assasin Creed</h4>
-              <a href="infoJogos.html"><i class="fa fa-shopping-bag"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 str">
-          <div class="item">
-            <div class="thumb">
-              <a href="infoJogos.html"><img src="../imagem/capa/borderlands2_capa1.png" alt=""></a>
-              <span class="price"><em>$32</em>$22</span>
-            </div>
-            <div class="down-content">
-              <span class="category">Action</span>
-              <h4>Assasin Creed</h4>
-              <a href="infoJogos.html"><i class="fa fa-shopping-bag"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 adv rac">
-          <div class="item">
-            <div class="thumb">
-              <a href="infoJogos.html"><img src="../imagem/capa/counter-strike_2_capa1.png" alt=""></a>
-              <span class="price"><em>$45</em>$30</span>
-            </div>
-            <div class="down-content">
-              <span class="category">Action</span>
-              <h4>Assasin Creed</h4>
-              <a href="infoJogos.html"><i class="fa fa-shopping-bag"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 str">
-          <div class="item">
-            <div class="thumb">
-              <a href="infoJogos.html"><img src="../imagem/capa/disco_elysium_capa1.png" alt=""></a>
-              <span class="price"><em>$32</em>$22</span>
-            </div>
-            <div class="down-content">
-              <span class="category">Action</span>
-              <h4>Assasin Creed</h4>
-              <a href="infoJogos.html"><i class="fa fa-shopping-bag"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 rac str">
-          <div class="item">
-            <div class="thumb">
-              <a href="infoJogos.html"><img src="../imagem/capa/elden_ring_capa1.png" alt=""></a>
-              <span class="price"><em>$38</em>$26</span>
-            </div>
-            <div class="down-content">
-              <span class="category">Action</span>
-              <h4>Assasin Creed</h4>
-              <a href="infoJogos.html"><i class="fa fa-shopping-bag"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 rac adv">
-          <div class="item">
-            <div class="thumb">
-              <a href="infoJogos.html"><img src="../imagem/capa/fallout_new_vegas_capa1.png" alt=""></a>
-              <span class="price"><em>$30</em>$20</span>
-            </div>
-            <div class="down-content">
-              <span class="category">Action</span>
-              <h4>Assasin Creed</h4>
-              <a href="infoJogos.html"><i class="fa fa-shopping-bag"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 rac str">
-          <div class="item">
-            <div class="thumb">
-              <a href="infoJogos.html"><img src="../imagem/capa/garry's_mod_capa1.png" alt=""></a>
-              <span class="price"><em>$32</em>$22</span>
-            </div>
-            <div class="down-content">
-              <span class="category">Action</span>
-              <h4>Assasin Creed</h4>
-              <a href="infoJogos.html"><i class="fa fa-shopping-bag"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 rac adv">
-          <div class="item">
-            <div class="thumb">
-              <a href="infoJogos.html"><img src="../imagem/capa/hollow_knight_capa1.png" alt=""></a>
-              <span class="price"><em>$32</em>$22</span>
-            </div>
-            <div class="down-content">
-              <span class="category">Action</span>
-              <h4>Assasin Creed</h4>
-              <a href="infoJogos.html"><i class="fa fa-shopping-bag"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 adv rac">
-          <div class="item">
-            <div class="thumb">
-              <a href="infoJogos.html"><img src="../imagem/capa/inscryption_capa1.png" alt=""></a>
-              <span class="price"><em>$28</em>$20</span>
-            </div>
-            <div class="down-content">
-              <span class="category">Action</span>
-              <h4>Assasin Creed</h4>
-              <a href="infoJogos.html"><i class="fa fa-shopping-bag"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 str">
-          <div class="item">
-            <div class="thumb">
-              <a href="infoJogos.html"><img src="../imagem/capa/journey_capa1.png" alt=""></a>
-              <span class="price"><em>$26</em>$18</span>
-            </div>
-            <div class="down-content">
-              <span class="category">Action</span>
-              <h4>Assasin Creed</h4>
-              <a href="infoJogos.html"><i class="fa fa-shopping-bag"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 adv">
-          <div class="item">
-            <div class="thumb">
-              <a href="infoJogos.html"><img src="../imagem/capa/counter-strike_2_capa1.png" alt=""></a>
-              <span class="price"><em>$32</em>$24</span>
-            </div>
-            <div class="down-content">
-              <span class="category">Action</span>
-              <h4>Assasin Creed</h4>
-              <a href="infoJogos.html"><i class="fa fa-shopping-bag"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 str">
-          <div class="item">
-            <div class="thumb">
-              <a href="infoJogos.html"><img src="../imagem/capa/disco_elysium_capa1.png" alt=""></a>
-              <span class="price"><em>$45</em>$30</span>
-            </div>
-            <div class="down-content">
-              <span class="category">Action</span>
-              <h4>Assasin Creed</h4>
-              <a href="infoJogos.html"><i class="fa fa-shopping-bag"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="row trending-box"> 
+		<div th:each="jogo : ${jogos}" 
+		     class="col-lg-3 col-md-6 align-self-center mb-30 trending-items str">
 
+		  <div class="item">
 
-      <!--Paginação para não ter todos os jogos de uma só vez-->
+		    <div class="thumb">
+				
+		      <a th:href="@{'/jogo/' + ${jogo.idJogo}}">
+		        <img th:src="@{'/imagem/capa/' + ${jogo.imagem}}"
+		             alt="game">
+		      </a>
+		      <span class="price"
+		            th:text="'R$ ' + ${jogo.valor}">
+		      </span>
+		    </div>
+		    <div class="down-content">
+				<div class="stars"
+				     th:attr="data-score=${jogo.nota}">
+				</div>
+		      <h4 th:text="${jogo.nomeJogo}">
+		      </h4>
+		      <a th:href="@{'/jogo/' + ${jogo.idJogo}}">
+		        <i class="fa fa-shopping-bag"></i>
+		      </a>
+		    </div>
+		  </div>
+		 </div>
+		</div>
+	  </div>	
+		
+
+      <!--Paginação para não ter todos os jogos de uma só vez -quem fez o frontend/  eu não acho que vai ter mais de 12 jogos por desenvolvedora então veu deixar comentado mesmo -arthur
       <div class="row">
         <div class="col-lg-12">
           <ul class="pagination">
@@ -293,7 +163,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <!-- ********** footer ********** -->
 
@@ -337,16 +207,17 @@
   <!--Código de funcionalidades-->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="../static/vendor/jquery/jquery.min.js"></script>
-  <script src="../static/vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="/vendor/jquery/jquery.min.js"></script>
+  <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
 
-  <script src="../static/vendor/bootstrap/js/counter.js"></script>
-  <script src="../static/vendor/bootstrap/js/custom.js"></script>
-  <script src="../static/vendor/bootstrap/js/isotope.min.js"></script>
+  <script src="/vendor/bootstrap/js/isotope.min.js"></script>
+  <script src="/vendor/bootstrap/js/counter.js"></script>
+  <script src="/vendor/bootstrap/js/custom.js"></script>
+  
 
   <!--Codigo de Javascript-->
-  <script src="../static/assents/js/function.js"></script>
-  <script src="../static/assents/js/script.js"></script>
-  <script src="../static/assents/js/owl-carousel.js"></script>
+  <script src="/assents/js/function.js"></script>
+  <script src="/assents/js/script.js"></script>
+  <script src="/assents/js/owl-carousel.js"></script>
 </body>
 </html>

@@ -129,7 +129,7 @@ body {
   top: 100%;
   left: 0;
   width: 100%;
-  background: white;
+  background: #fdfdfd;
   z-index: 99999;
 }
 
@@ -582,6 +582,7 @@ body {
   font-size: 16px;
   padding: 10px;
   object-fit: cover;
+  color: var(--second-black-color);
 }
 
 .game-card .price {
@@ -826,10 +827,24 @@ align-items:center;
 .feature-arrow.right {
   right: 15px;
 }
+
+/*nome nos destaques*/
+#game-title {
+	
+	font-size:7rem; 
+	color:var(--second-black-color);
+}
+
+/*desc nos destques*/
+#game-description{
+	font-size: 2rem;
+}
+
+/*preço nos destques*/
 .game-price{
 
-font-size:2rem;
-color:#66c0f4;
+font-size:3rem;
+color:rgb(0, 0, 0);
 margin-top:15px;
 
 }
@@ -838,7 +853,7 @@ margin-top:15px;
 
 .game-rating{
 
-font-size:2rem;
+font-size:3rem;
 color:#ffd700;
 
 }
@@ -1345,6 +1360,12 @@ Desenvolvedoras
   color: #7a7a7a;
   margin-bottom: 5px;
   display: inline-block;
+}
+
+.stars{
+	color: gold;
+	font-size: 17px;
+	margin-top: -15px;
 }
 
 .trending-box .item .down-content h4 {

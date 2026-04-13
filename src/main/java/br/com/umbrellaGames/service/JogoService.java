@@ -57,4 +57,14 @@ public class JogoService {
     public List<String> listarDesenvolvedoras() {
         return jogoRepository.findTodasDesenvolvedoras();
     }
+    
+    public List<Jogo> buscarPorDesenvolvedoraOrdenarPorNota(String desenvolvedora){
+    	return jogoRepository.findByDesenvolvedoraOrderByNotaDesc(desenvolvedora);
+    }
+    
+    public List<Jogo> buscarPorDesenvolvedoraOrdenarPorPreco(String desenvolvedora){
+    	return jogoRepository.findByDesenvolvedoraOrderByValorAsc(desenvolvedora);
+    }
+    
+    
 }

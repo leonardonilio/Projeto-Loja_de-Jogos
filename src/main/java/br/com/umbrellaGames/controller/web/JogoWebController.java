@@ -95,13 +95,26 @@ public class JogoWebController {
     }
 	
 	@GetMapping("/desenvolvedora/{nomeDev}")
-	public String jogosPorDesenvolvedora(@PathVariable String nomeDev, Model model) {
-	    List<Jogo> jogos = jogoService.buscarPorDesenvolvedora(nomeDev);
+	public String jogosPorDesenvolvedora(@PathVariable String nomeDev,@RequestParam(defaultValue = "todos") String exibicao, Model model) {
+		List<Jogo> jogos;
+	    switch (exibicao) {
+	        case "avaliacao":
+	            jogos = jogoService.buscarPorDesenvolvedoraOrdenarPorNota(nomeDev);
+	            break;
+	        case "preco":
+	            jogos = jogoService.buscarPorDesenvolvedoraOrdenarPorPreco(nomeDev);
+	            break;
+	        default:
+	            jogos = jogoService.buscarPorDesenvolvedora(nomeDev);
+	            break;
+	    }
 	    model.addAttribute("jogos", jogos);
+	    model.addAttribute("exibicao", exibicao);
 	    List<Categoria> categorias = categoriaService.findAll();
 		model.addAttribute("categorias", categorias);
 		List<String> desenvolvedoras = jogoService.listarDesenvolvedoras();
 	    model.addAttribute("desenvolvedoras", desenvolvedoras);
+	    model.addAttribute("nomeDev", nomeDev);
 	    return "desenvolvedora";
 	}
 

@@ -185,7 +185,7 @@ function changeGame(index){
   
   document.getElementById("game-title").innerText = title;
   document.getElementById("game-description").innerText = description;
-  document.getElementById("game-price").innerText = price;
+  document.getElementById("game-price").innerText ="R$ " + price;
   document.getElementById("game-rating").innerHTML = renderStars(rating);
 
   
@@ -291,6 +291,11 @@ document.addEventListener("click", function (e) {
     if (!e.target.closest(".search-box")) {
         dropdown.style.display = "none";
     }
+});
+
+document.querySelectorAll(".stars").forEach(el => {
+    const score = parseFloat(el.dataset.score);
+    el.innerText = renderStars(score);
 });
 
 });
