@@ -26,7 +26,7 @@ public class Jogo {
 	
 	public Jogo() {}
 	
-	public Jogo(int idJogo, Integer idCategoria, String nomeJogo, String desenvolvedora, String imagem, String detalhes, double valor, double nota) {
+	public Jogo(int idJogo, int idCategoria, String nomeJogo, String desenvolvedora, String imagem, String detalhes, double valor, double nota) {
 		super();
 		this.idJogo = idJogo;
 		this.nomeJogo = nomeJogo;
@@ -51,7 +51,7 @@ public class Jogo {
 		return idCategoria;
 	}
 
-	public void setIdCategoria(Integer idCategoria) {
+	public void setIdCategoria(int idCategoria) {
 		this.idCategoria = idCategoria;
 	}
 

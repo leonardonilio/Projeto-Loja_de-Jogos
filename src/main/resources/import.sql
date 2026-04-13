@@ -22,7 +22,7 @@ INSERT INTO categorias(id_categoria, nome_categoria) VALUE (8,	"Atmosferico");
 
 
 
-INSERT INTO usuarios(id_usuario, nome_usuario, email_usuario, senha_usuario, administrador) VALUE (1,	"Adalberto Gomes",	"adalberto@gamil",	"abc123",	0);
+INSERT INTO usuarios(id_usuario, nome_usuario, email_usuario, senha_usuario, administrador) VALUE (1,	"Adalberto Gomes",	"teste",	"senha",	0);
 INSERT INTO usuarios(id_usuario, nome_usuario, email_usuario, senha_usuario, administrador) VALUE (2,	"Borguinho Barros",	"borguinho@gamil",	"def456",	1);
 INSERT INTO usuarios(id_usuario, nome_usuario, email_usuario, senha_usuario, administrador) VALUE (3,	"Carlos de Carvalho",	"carlos@gamil",		"ghi789",	0);
 INSERT INTO usuarios(id_usuario, nome_usuario, email_usuario, senha_usuario, administrador) VALUE (4,	"Daniel Denevtz",	"daniel@gamil",		"jkl101112",	0);

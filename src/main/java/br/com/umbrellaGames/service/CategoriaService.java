@@ -17,7 +17,6 @@ public class CategoriaService {
 
 	@Autowired
 	private CategoriaRepository categoriaRepository;
-	@Autowired
 	private JogoRepository jogoRepository;
 	
 	public List<Categoria> findAll(){

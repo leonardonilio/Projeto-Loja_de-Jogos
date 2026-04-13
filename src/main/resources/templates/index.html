@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="Pt-br" xmlns:th="http://www.thymeleaf.org">
+<html lang="Pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -18,12 +18,12 @@
     <!--Bootstrap-->
     <!-- Bootstrap core CSS -->
      <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-    <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
-    <link th:href="@{/vendor/bootstrap/css/swiper-bundle.min.css}" rel="stylesheet">
+    <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/vendor/bootstrap/css/swiper-bundle.min.css" rel="stylesheet">
     <!--css-->
-    <link th:href="@{/assents/css/style.css}" rel="stylesheet">
-    <link th:href="@{/assents/css/footer.css}" rel="stylesheet">
-    <link th:href="@{/assents/css/loader.css}" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/assents/css/loader.css}">
+    <link rel="stylesheet" th:href="@{/assents/css/style.css}">
+    <link rel="stylesheet" th:href="@{/assents/css/footer.css}">
 
     <!-- Swiper Js-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -43,57 +43,53 @@
     </div>
     <!-- ***** Preloader End ***** -->
 
-	<!-- ***** Header *****-->
-	<header class="header">
-	    <div class="header-line">
+    <!-- ***** Header *****-->
+    <header class="header">
+        <div class="header-line">
 
-	        <div class="logo">
-	            <a th:href="@{/}">Umbrella Games</a>
-	        </div>
-	        <i class="bx bx-menu" id="menu-icon"></i>
-	        <div class="search-box" style="position:relative";>
-	            <input id="searchInput" type="text" placeholder="Buscar jogos...">
-	            <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-	                    class="bi bi-search" viewBox="0 0 16 16">
-	                    <path
-	                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-	                </svg></button>
-					<div id="searchDropdown" class="search-dropdown"></div>
-	        </div>
+            <div class="logo">
+                <a href="index.html">Umbrella Games</a>
+            </div>
+            <i class="bx bx-menu" id="menu-icon"></i>
+            <div class="search-box">
+                <input type="text" placeholder="Buscar jogos...">
+                <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-search" viewBox="0 0 16 16">
+                        <path
+                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                    </svg></button>
+            </div>
 
-	        <nav class="nav-links">
-	            <div class="dropdown">
-	                <button>Categorias ▾</button>
-	                <div class="dropdown-content">
+            <nav class="nav-links">
+                <div class="dropdown">
+                    <button>Categorias ▾</button>
+                    <div class="dropdown-content">
 						<a th:each="cat : ${categorias}"
-	                       th:href="@{/categoria/{id}(id=${cat.idCategoria})}"
+						   th:href="@{/categoria/{id}(id=${cat.idCategoria})}"
 						   th:text="${cat.nomeCategoria}">
 						</a>
-	                </div>
-	            </div>
+                    </div>
+                </div>
 
-	            <div class="dropdown">
-	                <button>Desenvolvedora ▾</button>
-	                <div class="dropdown-content">
-	                    <a th:each="dev : ${desenvolvedoras}"
-	                       th:href="@{/desenvolvedora/{nomeDev}(nomeDev=${dev})}"
-						   th:text="${dev}">
-						</a>
-	                </div>
-	            </div>
+                <div class="dropdown">
+                    <button>Desenvolvedora ▾</button>
+                    <div class="dropdown-content">
+                        <a href="#">Ubisoft</a>
+                        <a href="#">EA</a>
+                    </div>
+                </div>
 
-	            <a th:href="@{/about}">Sobre</a>
-				
-				<a th:href="@{/admin}">Admin</a>
-				                <a class="icon" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
-				                        class="bi bi-cart" viewBox="0 0 16 16">
-				                        <path
-				                            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
-				                    </svg></a>
-	        </nav>
+                <a href="sobre.html">Sobre</a>
+                <a href="#">Admin</a>
+                <a class="icon" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                        <path
+                            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
+                    </svg></a>
+            </nav>
 
-	    </div>
-	</header>
+        </div>
+    </header>
     <!-- ***** Header End *****-->
 
     <!--***** Banner *****-->
@@ -117,9 +113,9 @@
                         <button class="arrow left">&#10094;</button>
 
                         <div class="slides">
-                            <img th:each="jogo : ${destaques}"
-                                 th:src="@{${jogo.imagem}}"
-                                 class="slide">
+                            <img src="../static/assents/img/banner-image.jpg" class="slide">
+                            <img src="../static/assents/img/image.png" class="slide">
+                            <img src="../static/assents/img/banner-image.jpg" class="slide">
                         </div>
 
                         <button class="arrow right">&#10095;</button>
@@ -150,17 +146,94 @@
             <div class="games-slider swiper recommended-slider">
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-wrapper">
+
                     <!-- CARD -->
-                    <div class="game-card swiper-slide" th:each="jogo : ${recomendados}">
-                        <img th:src="@{${jogo.imagem}}"> <!--Faz um loop e preenche com os jogos-->
-                        <h3 th:text="${jogo.nomeJogo}"></h3>
-                        <p class="price" th:text="${jogo.valor}"></p>
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/image.png">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">R$ 79,90</p>
+                    </div>
+
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/image.png">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">R$ 79,90</p>
+                    </div>
+
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/image.png">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">R$ 79,90</p>
+                    </div>
+
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/image.png">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">R$ 79,90</p>
+                    </div>
+
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/banner-image.jpg">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">R$ 79,90</p>
+                    </div>
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/banner-image.jpg">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">R$ 79,90</p>
+                    </div>
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/banner-image.jpg">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">R$ 79,90</p>
+                    </div>
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/banner-image.jpg">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">R$ 79,90</p>
+                    </div>
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/banner-image.jpg">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">R$ 79,90</p>
+                    </div>
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/banner-image.jpg">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">R$ 79,90</p>
+                    </div>
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/image.png">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">R$ 79,90</p>
+                    </div>
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/image.png">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">R$ 79,90</p>
+                    </div>
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/image.png">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">R$ 79,90</p>
+                    </div>
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/image.png">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">R$ 79,90</p>
+                    </div>
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/image.png">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">R$ 79,90</p>
                     </div>
                 </div>
+
 
                 <div class="swiper-scrollbar"></div>
                 <div class="swiper-button-next"></div>
             </div>
+
         </div>
 
         <!-- Jogos Gratuitos -->
@@ -170,10 +243,69 @@
             <div class="games-slider swiper free-slider">
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-wrapper">
-                    <div class="game-card swiper-slide" th:each="jogo : ${gratuitos}">
-                        <img th:src="@{${jogo.imagem}}">
-                        <h3 th:text="${jogo.nomeJogo}"></h3>
-                        <p class="price" th:text="${jogo.valor}"></p>
+
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/image.png">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">Grátis</p>
+                    </div>
+
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/image.png">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">Grátis</p>
+                    </div>
+
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/image.png">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">Grátis</p>
+                    </div>
+
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/image.png">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">Grátis</p>
+                    </div>
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/image.png">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">Grátis</p>
+                    </div>
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/banner-image.jpg">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">Grátis</p>
+                    </div>
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/image.png">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">Grátis</p>
+                    </div>
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/image.png">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">Grátis</p>
+                    </div>
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/banner-image.jpg">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">Grátis</p>
+                    </div>
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/image.png">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">Grátis</p>
+                    </div>
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/banner-image.jpg">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">Grátis</p>
+                    </div>
+                    <div class="game-card swiper-slide">
+                        <img src="../static/assents/img/image.png">
+                        <h3>Nome do jogo</h3>
+                        <p class="price">Grátis</p>
                     </div>
                 </div>
 
@@ -193,10 +325,68 @@
             <div class="swiper-button-prev"></div>
             <div class="swiper-wrapper">
 
-                <div class="game-card swiper-slide" th:each="jogo : ${promocao}">
-                    <img th:src="@{${jogo.imagem}}">
-                    <h3 th:text="${jogo.nomeJogo}"></h3>
-                    <p class="price" th:text="${jogo.valor}"></p>
+                <div class="game-card swiper-slide">
+                    <img src="../static/assents/img/image.png">
+                    <h3>Nome do jogo</h3>
+                    <p class="price">R$ 29,90</p>
+                </div>
+
+                <div class="game-card swiper-slide">
+                    <img src="../static/assents/img/image.png">
+                    <h3>Nome do jogo</h3>
+                    <p class="price">R$ 29,90</p>
+                </div>
+
+                <div class="game-card swiper-slide">
+                    <img src="../static/assents/img/image.png">
+                    <h3>Nome do jogo</h3>
+                    <p class="price">R$ 29,90</p>
+                </div>
+
+                <div class="game-card swiper-slide">
+                    <img src="../static/assents/img/banner-image.jpg">
+                    <h3>Nome do jogo</h3>
+                    <p class="price">R$ 29,90</p>
+                </div>
+                <div class="game-card swiper-slide">
+                    <img src="../static/assents/img/image.png">
+                    <h3>Nome do jogo</h3>
+                    <p class="price">R$ 29,90</p>
+                </div>
+                <div class="game-card swiper-slide">
+                    <img src="../static/assents/img/banner-image.jpg">
+                    <h3>Nome do jogo</h3>
+                    <p class="price">R$ 29,90</p>
+                </div>
+                <div class="game-card swiper-slide">
+                    <img src="../static/assents/img/banner-image.jpg">
+                    <h3>Nome do jogo</h3>
+                    <p class="price">R$ 29,90</p>
+                </div>
+                <div class="game-card swiper-slide">
+                    <img src="../static/assents/img/image.png">
+                    <h3>Nome do jogo</h3>
+                    <p class="price">R$ 29,90</p>
+                </div>
+                <div class="game-card swiper-slide">
+                    <img src="../static/assents/img/image.png">
+                    <h3>Nome do jogo</h3>
+                    <p class="price">R$ 29,90</p>
+                </div>
+                <div class="game-card swiper-slide">
+                    <img src="../static/assents/img/banner-image.jpg">
+                    <h3>Nome do jogo</h3>
+                    <p class="price">R$ 29,90</p>
+                </div>
+                <div class="game-card swiper-slide">
+                    <img src="../static/assents/img/image.png">
+                    <h3>Nome do jogo</h3>
+                    <p class="price">R$ 29,90</p>
+                </div>
+                <div class="game-card swiper-slide">
+                    <img src="../static/assents/img/banner-image.jpg">
+                    <h3>Nome do jogo</h3>
+                    <p class="price">R$ 29,90</p>
                 </div>
 
             </div>
@@ -217,10 +407,32 @@
     <h2>Top Categories</h2>
 
     <div class="categories-container">
-        <div class="category-card" th:each="categoria : ${categorias}">
-            <span class="category-tag" th:text="${categoria.nomeCategoria}"></span>
-            <img th:src="@{/assents/img/image.png}" alt="Categoria">
+
+        <div class="category-card">
+            <span class="category-tag">Action</span>
+            <img src="../static/assents/img/image.png" alt="Categoria">
         </div>
+
+        <div class="category-card">
+            <span class="category-tag">Action</span>
+            <img src="../static/assents/img/image.png" alt="Categoria">
+        </div>
+
+        <div class="category-card">
+            <span class="category-tag">Action</span>
+            <img src="../static/assents/img/image.png" alt="Categoria">
+        </div>
+
+        <div class="category-card">
+            <span class="category-tag">Action</span>
+            <img src="../static/assents/img/image.png" alt="Categoria">
+        </div>
+
+        <div class="category-card">
+            <span class="category-tag">Action</span>
+            <img src="../static/assents/img/image.png" alt="Categoria">
+        </div>
+
     </div>
 </section>
 <!-- ********** seção de categoria end ********** -->
@@ -251,14 +463,14 @@
         <a href="Categoria.html">Categorias</a>
       </li>
       <li>
-        <a href="#about">Desenvolvedoras</a>
+        <a href="desenvolvedora.html">Desenvolvedoras</a>
       </li>
       <li>
-		<a th:href="@{/about}">Sobre</a>
-		      </li>
-		      <li>
-		        <a th:href="@{/admin}">Administrador</a>
-		      </li>
+        <a href="sobre.html">Sobre</a>
+      </li>
+      <li>
+        <a href="#contact">Adiministrador</a>
+      </li>
     </ul>
 
     <p class="copyright">getGroup. ©Todos os direitos reservados. 2026</p>
@@ -271,9 +483,8 @@
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!--Código de funcionalidades-->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
-    <script th:src="@{/vendor/bootstrap/js/bootstrap.min.js}"></script>
+    <script src="../static/vendor/jquery/jquery.min.js"></script>
+    <script src="../static/vendor/bootstrap/js/bootstrap.min.js"></script>
     <!--Codigo de Javascript-->
     <script th:src="@{/assents/js/function.js}"></script>
     <script th:src="@{/assents/js/script.js}"></script>
