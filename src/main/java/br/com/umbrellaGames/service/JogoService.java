@@ -2,7 +2,6 @@ package br.com.umbrellaGames.service;
 
 import java.util.List;
 
-import org.jspecify.annotations.Nullable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,17 +15,7 @@ public class JogoService {
 	private JogoRepository jogoRepository;
 	
 	public List<Jogo> findAll(){
-        List<Jogo> jogos = jogoRepository.findAll();
-
-        for (Jogo jogo : jogos) {
-            String caminho = jogo.getImagem();
-
-            // a bosta do resources no caminho estava atrapalhando o aparecimento das imagens
-            caminho = caminho.replace("/resources", "");
-
-            jogo.setImagem(caminho);
-        }
-        return jogos;
+		return jogoRepository.findAll();
 	}
 	
 	public List<Jogo> findJogosByCategoria(int idCategoria) {
@@ -60,23 +49,4 @@ public class JogoService {
 	public Jogo salvarJogo(Jogo jogo){
 		return jogoRepository.save(jogo);
 	}
-
-    public List<Jogo> buscarGratuitos(){
-        return jogoRepository.findAll().stream().filter(jogo -> jogo.getValor() == 0).toList(); //verifica jogos gratuitos
-    }
-
-    public List<Jogo> buscarPromocao(){
-        return jogoRepository.findAll().stream().filter(jogo -> jogo.getValor() <= 30 && jogo.getValor() != 0).toList(); // quais jogos estão em promoção
-    }
-
-    public List<Jogo> buscarDestaques() {
-        return jogoRepository.findAll().stream().filter(jogo -> jogo.getNota() == 10).toList(); // quais jogos são destaque
-	}
-	public List<Jogo> buscarPorDesenvolvedora(String desenvolvedora) {
-        return jogoRepository.findByDesenvolvedora(desenvolvedora);
-    }
-
-    public List<String> listarDesenvolvedoras() {
-        return jogoRepository.findTodasDesenvolvedoras();
-    }
 }
