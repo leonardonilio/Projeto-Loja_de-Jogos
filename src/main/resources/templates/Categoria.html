@@ -136,9 +136,9 @@
 			                data-description=${destaqueJogos[0].detalhes},
 			                data-price=${destaqueJogos[0].valor},
 							data-rating=${destaqueJogos[0].nota},
-			                data-image=${#strings.replace(destaqueJogos[0].imagem, '/resources', '')}">
+			               data-image=${'/imagem/capa/' + destaqueJogos[0].imagem}">
 		     <img th:if="${destaqueJogos[0].imagem != null}"
-		          th:src="@{${#strings.replace(destaqueJogos[0].imagem, '/resources', '')}}">
+		          th:src="@{'/imagem/capa/' + ${destaqueJogos[0].imagem}}">
 		 </div>
 
 		 <div class="feature-item" onclick="changeGame(1)"
@@ -147,9 +147,9 @@
 			                data-description=${destaqueJogos[1].detalhes},
 			                data-price=${destaqueJogos[1].valor},
 							data-rating=${destaqueJogos[1].nota},
-			                data-image=${#strings.replace(destaqueJogos[1].imagem, '/resources', '')}">
+			                data-image=${'/imagem/capa/' + destaqueJogos[1].imagem}">
 		     <img th:if="${destaqueJogos[1].imagem != null}"
-		          th:src="@{${#strings.replace(destaqueJogos[1].imagem, '/resources', '')}}">
+		          th:src="@{'/imagem/capa/' + ${destaqueJogos[1].imagem}}">
 		 </div>
 
 		 <div class="feature-item" onclick="changeGame(2)"
@@ -158,9 +158,9 @@
 			  		         data-description=${destaqueJogos[2].detalhes},
 			  		         data-price=${destaqueJogos[2].valor},
 			  			     data-rating=${destaqueJogos[2].nota},
-			  		         data-image=${#strings.replace(destaqueJogos[2].imagem, '/resources', '')}">
+			  		         data-image=${'/imagem/capa/' + destaqueJogos[2].imagem}">
 		     <img th:if="${destaqueJogos[2].imagem != null}"
-		          th:src="@{${#strings.replace(destaqueJogos[2].imagem, '/resources', '')}}">
+		          th:src="@{'/imagem/capa/' + ${destaqueJogos[2].imagem}}">
 		 </div>
 
 		 <div class="feature-item" onclick="changeGame(3)"
@@ -169,9 +169,9 @@
 			  		          data-description=${destaqueJogos[3].detalhes},
 			  		          data-price=${destaqueJogos[3].valor},
 			  				  data-rating=${destaqueJogos[3].nota},
-			  		          data-image=${#strings.replace(destaqueJogos[3].imagem, '/resources', '')}">
+			  		          data-image=${'/imagem/capa/' + destaqueJogos[3].imagem}">
 		     <img th:if="${destaqueJogos[3].imagem != null}"
-		          th:src="@{${#strings.replace(destaqueJogos[3].imagem, '/resources', '')}}">
+		          th:src="@{'/imagem/capa/' + ${destaqueJogos[3].imagem}}">
 		 </div>
 			    
             
@@ -207,18 +207,18 @@
 				                <a class="game-big"
 									th:href="@{'/jogo/' + ${jogos[i].idJogo}}">
 									<img th:src="${jogos.size() > i 
-									    ? #strings.replace(jogos[i].imagem, '/resources', '') 
+									    ? '/imagem/capa/' + jogos[i].imagem 
 									    : '/assents/img/image.png'}">
-				                    <span class="price" th:text="${jogos.size() > i ? jogos[i].valor : ''}"></span>
+				                    <span class="price" th:text="${i < jogos.size() ? 'R$ ' + jogos[i].valor : ''}"></span>
 				                </a>
 
 				                <!-- Item 2 -->
 				                <a class="game-big"
 									th:href="@{'/jogo/' + ${jogos[i].idJogo}}">
 									<img th:src="${jogos.size() > i+1 
-									    ? #strings.replace(jogos[i+1].imagem, '/resources', '') 
+									    ? '/imagem/capa/' + jogos[i+1].imagem 
 									    : '/assents/img/image.png'}">
-				                    <span class="price" th:text="${jogos.size() > i+1 ? jogos[i+1].valor : ''}"></span>
+				                    <span class="price" th:text="${i+1 < jogos.size() ? 'R$ ' + jogos[i+1].valor : ''}"></span>
 				                </a>
 								
 				            </div>
@@ -229,25 +229,25 @@
 							   <a class="game-small"
 								th:href="@{'/jogo/' + ${jogos[i].idJogo}}">
 								<img th:src="${jogos.size() > i+2 
-								    ? #strings.replace(jogos[i+2].imagem, '/resources', '') 
+								    ? '/imagem/capa/' + jogos[i+2].imagem
 								    : '/assents/img/image.png'}">
-							       <span class="price" th:text="${jogos.size() > i+2 ? jogos[i+2].valor : ''}"></span>
+							       <span class="price" th:text="${i+2 < jogos.size() ? 'R$ ' + jogos[i+2].valor : ''}"></span>
 							   </a>
 							   <!-- Item 4 -->
 							   <a class="game-small"
 								th:href="@{'/jogo/' + ${jogos[i].idJogo}}">
 								<img th:src="${jogos.size() > i+3 
-								    ? #strings.replace(jogos[i+3].imagem, '/resources', '') 
+								    ? '/imagem/capa/' + jogos[i+3].imagem
 								    : '/assents/img/image.png'}">
-							       <span class="price" th:text="${jogos.size() > i+3 ? jogos[i+3].valor : ''}"></span>
+							       <span class="price" th:text="${i+3 < jogos.size() ? 'R$ ' + jogos[i+3].valor : ''}"></span>
 							   </a>
 							   <!-- Item 5 -->
 							   <a class="game-small"
 								th:href="@{'/jogo/' + ${jogos[i].idJogo}}">
 								<img th:src="${jogos.size() > i+4 
-								    ? #strings.replace(jogos[i+4].imagem, '/resources', '') 
+								    ? '/imagem/capa/' + jogos[i+4].imagem 
 								    : '/assents/img/image.png'}">
-							       <span class="price" th:text="${jogos.size() > i+4 ? jogos[i+4].valor : ''}"></span>
+							       <span class="price" th:text="${i+4 < jogos.size() ? 'R$ ' + jogos[i+4].valor : ''}"></span>
 							   </a>
 
 					    </div>
@@ -281,7 +281,7 @@
 
 					    <!-- Imagem -->
 					    <img th:src="${i < jogos.size()
-					        ? #strings.replace(jogos[i].imagem, '/resources', '')
+					        ? '/imagem/capa/' + jogos[i].imagem
 					        : '/assents/img/image.png'}">
 
 					    <!-- Nome -->
@@ -291,9 +291,8 @@
 
 					    <!-- Preço -->
 					    <p class="price" th:text="${i < jogos.size()
-					        ? jogos[i].valor
+					        ? 'R$ ' + jogos[i].valor
 					        : ''}"></p>
-							
 							</a>
 
 					</div>
@@ -320,7 +319,7 @@
 
 				<!-- Imagem -->
 				<img th:src="${i < jogos.size()
-					 ? #strings.replace(jogos[i].imagem, '/resources', '')
+					 ? '/imagem/capa/' + jogos[i].imagem
 					 : '/assents/img/image.png'}">
 
 				<!-- Nome -->
@@ -330,9 +329,8 @@
 
 				<!-- Preço -->
 				<p class="price" th:text="${i < jogos.size()
-				   ? jogos[i].valor
-				   : ''}"></p>
-											
+				   ? 'R$ ' + jogos[i].valor
+				   : ''}"></p>						
 			</a>
 
 	</div>

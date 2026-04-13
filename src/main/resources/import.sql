@@ -1,13 +1,14 @@
-INSERT INTO jogos(Id_jogo, id_categoria, Nome_jogo, desenvolvedora, imagem, valor, nota, detalhes) VALUE (1,    3, 	"Assassin's Creed Brotherhood", 	"Ubisoft Montreal", 		"assassin's creed brotherhood - capa1.png", 	59.99,		8.9, 		"ACB desc");
-INSERT INTO jogos(Id_jogo, id_categoria, Nome_jogo, desenvolvedora, imagem, valor, nota, detalhes) VALUE (2,    7,	"Borderlands2", 					"Gearnox Software", 		"borderlands 2 - capa1.png", 					44.99,		10, 		"BL2 desc");
-INSERT INTO jogos(Id_jogo, id_categoria, Nome_jogo, desenvolvedora, imagem, valor, nota, detalhes) VALUE (3,    7,	"Counter-Strike 2",					"Valve",					"counter-strike 2 - capa1.png",					0,			8.7,		"CS2 desc");
-INSERT INTO jogos(Id_jogo, id_categoria, Nome_jogo, desenvolvedora, imagem, valor, nota, detalhes) VALUE (4,    5,	"Disco Elysium",					"ZA/UM",					"Disco Elysium - capa1.png",					75.49,		10,			"DE desc");
-INSERT INTO jogos(Id_jogo, id_categoria, Nome_jogo, desenvolvedora, imagem, valor, nota, detalhes) VALUE (5,    2,	"Elden Ring",						"FromSoftware",				"elden ring - capa1.png",						274.50,		9.5,		"ELR desc");
-INSERT INTO jogos(Id_jogo, id_categoria, Nome_jogo, desenvolvedora, imagem, valor, nota, detalhes) VALUE (6,    2,	"Fallout: New Vegas",				"Obsidian Entertainment",	"fallout new vegas - capa1.png",				39,			9.7,		"FNV desc");
-INSERT INTO jogos(Id_jogo, id_categoria, Nome_jogo, desenvolvedora, imagem, valor, nota, detalhes) VALUE (7,    6,	"Garry's Mod",						"Facepunch Studios",		"garry's mod - capa1.png",						25.99,		9,			"GM desc");
-INSERT INTO jogos(Id_jogo, id_categoria, Nome_jogo, desenvolvedora, imagem, valor, nota, detalhes) VALUE (8,    4,	"Hollow Knight",					"Team Cherry",				"hollow knight - capa1.png",					46.99,		10,			"HLK desc");
-INSERT INTO jogos(Id_jogo, id_categoria, Nome_jogo, desenvolvedora, imagem, valor, nota, detalhes) VALUE (9,    5,	"Inscryption",						"Daniel Mullins Games",		"inscryption - capa1.png",						49.99,		8.7,		"INC desc");
-INSERT INTO jogos(Id_jogo, id_categoria, Nome_jogo, desenvolvedora, imagem, valor, nota, detalhes) VALUE (10,   8,	"Journey",							"thatgamecompany",			"journey - capa1.png",							43.99,		8.8,		"JRN desc");
+INSERT INTO jogos(Id_jogo, id_categoria, Nome_jogo, desenvolvedora, imagem, valor, nota, detalhes) VALUE (1,    3, 	"Assassin's Creed Brotherhood", 	"Ubisoft Montreal", 		"assassins_creed_brotherhood_capa1.png", 	59.99,		8.9, 		"ACB desc");
+INSERT INTO jogos(Id_jogo, id_categoria, Nome_jogo, desenvolvedora, imagem, valor, nota, detalhes) VALUE (2,    7,	"Borderlands2", 					"Gearnox Software", 		"borderlands2_capa1.png", 					44.99,		10, 		"BL2 desc");
+INSERT INTO jogos(Id_jogo, id_categoria, Nome_jogo, desenvolvedora, imagem, valor, nota, detalhes) VALUE (3,    7,	"Counter-Strike 2",					"Valve",					"counter-strike_2_capa1.png",					0,			8.7,		"CS2 desc");
+INSERT INTO jogos(Id_jogo, id_categoria, Nome_jogo, desenvolvedora, imagem, valor, nota, detalhes) VALUE (4,    5,	"Disco Elysium",					"ZA/UM",					"Disco_Elysium_capa1.png",					75.49,		10,			"DE desc");
+INSERT INTO jogos(Id_jogo, id_categoria, Nome_jogo, desenvolvedora, imagem, valor, nota, detalhes) VALUE (5,    2,	"Elden Ring",						"FromSoftware",				"elden_ring_capa1.png",						274.50,		9.5,		"ELR desc");
+INSERT INTO jogos(Id_jogo, id_categoria, Nome_jogo, desenvolvedora, imagem, valor, nota, detalhes) VALUE (6,    2,	"Fallout: New Vegas",				"Obsidian Entertainment",	"fallout_new_vegas_capa1.png",				39,			9.7,		"FNV desc");
+INSERT INTO jogos(Id_jogo, id_categoria, Nome_jogo, desenvolvedora, imagem, valor, nota, detalhes) VALUE (7,    6,	"Garry's Mod",						"Facepunch Studios",		"garry's_mod_capa1.png",						25.99,		9,			"GM desc");
+INSERT INTO jogos(Id_jogo, id_categoria, Nome_jogo, desenvolvedora, imagem, valor, nota, detalhes) VALUE (8,    4,	"Hollow Knight",					"Team Cherry",				"hollow_knight_capa1.png",					46.99,		10,			"HLK desc");
+INSERT INTO jogos(Id_jogo, id_categoria, Nome_jogo, desenvolvedora, imagem, valor, nota, detalhes) VALUE (9,    5,	"Inscryption",						"Daniel Mullins Games",		"inscryption_capa1.png",						49.99,		8.7,		"INC desc");
+INSERT INTO jogos(Id_jogo, id_categoria, Nome_jogo, desenvolvedora, imagem, valor, nota, detalhes) VALUE (10,   8,	"Journey",							"thatgamecompany",			"journey_capa1.png",							43.99,		8.8,		"JRN desc");
+
 
 
 
