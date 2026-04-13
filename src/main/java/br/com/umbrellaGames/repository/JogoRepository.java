@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import br.com.umbrellaGames.model.entity.Jogo;
+import org.springframework.data.jpa.repository.Query;
 
 public interface JogoRepository extends JpaRepository<Jogo, Integer>{
 

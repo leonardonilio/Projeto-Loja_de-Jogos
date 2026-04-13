@@ -1,21 +1,25 @@
 package br.com.umbrellaGames.controller.web;
 
 import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import br.com.umbrellaGames.model.entity.Categoria;
-import br.com.umbrellaGames.model.entity.Jogo;
-import br.com.umbrellaGames.service.CategoriaService;
-import br.com.umbrellaGames.service.JogoService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+
+import br.com.umbrellaGames.model.entity.Categoria;
+import br.com.umbrellaGames.model.entity.Jogo;
+import br.com.umbrellaGames.model.entity.Usuario;
+import br.com.umbrellaGames.repository.UsuarioRepository;
+import br.com.umbrellaGames.service.CategoriaService;
+import br.com.umbrellaGames.service.JogoService;
 
 
 
@@ -29,21 +33,18 @@ public class JogoWebController {
 	@Autowired
 	private CategoriaService categoriaService;
 
+	@Autowired
+	private UsuarioRepository usuarioRepository;
+
 	@GetMapping({"/", "/home"})
     public String paginaHome(Model model) {
 		List<Categoria> categorias = categoriaService.findAll();
 		model.addAttribute("categorias", categorias);
-		List<String> desenvolvedoras = jogoService.listarDesenvolvedoras();
-	    model.addAttribute("desenvolvedoras", desenvolvedoras);
     return "index";
 }
 
 @GetMapping("/about")
-    public String paginaSobre(Model model) {
-	List<Categoria> categorias = categoriaService.findAll();
-	model.addAttribute("categorias", categorias);
-	List<String> desenvolvedoras = jogoService.listarDesenvolvedoras();
-    model.addAttribute("desenvolvedoras", desenvolvedoras);
+    public String paginaSobre() {
     return "sobre";
 }
 	@GetMapping("/categoria")
@@ -54,38 +55,74 @@ public class JogoWebController {
 	@GetMapping("/categoria/{idCategoria}")
 	public String paginaCategoriaId(@PathVariable int idCategoria, Model model) {
 	//List<CategoriaJogo> jogos = categoriaJogoService.buscarPorIdCategoria(idCategoria);
-		List<Jogo> destaque = jogoService.findJogosByCategoria(idCategoria).stream().limit(4).toList();
+		List<Jogo> destaque = jogoService.findJogosByCategoria(idCategoria)
+		        .stream()
+		        .limit(4)
+		        .toList();
 		model.addAttribute("destaqueJogos", destaque);
-	    model.addAttribute("jogos", jogoService.findJogosByCategoria(idCategoria));
-	    List<Categoria> categorias = categoriaService.findAll();
-	    model.addAttribute("categorias", categorias);
-	    Categoria categoria = categoriaService.buscarPorId(idCategoria);
-	    model.addAttribute("categoria", categoria);
-	    List<String> desenvolvedoras = jogoService.listarDesenvolvedoras();
-	    model.addAttribute("desenvolvedoras", desenvolvedoras);
-	    return "Categoria";
+	model.addAttribute("jogos", jogoService.findJogosByCategoria(idCategoria)/*.stream().limit(4).toList()*/);
+	List<Categoria> categorias = categoriaService.findAll();
+	model.addAttribute("categorias", categorias);
+	Categoria categoria = categoriaService.buscarPorId(idCategoria);
+	model.addAttribute("categoria", categoria);
+	return "Categoria";
 	}
 	
 	
-	@GetMapping("/jogo/{idJogo}")
+@GetMapping("/jogo/{idJogo}")
 	public String infoJogoId(@PathVariable int idJogo, Model model) {
 	    Jogo jogo = jogoService.buscarPorId(idJogo);
 	    model.addAttribute("jogo", jogo);
-	    List<Categoria> categorias = categoriaService.findAll();
+		Categoria categoria = categoriaService.buscarPorId(jogo.getIdCategoria());
+		model.addAttribute("categoria", categoria);
+		List<Categoria> categorias = categoriaService.findAll();
 		model.addAttribute("categorias", categorias);
 		List<String> desenvolvedoras = jogoService.listarDesenvolvedoras();
 	    model.addAttribute("desenvolvedoras", desenvolvedoras);
+		// lista segura para edição
+		List<Jogo> mesmaCategoria = jogoService
+				.findJogosByCategoria(jogo.getIdCategoria())
+				.stream()
+				.filter(j -> j.getIdJogo() != jogo.getIdJogo()) // remove o atual
+				.collect(Collectors.toList());
+
+		// Se tiver menos de 5, buscar os top avaliados
+		List<Jogo> melhoresAvaliados = Collections.emptyList();
+
+		if (mesmaCategoria.size() < 5) {
+			melhoresAvaliados = jogoService.findAll().stream()
+					.filter(j -> j.getIdJogo() != jogo.getIdJogo()) // remove o atual
+					.filter(j -> !mesmaCategoria.contains(j))        // não repetir
+					.sorted(Comparator.comparingDouble(Jogo::getNota).reversed()) // ordem decrescente
+					.limit(5 - mesmaCategoria.size())
+					.collect(Collectors.toList());
+		}
+
+		// Une os dois
+		List<Jogo> recomendados = new ArrayList<>();
+		recomendados.addAll(mesmaCategoria);
+		recomendados.addAll(melhoresAvaliados);
+
+		// Garante no máximo 5
+		recomendados = recomendados.stream()
+				.limit(5)
+				.toList();
+		model.addAttribute("jogosCategoria", recomendados);
+
+		Map<Integer, Categoria> categoriasMap = new HashMap<>();
+
+		for (Jogo j : recomendados) {
+			Categoria cat = categoriaService.buscarPorId(j.getIdCategoria());
+			categoriasMap.put(j.getIdJogo(), cat);
+		}
+
+		model.addAttribute("categoriasJogos", categoriasMap);
+
 	    return "infoJogos";
 	}
 	
-	@GetMapping("/buscarDropdown")
-	@ResponseBody
-	public List<Jogo> buscarJogoDropdown(@RequestParam String nome) {
-	    return jogoService.buscarPorLetraNoNome(nome);
-	}
-	
   
-	@GetMapping("/admin/1")
+	@GetMapping("/admin/1/")
     public String findAll(Model model) {
         List<Jogo> jogos = jogoService.findAll();
 		List<Categoria> categorias = categoriaService.findAll();
@@ -118,20 +155,36 @@ public class JogoWebController {
 	    return "desenvolvedora";
 	}
 
-@GetMapping("/admin")
-public String paginaLogin(Model model) {
-	List<Categoria> categorias = categoriaService.findAll();
-	model.addAttribute("categorias", categorias);
-	List<String> desenvolvedoras = jogoService.listarDesenvolvedoras();
-    model.addAttribute("desenvolvedoras", desenvolvedoras);
+
+@GetMapping("/admin/1")
+public String paginaLogin() {
     return "login";
 }
 
-    	@GetMapping("/admin/1/newJogo")
+	@GetMapping("/admin/verificacao")
+	public String verificacao(Model model, @RequestParam(name = "email") String email, @RequestParam(name = "senha") String senha) {
+
+		List<Usuario> usuarios = usuarioRepository.findAll();
+
+		for (Usuario usuario : usuarios) {
+			String emailUsuario = usuario.getEmail();
+			String senhaUsuario = usuario.getSenha();
+			if(emailUsuario.equals(email)){
+				if(senhaUsuario.equals(senha)){
+					List<Jogo> jogos = jogoService.findAll();
+					List<Categoria> categorias = categoriaService.findAll();
+					model.addAttribute("jogos", jogos);
+					model.addAttribute("categorias", categorias);
+					return "admin";
+				}
+			}
+		}
+		return "login";
+}
+
+    @GetMapping("/admin/1/newJogo")
 	public String newJogo(Model model) {
-		List<Categoria> categorias = categoriaService.findAll();
 		model
-		.addAttribute("categoria", categorias)
 			.addAttribute("jogo", new Jogo())
 			.addAttribute("novo", true);
 		return "formJogo";
@@ -146,19 +199,17 @@ public String paginaLogin(Model model) {
     @GetMapping("/admin/1/{id}/deleteJogo")
 	public String deletarJogo(Model model,@PathVariable Integer id) {
 		jogoService.deletarJogo(id);
-		return "redirect:/admin/1";
+		return "redirect:/admin/1/";
 	}
 	  @GetMapping("/admin/1/{id}/deleteCategoria")
 	public String deletarCategoria(Model model,@PathVariable Integer id) {
 		categoriaService.deletarCategoria(id);
-		return "redirect:/admin/1";
+		return "redirect:/admin/1/";
 	}
     	@GetMapping("/admin/1/{id}/editJogo")
 	public String editJogo(Model model, @PathVariable Integer id) {
 		Jogo jogo = jogoService.buscarPorId(id);
-		List<Categoria> categorias = categoriaService.findAll();
 		model
-		.addAttribute("categoria", categorias)
 			.addAttribute("jogo", jogo)
 			.addAttribute("novo", false);
 		return "formJogo";
@@ -174,12 +225,12 @@ public String paginaLogin(Model model) {
     	@PostMapping("/admin/1/saveJogo")
 		public String editJogo(Jogo jogo) {
 			jogoService.salvarJogo(jogo);
-			return "redirect:/admin/1";
+			return "redirect:/admin/1/";
 	}
 		@PostMapping("/admin/1/saveCategoria")
 		public String editCategoria(Categoria categoria) {
 			categoriaService.salvarCategoria(categoria);
-			return "redirect:/admin/1";
+			return "redirect:/admin/1/";
 	}
 }
 
