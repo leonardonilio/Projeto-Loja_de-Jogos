@@ -1,6 +1,9 @@
 package br.com.umbrellaGames.controller.web;
 
 import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -66,10 +69,55 @@ public class JogoWebController {
 	}
 	
 	
-	@GetMapping("/jogo/{idJogo}")
+@GetMapping("/jogo/{idJogo}")
 	public String infoJogoId(@PathVariable int idJogo, Model model) {
 	    Jogo jogo = jogoService.buscarPorId(idJogo);
 	    model.addAttribute("jogo", jogo);
+		Categoria categoria = categoriaService.buscarPorId(jogo.getIdCategoria());
+		model.addAttribute("categoria", categoria);
+		List<Categoria> categorias = categoriaService.findAll();
+		model.addAttribute("categorias", categorias);
+		List<String> desenvolvedoras = jogoService.listarDesenvolvedoras();
+	    model.addAttribute("desenvolvedoras", desenvolvedoras);
+		// lista segura para edição
+		List<Jogo> mesmaCategoria = jogoService
+				.findJogosByCategoria(jogo.getIdCategoria())
+				.stream()
+				.filter(j -> j.getIdJogo() != jogo.getIdJogo()) // remove o atual
+				.collect(Collectors.toList());
+
+		// Se tiver menos de 5, buscar os top avaliados
+		List<Jogo> melhoresAvaliados = Collections.emptyList();
+
+		if (mesmaCategoria.size() < 5) {
+			melhoresAvaliados = jogoService.findAll().stream()
+					.filter(j -> j.getIdJogo() != jogo.getIdJogo()) // remove o atual
+					.filter(j -> !mesmaCategoria.contains(j))        // não repetir
+					.sorted(Comparator.comparingDouble(Jogo::getNota).reversed()) // ordem decrescente
+					.limit(5 - mesmaCategoria.size())
+					.collect(Collectors.toList());
+		}
+
+		// Une os dois
+		List<Jogo> recomendados = new ArrayList<>();
+		recomendados.addAll(mesmaCategoria);
+		recomendados.addAll(melhoresAvaliados);
+
+		// Garante no máximo 5
+		recomendados = recomendados.stream()
+				.limit(5)
+				.toList();
+		model.addAttribute("jogosCategoria", recomendados);
+
+		Map<Integer, Categoria> categoriasMap = new HashMap<>();
+
+		for (Jogo j : recomendados) {
+			Categoria cat = categoriaService.buscarPorId(j.getIdCategoria());
+			categoriasMap.put(j.getIdJogo(), cat);
+		}
+
+		model.addAttribute("categoriasJogos", categoriasMap);
+
 	    return "infoJogos";
 	}
 	
