@@ -31,36 +31,39 @@
     <header class="header">
         <div class="header-line">
 
-            <div class="logo">
-                <a th:href="@{/home}">Umbrella Games</a>
-            </div>
-            <i class="bx bx-menu" id="menu-icon"></i>
-            <div class="search-box">
-                <input type="text" placeholder="Buscar jogos...">
-                <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-search" viewBox="0 0 16 16">
-                        <path
-                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-                    </svg></button>
-            </div>
-
+          <div class="logo">
+	            <a th:href="@{/}">Umbrella Games</a>
+	        </div>
+	        <i class="bx bx-menu" id="menu-icon"></i>
+	        <div class="search-box" style="position:relative";>
+	            <input id="searchInput" type="text" placeholder="Buscar jogos...">
+	            <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+	                    class="bi bi-search" viewBox="0 0 16 16">
+	                    <path
+	                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+	                </svg></button>
+					<div id="searchDropdown" class="search-dropdown"></div>
+	        </div>
             <nav class="nav-links">
-                <div class="dropdown">
-                    <button>Categorias ▾</button>
-                    <div class="dropdown-content">
-                        <a class="" href="Categoria.html">Ação</a>
-                        <a href="#">RPG</a>
-                        <a href="#">Terror</a>
-                    </div>
-                </div>
+	            <div class="dropdown">
+	                <button>Categorias ▾</button>
+	                <div class="dropdown-content">
+						<a th:each="cat : ${categorias}"
+	                       th:href="@{/categoria/{id}(id=${cat.idCategoria})}"
+						   th:text="${cat.nomeCategoria}">
+						</a>
+	                </div>
+	            </div>
 
-                <div class="dropdown">
-                    <button>Desenvolvedora ▾</button>
-                    <div class="dropdown-content">
-                        <a href="#">Ubisoft</a>
-                        <a href="#">EA</a>
-                    </div>
-                </div>
+	            <div class="dropdown">
+	                <button>Desenvolvedora ▾</button>
+	                <div class="dropdown-content">
+	                    <a th:each="dev : ${desenvolvedoras}"
+	                       th:href="@{/desenvolvedora/{nomeDev}(nomeDev=${dev})}"
+						   th:text="${dev}">
+						</a>
+	                </div>
+	            </div>
 
                 <a th:href="@{/about}">Sobre</a>
                 <a th:href="@{/admin/1}">Admin</a>
@@ -178,20 +181,7 @@
       </a>
     </div>
 
-    <ul class="list">
-      <li>
-        <a href="Categoria.html">Categorias</a>
-      </li>
-      <li>
-        <a href="#about">Desenvolvedoras</a>
-      </li>
-      <li>
-        <a href="sobre.html">Sobre</a>
-      </li>
-      <li>
-        <a href="#contact">Administrador</a>
-      </li>
-    </ul>
+   
 
     <p class="copyright">getGroup. ©Todos os direitos reservados. 2026</p>
   </footer>
