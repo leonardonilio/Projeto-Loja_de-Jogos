@@ -12,8 +12,8 @@
     <!-- bibliotecas do css -->
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
     <!-- Bootstrap-->
-    <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../static/vendor/bootstrap/css/swiper-bundle.min.css" rel="stylesheet">
+    <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/vendor/bootstrap/css/swiper-bundle.min.css}" rel="stylesheet">
     <!--css-->
     <link rel="stylesheet" th:href="@{/assents/css/loader.css}">
     <link rel="stylesheet" th:href="@{/assents/css/style.css}">
@@ -46,16 +46,13 @@
         <div class="header-line">
 
             <div class="logo">
-                <a href="index.html">Umbrella Games</a>
+                <a th:href="@{/}">Umbrella Games</a>
             </div>
             <i class="bx bx-menu" id="menu-icon"></i>
-            <div class="search-box">
-                <input type="text" placeholder="Buscar jogos...">
-                <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-search" viewBox="0 0 16 16">
-                        <path
-                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-                    </svg></button>
+            <div class="search-box" style="position:relative";>
+                <input id="searchInput" type="text" placeholder="Buscar jogos...">
+                
+					<div id="searchDropdown" class="search-dropdown"></div>
             </div>
 
             <nav class="nav-links">
@@ -72,18 +69,17 @@
                 <div class="dropdown">
                     <button>Desenvolvedora ▾</button>
                     <div class="dropdown-content">
-                        <a href="desenvolvedora.html">Ubisoft</a>
-                        <a href="desenvolvedora.html">EA</a>
+                        <a th:each="dev : ${desenvolvedoras}"
+                           th:href="@{/desenvolvedora/{nomeDev}(nomeDev=${dev})}"
+						   th:text="${dev}">
+						</a>
                     </div>
                 </div>
 
-                <a href="sobre.html">Sobre</a>
-                <a href="#">Admin</a>
-                <a class="icon" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                        fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
-                        <path
-                            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
-                    </svg></a>
+                <a th:href="@{/about}">Sobre</a>
+				
+				<a th:href="@{/admin}">Admin</a>
+				                
             </nav>
 
         </div>
@@ -94,7 +90,7 @@
       <div class="row">
         <div class="col-lg-12">
           <h3>Categorias</h3>
-          <span class="breadcrumb"><a href="index.html">Home</a> > Categorias</span>
+          <span class="breadcrumb"><a th:href="@{/}">Home</a> > Categorias</span>
         </div>
       </div>
     </div>
@@ -107,7 +103,7 @@
         <div class="feature-container">
 
             <!-- imagem grande -->
-            <a class="feature-image"
+            <a class="feature-image" id="feature-link"
 				 th:href="@{'/jogo/' + ${destaqueJogos[0].idJogo}}">
                 <img id="feature-img" th:src="@{/assents/img/image.png}">
             </a>
@@ -136,9 +132,10 @@
 			                data-description=${destaqueJogos[0].detalhes},
 			                data-price=${destaqueJogos[0].valor},
 							data-rating=${destaqueJogos[0].nota},
-			               data-image=${'/imagem/capa/' + destaqueJogos[0].imagem}">
+							data-id=${destaqueJogos[0].idJogo},
+			                data-image=${'/imagem/capa/' + #strings.replace(destaqueJogos[0].imagem, ' ', '%20')}">
 		     <img th:if="${destaqueJogos[0].imagem != null}"
-		          th:src="@{'/imagem/capa/' + ${destaqueJogos[0].imagem}}">
+		          th:src="@{'/imagem/capa/' + ${#strings.replace(destaqueJogos[0].imagem, ' ', '%20')}}">
 		 </div>
 
 		 <div class="feature-item" onclick="changeGame(1)"
@@ -147,9 +144,10 @@
 			                data-description=${destaqueJogos[1].detalhes},
 			                data-price=${destaqueJogos[1].valor},
 							data-rating=${destaqueJogos[1].nota},
-			                data-image=${'/imagem/capa/' + destaqueJogos[1].imagem}">
+							data-id=${destaqueJogos[1].idJogo},
+			                data-image=${'/imagem/capa/' + #strings.replace(destaqueJogos[1].imagem, ' ', '%20')}">
 		     <img th:if="${destaqueJogos[1].imagem != null}"
-		          th:src="@{'/imagem/capa/' + ${destaqueJogos[1].imagem}}">
+		          th:src="@{'/imagem/capa/' + ${#strings.replace(destaqueJogos[1].imagem, ' ', '%20')}}">
 		 </div>
 
 		 <div class="feature-item" onclick="changeGame(2)"
@@ -158,9 +156,10 @@
 			  		         data-description=${destaqueJogos[2].detalhes},
 			  		         data-price=${destaqueJogos[2].valor},
 			  			     data-rating=${destaqueJogos[2].nota},
-			  		         data-image=${'/imagem/capa/' + destaqueJogos[2].imagem}">
+							 data-id=${destaqueJogos[2].idJogo},
+			  		         data-image=${'/imagem/capa/' + #strings.replace(destaqueJogos[2].imagem, ' ', '%20')}">
 		     <img th:if="${destaqueJogos[2].imagem != null}"
-		          th:src="@{'/imagem/capa/' + ${destaqueJogos[2].imagem}}">
+		          th:src="@{'/imagem/capa/' + ${#strings.replace(destaqueJogos[2].imagem, ' ', '%20')}}">
 		 </div>
 
 		 <div class="feature-item" onclick="changeGame(3)"
@@ -169,9 +168,10 @@
 			  		          data-description=${destaqueJogos[3].detalhes},
 			  		          data-price=${destaqueJogos[3].valor},
 			  				  data-rating=${destaqueJogos[3].nota},
-			  		          data-image=${'/imagem/capa/' + destaqueJogos[3].imagem}">
+							  data-id=${destaqueJogos[3].idJogo},
+			  		          data-image=${'/imagem/capa/' + #strings.replace(destaqueJogos[3].imagem, ' ', '%20')}">
 		     <img th:if="${destaqueJogos[3].imagem != null}"
-		          th:src="@{'/imagem/capa/' + ${destaqueJogos[3].imagem}}">
+		          th:src="@{'/imagem/capa/' + ${#strings.replace(destaqueJogos[3].imagem, ' ', '%20')}}">
 		 </div>
 			    
             
@@ -205,20 +205,20 @@
 
 				                <!-- Item 1 -->
 				                <a class="game-big"
-									th:href="@{'/jogo/' + ${jogos[i].idJogo}}">
+									th:href="${i < jogos.size() ? '/jogo/' + jogos[i].idJogo : '#'}">
 									<img th:src="${jogos.size() > i 
-									    ? '/imagem/capa/' + jogos[i].imagem 
+									    ? '/imagem/capa/' + #strings.replace(jogos[i].imagem, ' ', '%20') 
 									    : '/assents/img/image.png'}">
-				                    <span class="price" th:text="${i < jogos.size() ? 'R$ ' + jogos[i].valor : ''}"></span>
+				                    <span class="price" th:text="${i < jogos.size() ? jogos[i].valor : ''}"></span>
 				                </a>
 
 				                <!-- Item 2 -->
 				                <a class="game-big"
-									th:href="@{'/jogo/' + ${jogos[i].idJogo}}">
+									th:href="${i+1 < jogos.size() ? '/jogo/' + jogos[i+1].idJogo : '#'}">
 									<img th:src="${jogos.size() > i+1 
-									    ? '/imagem/capa/' + jogos[i+1].imagem 
+									    ? '/imagem/capa/' + #strings.replace(jogos[i+1].imagem, ' ', '%20') 
 									    : '/assents/img/image.png'}">
-				                    <span class="price" th:text="${i+1 < jogos.size() ? 'R$ ' + jogos[i+1].valor : ''}"></span>
+				                    <span class="price" th:text="${i+1 < jogos.size() ? jogos[i+1].valor : ''}"></span>
 				                </a>
 								
 				            </div>
@@ -227,27 +227,27 @@
 							
 							   <!-- Item 3 -->
 							   <a class="game-small"
-								th:href="@{'/jogo/' + ${jogos[i].idJogo}}">
+								th:href="${i+2 < jogos.size() ? '/jogo/' + jogos[i+2].idJogo : '#'}">
 								<img th:src="${jogos.size() > i+2 
-								    ? '/imagem/capa/' + jogos[i+2].imagem
-								    : '/assents/img/image.png'}">
-							       <span class="price" th:text="${i+2 < jogos.size() ? 'R$ ' + jogos[i+2].valor : ''}"></span>
+						            ? '/imagem/capa/' + #strings.replace(jogos[i+2].imagem, ' ', '%20') 
+									: '/assents/img/image.png'}">
+							       <span class="price" th:text="${i+2 < jogos.size() ? jogos[i+2].valor : ''}"></span>
 							   </a>
 							   <!-- Item 4 -->
 							   <a class="game-small"
-								th:href="@{'/jogo/' + ${jogos[i].idJogo}}">
+								th:href="${i+3 < jogos.size() ? '/jogo/' + jogos[i+3].idJogo : '#'}">
 								<img th:src="${jogos.size() > i+3 
-								    ? '/imagem/capa/' + jogos[i+3].imagem
-								    : '/assents/img/image.png'}">
-							       <span class="price" th:text="${i+3 < jogos.size() ? 'R$ ' + jogos[i+3].valor : ''}"></span>
+								    ? '/imagem/capa/' + #strings.replace(jogos[i+3].imagem, ' ', '%20') 
+									: '/assents/img/image.png'}">
+							       <span class="price" th:text="${i+3 < jogos.size() ? jogos[i+3].valor : ''}"></span>
 							   </a>
 							   <!-- Item 5 -->
 							   <a class="game-small"
-								th:href="@{'/jogo/' + ${jogos[i].idJogo}}">
+								th:href="${i+4 < jogos.size() ? '/jogo/' + jogos[i+4].idJogo : '#'}">
 								<img th:src="${jogos.size() > i+4 
-								    ? '/imagem/capa/' + jogos[i+4].imagem 
-								    : '/assents/img/image.png'}">
-							       <span class="price" th:text="${i+4 < jogos.size() ? 'R$ ' + jogos[i+4].valor : ''}"></span>
+									? '/imagem/capa/' + #strings.replace(jogos[i+4].imagem, ' ', '%20') 
+									: '/assents/img/image.png'}">
+							       <span class="price" th:text="${i+4 < jogos.size() ? jogos[i+4].valor : ''}"></span>
 							   </a>
 
 					    </div>
@@ -280,9 +280,9 @@
 						 
 
 					    <!-- Imagem -->
-					    <img th:src="${i < jogos.size()
-					        ? '/imagem/capa/' + jogos[i].imagem
-					        : '/assents/img/image.png'}">
+						<img th:src="${i < jogos.size()
+						    ? '/imagem/capa/' + #strings.replace(jogos[i].imagem, ' ', '%20')
+						    : '/assents/img/image.png'}">
 
 					    <!-- Nome -->
 					    <h3 th:text="${i < jogos.size()
@@ -291,8 +291,9 @@
 
 					    <!-- Preço -->
 					    <p class="price" th:text="${i < jogos.size()
-					        ? 'R$ ' + jogos[i].valor
+					        ? jogos[i].valor
 					        : ''}"></p>
+							
 							</a>
 
 					</div>
@@ -319,8 +320,8 @@
 
 				<!-- Imagem -->
 				<img th:src="${i < jogos.size()
-					 ? '/imagem/capa/' + jogos[i].imagem
-					 : '/assents/img/image.png'}">
+				    ? '/imagem/capa/' + #strings.replace(jogos[i].imagem, ' ', '%20')
+				    : '/assents/img/image.png'}">
 
 				<!-- Nome -->
 				<h3 th:text="${i < jogos.size()
@@ -329,8 +330,9 @@
 
 				<!-- Preço -->
 				<p class="price" th:text="${i < jogos.size()
-				   ? 'R$ ' + jogos[i].valor
-				   : ''}"></p>						
+				   ? jogos[i].valor
+				   : ''}"></p>
+											
 			</a>
 
 	</div>
@@ -373,10 +375,10 @@
                 <a href="desenvolvedora.html">Desenvolvedoras</a>
             </li>
             <li>
-                <a href="sobre.html">Sobre</a>
+                <a th:href="@{/about}">Sobre</a>
             </li>
             <li>
-                <a href="#contact">Adiministrador</a>
+                <a th:href="@{/admin}">Adiministrador</a>
             </li>
         </ul>
 
@@ -389,8 +391,8 @@
     <!--Código de funcionalidades-->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../static/vendor/jquery/jquery.min.js"></script>
-    <script src="../static/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+    <script th:src="@{/vendor/bootstrap/js/bootstrap.min.js}"></script>
     <!--Codigo de Javascript-->
     <script th:src="@{/assents/js/function.js}"></script>
     <script th:src="@{/assents/js/script.js}"></script>

@@ -175,6 +175,7 @@ function changeGame(index){
   const price = game.getAttribute("data-price");
   const image = game.getAttribute("data-image");
   const rating = game.getAttribute("data-rating");
+  const id = game.getAttribute("data-id");
   
   document.getElementById("feature-img").style.opacity = 0;
 
@@ -185,8 +186,10 @@ function changeGame(index){
   
   document.getElementById("game-title").innerText = title;
   document.getElementById("game-description").innerText = description;
-  document.getElementById("game-price").innerText ="R$ " + price;
+  document.getElementById("game-price").innerText = price;
   document.getElementById("game-rating").innerHTML = renderStars(rating);
+  
+  document.getElementById("feature-link").href = "/jogo/" + id;
 
   
   // ativa thumbnail
@@ -292,10 +295,8 @@ document.addEventListener("click", function (e) {
         dropdown.style.display = "none";
     }
 });
-
 document.querySelectorAll(".stars").forEach(el => {
     const score = parseFloat(el.dataset.score);
     el.innerText = renderStars(score);
 });
-
 });

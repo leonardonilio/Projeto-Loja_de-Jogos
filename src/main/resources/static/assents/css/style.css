@@ -131,7 +131,7 @@ body {
   top: 100%;
   left: 0;
   width: 100%;
-  background: #fdfdfd;
+  background: white;
   z-index: 99999;
 }
 
@@ -239,7 +239,7 @@ body {
 
   flex-direction: column;
   width: 400px;
-  height: 400px;
+  height:100%;
   padding: 20px;
   margin-right: 150px;
 
@@ -259,7 +259,10 @@ body {
 }
 
 .sectionCard img {
-  width: 100%;
+  width: 50%;
+  object-position: top;
+  height:100%;
+  object-fit: cover;
   display: block;
 }
 
@@ -332,8 +335,10 @@ body {
 
 .main-banner .right-image img {
   border-radius: 25px;
-  width: 150px;
-  height: 500px;
+  width: 100%;
+  height: 80%; /* ou o tamanho que quiser */
+  max-height: 500px;
+  border-radius: 25px;
   transition: transform 0.3s ease;
 }
 
@@ -383,7 +388,6 @@ body {
 }
 
 .slider-banner:hover {
-  transform: scale(1.01);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
   border-radius: 25px;
 }
@@ -398,7 +402,8 @@ body {
 
 .slide {
   min-width: 100%;
-  height: 100%;
+  height: 80%; /* mesmo valor da imagem */
+  object-fit: cover;
   border-radius: 25px;
 }
 
@@ -584,7 +589,6 @@ body {
   font-size: 16px;
   padding: 10px;
   object-fit: cover;
-  color: var(--second-black-color);
 }
 
 .game-card .price {
@@ -633,7 +637,7 @@ body {
 
 /* Category Card */
 .category-card {
-    width: 250px;
+    width: 310px;
     height: auto;
     border-radius: 18px;
     overflow: hidden;
@@ -666,7 +670,14 @@ body {
 .category-card img {
     width: 100%;
     height: 100%;/* altura fixa */
+    max-height:370px;
 
+}
+.category-card h4 {
+    font-size: 2rem;
+    padding: 1.2rem 0;
+    color: var(--second-black-color);
+    text-align: center;
 }
 .categories-container .game-title {
     margin-top: 10px;
@@ -843,24 +854,10 @@ align-items:center;
 .feature-arrow.right {
   right: 15px;
 }
-
-/*nome nos destaques*/
-#game-title {
-	
-	font-size:7rem; 
-	color:var(--second-black-color);
-}
-
-/*desc nos destques*/
-#game-description{
-	font-size: 2rem;
-}
-
-/*preço nos destques*/
 .game-price{
 
-font-size:3rem;
-color:rgb(0, 0, 0);
+font-size:2rem;
+color:#66c0f4;
 margin-top:15px;
 
 }
@@ -869,7 +866,7 @@ margin-top:15px;
 
 .game-rating{
 
-font-size:3rem;
+font-size:2rem;
 color:#ffd700;
 
 }
@@ -1380,12 +1377,6 @@ Desenvolvedoras
   display: inline-block;
 }
 
-.stars{
-	color: gold;
-	font-size: 17px;
-	margin-top: -15px;
-}
-
 .trending-box .item .down-content h4 {
   font-size: 17px;
   font-weight: 600;
@@ -1449,6 +1440,25 @@ Desenvolvedoras
   color: #fff;
 }
 
+.img-capa {
+    width: 200px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.feature-info h3{
+	font-size: 3rem;
+	color: var(--bg-color);	
+}
+.feature-info p{
+	font-size: 1.7rem;
+	color: white;	
+}
+.game-price{
+	color: white;
+}
+
 
 /* Resposividade----Tem que ficar no final do código, não coloque codigo abaixo dele desde que não seja sobre resposividade*/
 @media (max-width: 768px) {
@@ -1472,3 +1482,66 @@ Desenvolvedoras
     display: block;
   }
 }
+/* ====== Formularios start page end ====== */
+/* TODOS os campos */
+input,
+textarea,
+select {
+    transition: all 0.3s ease;
+    outline: none;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    padding: 10px;
+}
+
+/* efeito ao passar o mouse */
+input:hover,
+textarea:hover,
+select:hover {
+    border-color: #888;
+}
+
+/* efeito ao clicar */
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #ff4d4d;
+    box-shadow: 0 0 10px rgba(255, 77, 77, 0.5);
+    transform: scale(1.02);
+}
+
+textarea {
+    width: 470px;
+    height: 150px;
+    resize: none;
+    padding: 12px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* hover */
+textarea:hover {
+    border-color: #888;
+}
+
+/* foco (efeito vermelho) */
+textarea:focus {
+    border-color: #ff4d4d;
+    box-shadow: 0 0 10px rgba(255, 77, 77, 0.5);
+    transform: scale(1.02);
+}
+
+/* validação */
+textarea:invalid {
+    border-color: red;
+}
+
+textarea:valid {
+    border-color: #ff4d4d;
+}
+
+
+/* ===== POPULAR SECTION ===== */

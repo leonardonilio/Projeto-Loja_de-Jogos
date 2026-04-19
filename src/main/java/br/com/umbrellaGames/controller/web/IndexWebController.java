@@ -1,5 +1,6 @@
 package br.com.umbrellaGames.controller.web;
 
+import br.com.umbrellaGames.model.entity.Categoria;
 import br.com.umbrellaGames.model.entity.Jogo;
 import br.com.umbrellaGames.service.CategoriaService;
 import br.com.umbrellaGames.service.JogoService;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping("/index")
+@RequestMapping("/")
 public class IndexWebController {
 
     @Autowired
@@ -28,8 +29,12 @@ public class IndexWebController {
         model.addAttribute("recomendados", jogoService.findAll());
         model.addAttribute("gratuitos", jogoService.buscarGratuitos());
         model.addAttribute("promocao", jogoService.buscarPromocao());
-        model.addAttribute("categorias", categoriaService.findAll());
+        model.addAttribute("categoriasTop", categoriaService.listarCategoriasComTopJogos());
         model.addAttribute("destaques", jogoService.buscarDestaques());
+        List<Categoria> categorias = categoriaService.findAll();
+        model.addAttribute("categorias", categorias);
+        List<String> desenvolvedoras = jogoService.listarDesenvolvedoras();
+        model.addAttribute("desenvolvedoras", desenvolvedoras);
         return "index";
     }
 }

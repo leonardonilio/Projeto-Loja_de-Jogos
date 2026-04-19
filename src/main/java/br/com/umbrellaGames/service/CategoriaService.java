@@ -17,6 +17,8 @@ public class CategoriaService {
 
 	@Autowired
 	private CategoriaRepository categoriaRepository;
+
+	@Autowired
 	private JogoRepository jogoRepository;
 	
 	public List<Categoria> findAll(){
@@ -57,6 +59,28 @@ public class CategoriaService {
 
 	public Categoria salvarCategoria(Categoria categoria){
 		return categoriaRepository.save(categoria);
+	}
+	public class CategoriaComJogo {
+		private Categoria categoria;
+		private Jogo jogo;
+
+		public CategoriaComJogo(Categoria categoria, Jogo jogo) {
+			this.categoria = categoria;
+			this.jogo = jogo;
+		}
+
+		public Categoria getCategoria() { return categoria; }
+		public Jogo getJogo() { return jogo; }
+	}
+	public List<CategoriaComJogo> listarCategoriasComTopJogos() {
+		List<Categoria> categorias = categoriaRepository.findAll();
+
+		return categorias.stream()
+				.map(cat -> {
+					Jogo top = jogoRepository.buscarTopPorCategoria(cat.getIdCategoria());
+					return new CategoriaComJogo(cat, top);
+				})
+				.toList();
 	}
 }
 

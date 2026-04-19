@@ -26,15 +26,16 @@ public class Jogo {
 	
 	public Jogo() {}
 	
-	public Jogo(int idJogo, int idCategoria, String nomeJogo, String desenvolvedora, String imagem, String detalhes, double valor, double nota) {
+	public Jogo(Integer idJogo, Integer idCategoria, String nomeJogo, String desenvolvedora, String imagem, double valor, double nota, String detalhes) {
 		super();
 		this.idJogo = idJogo;
+		this.idCategoria = idCategoria;
 		this.nomeJogo = nomeJogo;
 		this.desenvolvedora = desenvolvedora;
 		this.imagem = imagem;
-		this.detalhes = detalhes;
 		this.valor = valor;
 		this.nota = nota;
+		this.detalhes = detalhes;
 	}
 
 	// Getters e Setters
@@ -51,7 +52,7 @@ public class Jogo {
 		return idCategoria;
 	}
 
-	public void setIdCategoria(int idCategoria) {
+	public void setIdCategoria(Integer idCategoria) {
 		this.idCategoria = idCategoria;
 	}
 
